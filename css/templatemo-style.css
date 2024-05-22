@@ -263,75 +263,101 @@ http://www.templatemo.com/tm-516-known
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
-    padding: 12px 0;
     margin-bottom: 0;
     padding: 0;
-  }
+}
 
-  .custom-navbar .navbar-brand {
+.custom-navbar .navbar-header {
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-brand {
     color: #454545;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 40px;
-  }
+    padding: 10px 0;
+}
 
-  .custom-navbar .navbar-nav.navbar-nav-first {
+.custom-navbar .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-nav.navbar-nav-first {
     margin-left: 8em;
-  }
+    display: flex;
+    align-items: center;
+}
 
-  .custom-navbar .navbar-nav.navbar-right li a {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
+.custom-navbar .navbar-nav.navbar-right {
+    display: flex;
+    align-items: center;
+}
 
-  .custom-navbar .navbar-nav.navbar-right li a .fa {
+.custom-navbar .navbar-nav.navbar-right li {
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-nav.navbar-right li a {
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-nav.navbar-right li a .fa {
     background: #29ca8e;
     border-radius: 100%;
     color: #ffffff;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     line-height: 30px;
     text-align: center;
     display: inline-block;
-    margin-right: 5px;
-  }
+    margin-right: 2px;
+}
 
-  .custom-navbar .nav li a {
+.custom-navbar .nav li a {
     line-height: 40px;
     color: #575757;
     padding-right: 22px;
     padding-left: 22px;
-  }
+}
 
-  .custom-navbar .navbar-nav > li > a:hover,
-  .custom-navbar .navbar-nav > li > a:focus {
+.custom-navbar .navbar-nav > li > a:hover,
+.custom-navbar .navbar-nav > li > a:focus {
     background-color: transparent;
-  }
+}
 
-  .custom-navbar .nav li a:hover {
+.custom-navbar .nav li a:hover {
     background-color: #29ca8e;
     color: #ffffff;
-  }
+}
 
-  .custom-navbar .nav li.active > a {
+.custom-navbar .nav li.active > a {
     background-color: #29ca8e;
     color: #ffffff;
-  }
+}
 
-  .custom-navbar .navbar-toggle {
+.custom-navbar .navbar-toggle {
     border: none;
     padding-top: 10px;
-  }
-
-  .custom-navbar .navbar-toggle {
     background-color: transparent;
-  }
+}
 
-  .custom-navbar .navbar-toggle .icon-bar {
+.custom-navbar .navbar-toggle .icon-bar {
     background: #252525;
     border-color: transparent;
-  }
-
+}
 
 
   /*---------------------------------------
@@ -513,8 +539,12 @@ http://www.templatemo.com/tm-516-known
   }
 
   .courses-thumb {
-    background: #f9f9f9;
-    position: relative;
+    /*background: #f9f9f9;
+    position: relative;*/
+    height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
   }
 
   .courses-top {
@@ -590,6 +620,14 @@ http://www.templatemo.com/tm-516-known
   .courses-price.free span {
     background: #3f51b5;
   }
+  .courses-thumb .courses-top .courses-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.owl-carousel .item {
+  margin: 15px;
+}
 
 
 
@@ -675,7 +713,70 @@ http://www.templatemo.com/tm-516-known
     color: #808080;
     font-size: 14px;
   }
+  
+/*---------------------------------------
+      HIRE WITH US            
+  -----------------------------------------*/
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+  #hirewithus .item {
+    background: #f9f9f9;
+    margin: 20px 0;
+    padding: 4em 3em;
+    text-align: left;
+    border:  solid white;
+    border-radius: 20px;
+  }
 
+  #courses .col-md-4,
+  #hirewithus .col-md-4 {
+    display: block;
+    width: 100%;
+  }
+
+  #hirewithus .item > p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .tst-rating {
+    margin-bottom: 15px;
+  }
+
+  .tst-rating .fa {
+    color: #3f51b5;
+  }
+
+  .tst-image,
+  .tst-author {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .tst-image img {
+    border-radius: 50px;
+    width: 60px !important;
+    height: 60px;
+    margin-right: 10px;
+    /*object-fit: cover;*/
+    background-color: blanchedalmond;
+  }
+
+  .tst-author h4 {
+    margin: 0;
+  }
+
+  .tst-author span {
+    color: #808080;
+    font-size: 14px;
+  }
+  #hirewithus{
+    background-color: #fff;
+  }
 
 
   /*---------------------------------------
