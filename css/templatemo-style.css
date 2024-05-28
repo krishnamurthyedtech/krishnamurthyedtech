@@ -54,6 +54,15 @@ http://www.templatemo.com/tm-516-known
     font-weight: normal;
     line-height: 24px;
   }
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+  flex: 1;
+}
 
 
 
@@ -280,7 +289,7 @@ http://www.templatemo.com/tm-516-known
     padding: 10px 0;
 }
 
-.custom-navbar .navbar-collapse {
+/*.custom-navbar .navbar-collapse {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -289,7 +298,7 @@ http://www.templatemo.com/tm-516-known
 .custom-navbar .navbar-nav {
     display: flex;
     align-items: center;
-}
+}*/
 
 .custom-navbar .navbar-nav.navbar-nav-first {
     margin-left: 8em;
@@ -520,7 +529,7 @@ http://www.templatemo.com/tm-516-known
       COURSES             
   -----------------------------------------*/
 
-  #courses .section-title {
+  /*#courses .section-title {
     text-align: center;
   }
 
@@ -540,7 +549,7 @@ http://www.templatemo.com/tm-516-known
 
   .courses-thumb {
     /*background: #f9f9f9;
-    position: relative;*/
+    position: relative;
     height: 450px;
         display: flex;
         flex-direction: column;
@@ -627,6 +636,130 @@ http://www.templatemo.com/tm-516-known
 }
 .owl-carousel .item {
   margin: 15px;
+}*/
+#courses .section-title {
+  text-align: center;
+}
+
+.courses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.courses-grid .col-md-3, .courses-grid .col-sm-6 {
+  margin-bottom: 30px;
+}
+
+.courses-thumb {
+  background: #f9f9f9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.courses-top {
+  position: relative;
+}
+
+.courses-image {
+  background: linear-gradient(to right, #202020, #101010);
+}
+
+.courses-date {
+  background: linear-gradient(rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 25px;
+}
+
+.courses-date span, .courses-author span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.courses-date span {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.courses-detail {
+  padding: 25px 25px 15px 25px;
+}
+
+.courses-detail h3 {
+  margin: 0 0 2px 0;
+}
+
+.courses-info {
+  border-top: 1px solid #f0f0f0;
+  padding: 15px 25px;
+}
+
+.courses-author, .courses-author span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.courses-author img {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.courses-price {
+  float: right;
+  margin-top: 10px;
+}
+
+.courses-price span {
+  background: #29ca8e;
+  border-radius: 2px;
+  color: #ffffff;
+  display: block;
+  padding: 5px 10px;
+}
+
+.courses-price.free span {
+  background: #3f51b5;
+}
+
+.courses-thumb .courses-top .courses-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/* Hover effect */
+.courses-thumb:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* Border radius */
+.courses-thumb {
+  background: #f9f9f9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+
+/* Adjustments to courses-detail for hover effect */
+.courses-detail {
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+/* Adjustments to courses-info for hover effect */
+.courses-info {
+  padding: 15px;
 }
 
 
@@ -845,11 +978,24 @@ http://www.templatemo.com/tm-516-known
   }
 
   footer .section-title {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
 
-  footer h2 {
-    font-size: 20px;
+  .special h2 {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    row-gap: 10px;
+    column-gap: 8px;
+    font-family: var(--font-saira);
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    color: var(--white-color);
+  }
+  footer .footer-info h2 svg{
+    fill: #06d889;
   }
 
   footer a,
@@ -863,19 +1009,25 @@ http://www.templatemo.com/tm-516-known
 
   footer address p {
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
   }
 
   footer .social-icon {
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
   }
 
   .footer-info {
     margin-right: 2em;
+    
   }
 
   .footer-info h2 {
     color: #ffffff;
     padding: 0;
+    
   }
 
   .footer_menu h2 {
@@ -913,7 +1065,7 @@ http://www.templatemo.com/tm-516-known
     outline: none;
     width: 50%;
   }
-
+  
   .newsletter-form input[type="submit"]:hover {
     background: #29ca8e;
     border-color: transparent;
@@ -926,7 +1078,36 @@ http://www.templatemo.com/tm-516-known
     margin-top: 20px;
   }
 
-
+  .copyright-text p{
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0px 10px;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+    z-index: 1000;  /*Ensures it stays on top of other elements */
+    margin-top: 10px;
+    font-size: 20px;
+    color: crimson;
+}
+footer .footer-info .special a{
+  margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-saira);
+    font-weight: 500;
+    font-size: 23px;
+    letter-spacing: 0.03em;
+    color: #B5B5B5;
+}
+.address-link p:hover{
+  color: #06d889;
+}
+footer .footer-info address p:hover{
+  color: #06d889;
+}
 
   /*---------------------------------------
      SOCIAL ICON              
@@ -968,7 +1149,35 @@ http://www.templatemo.com/tm-516-known
   /*---------------------------------------
      RESPONSIVE STYLES              
   -----------------------------------------*/
+  @media (max-width: 768px) {
+    .custom-navbar .navbar-collapse {
+        flex-direction: column;
+    }
 
+    .custom-navbar .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .custom-navbar .navbar-nav.navbar-nav-first {
+        margin-left: 0;
+    }
+
+    .custom-navbar .navbar-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .custom-navbar .navbar-nav.navbar-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .custom-navbar .navbar-nav.navbar-right li {
+        width: 100%;
+        justify-content: center;
+    }
+  }
   @media screen and (max-width: 1170px) {
     .custom-navbar .navbar-nav.navbar-nav-first {
       margin-left: inherit;
