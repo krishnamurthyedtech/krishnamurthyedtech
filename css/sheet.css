@@ -1,0 +1,104 @@
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden; 
+}
+
+.modal-dialog {
+    width: 600px; /* Responsive width */
+    max-width: 90%; /* Maximum width of the modal */
+    margin: 10% center; /* Center the modal vertically and horizontally */
+}
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin:  10% auto;;
+    padding: 20px;
+    border: 1px solid #888;
+    display: flex;
+    flex-direction: column;
+    width: 800%;
+    max-width:800px;
+    height: 1000px;
+    max-height:600px;
+    overflow: hidden; 
+    font-size: 18px; /* Set the base font size for the modal content */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+/* Modal Header */
+.modal-header {
+    padding: 5px;
+    border-bottom: 5px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-shrink: 0;
+}
+.modal-title {
+    margin: 6;
+    text-align: left; /* Ensure left alignment */
+    flex-grow: 4; /* Allow the title to take up available space */
+}
+
+
+.modal-body {
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex: 1; /* Allow the body to take the remaining space */
+    padding: 15px;
+}
+.modal-footer {
+    padding: 5px;
+    border-top: 5px solid #ddd;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.scrollable-content {
+    overflow-y: auto;
+    flex: 1;
+    padding: 15px;
+    max-height: 80vh; /* Adjust based on your design */
+  }
+
+
+/* Custom width for the modal dialog */
+.custom-width {
+    width: 600px; /* Set the width to 80% of the viewport */
+    max-width: 900px; /* Optional: Limit the maximum width */
+}
+
+@media (max-width: 768px) {
+    .custom-width {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+}
+button {
+    background-color: #29ca8e; /* Green button color */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Padding for size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional: rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button:hover {
+    background-color: #29ca8e; /* Darker green on hover */
+}
+
+.modal {
+    z-index: 1050; 
+}
+.modal-backdrop {
+    z-index: 1040;
+}
+
+
+
+
