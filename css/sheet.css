@@ -12,9 +12,9 @@
 }
 
 .modal-dialog {
-    width: 600px; /* Responsive width */
-    max-width: 90%; /* Maximum width of the modal */
-    margin: 10% center; /* Center the modal vertically and horizontally */
+    width: 600px; 
+    max-width: 90%; 
+    margin: 10% center;
 }
 /* Modal Content */
 .modal-content {
@@ -23,14 +23,13 @@
     padding: 20px;
     border: 1px solid #888;
     display: flex;
-    flex-direction: column;
-    width: 800%;
+    flex-direction: column;   
     max-width:800px;
     height: 1000px;
     max-height:600px;
     overflow: hidden; 
-    font-size: 18px; /* Set the base font size for the modal content */
-    line-height: 1.5; /* Adjust line height for better readability */
+    font-size: 18px; 
+    line-height: 1.5; 
 }
 /* Modal Header */
 .modal-header {
@@ -43,14 +42,14 @@
 }
 .modal-title {
     margin: 6;
-    text-align: left; /* Ensure left alignment */
-    flex-grow: 4; /* Allow the title to take up available space */
+    text-align: left;
+    flex-grow: 4; 
 }
 
 
 .modal-body {
-    overflow-y: auto; /* Enable vertical scrolling */
-    flex: 1; /* Allow the body to take the remaining space */
+    overflow-y: auto; 
+    flex: 1; 
     padding: 15px;
 }
 .modal-footer {
@@ -64,32 +63,32 @@
     overflow-y: auto;
     flex: 1;
     padding: 15px;
-    max-height: 80vh; /* Adjust based on your design */
+    max-height: 80vh;
   }
 
 
 /* Custom width for the modal dialog */
 .custom-width {
-    width: 600px; /* Set the width to 80% of the viewport */
-    max-width: 900px; /* Optional: Limit the maximum width */
+    width: 600px; 
+    max-width: 900px; 
 }
 
 @media (max-width: 768px) {
     .custom-width {
-        width: 95%; /* Adjust width for smaller screens */
+        width: 95%; 
     }
 }
 button {
-    background-color: #29ca8e; /* Green button color */
-    color: white; /* White text color */
-    padding: 5px 10px; /* Padding for size */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Optional: rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #29ca8e; 
+    color: white; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 button:hover {
-    background-color: #29ca8e; /* Darker green on hover */
+    background-color: #29ca8e; 
 }
 
 .modal {
