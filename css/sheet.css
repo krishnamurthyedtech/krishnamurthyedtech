@@ -52,12 +52,7 @@
     flex: 1; 
     padding: 15px;
 }
-.modal-footer {
-    padding: 5px;
-    border-top: 5px solid #ddd;
-    text-align: right;
-    flex-shrink: 0;
-}
+
 
 .scrollable-content {
     overflow-y: auto;
@@ -97,6 +92,7 @@ button:hover {
 .modal-backdrop {
     z-index: 1040;
 }
+
 
 
 
