@@ -14,7 +14,7 @@
 
     $.ajax({
       // url: "http://localhost:8080/api/v1/" + orgId + "/jobsupport",
-      url:"https://lndhub.krishnamurthyedtechapi.com/api/v1/" + orgId + "/jobsupport",
+      url:"https://lndhub.krishnamurthyedtechapi.com/api/v1/" + orgId + "/jobsupport/demo",
       type: "POST",
       contentType: "application/json",
       data: JSON.stringify(data),
