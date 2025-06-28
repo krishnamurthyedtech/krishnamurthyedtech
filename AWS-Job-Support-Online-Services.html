@@ -44,14 +44,19 @@
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="index.html#courses" class="smoothScroll">Courses</a></li>
-                         <li><a href="job-support.html" target="_blank">Job Support</a></li>
+                         <li><a href="job-support.html">Job Support</a></li>
                          <li><a href="index.html#team" class="smoothScroll">Teachers</a></li>
                          <li><a href="index.html#testimonial" class="smoothScroll">Reviews</a></li>
                          <li><a href="index.html#clients" class="smoothScroll">Clients</a></li>
                          <li><a href="index.html#contact" class="smoothScroll">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                         <li><a href="#"><i class="fa fa-phone"></i>+91 9482169636</a></li>
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i>+91 9482169636</a></li> -->
+                           <li>
+      <button type="button" class="btn btn-custom-1 navbar-btn px-4 ml-2" data-toggle="modal" data-target="#demoModal">
+        Book A Demo
+      </button>
+    </li>
                     </ul>
                </div>
           </div>
@@ -219,6 +224,86 @@ Whether you're a Cloud Engineer, Solutions Architect, or DevOps Professional, ou
     
 
     </div>
+    <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content p-4">
+     <div class="modal-header border-0 pb-2 d-flex justify-content-center align-items-center">
+  <h4 class="modal-title font-weight-bold m-0 " id="demoModalLabel">Book A Demo Now</h4>
+  <button type="button" class="close position-absolute" style="right:20px;" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+      <div class="modal-body pt-0">
+        
+
+          <!-- Right Form -->
+         <div class="col-md-12">
+  <form id="demoForm">
+    <!-- Row for Name and Email -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          <label for="username" class="form-label">Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="username" placeholder="Enter Name">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+      </div>
+    </div>
+
+    <!-- Row for Mobile and Country -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          <label for="mobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+          <input type="tel" class="form-control" id="mobile" placeholder="Mobile Number">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" class="form-control" id="country" placeholder="Country">
+        </div>
+      </div>
+    </div>
+
+    <!-- Single column fields -->
+     <div class="row">
+           <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="technology" class="form-label">Technology Name</label>
+      <input type="text" class="form-control" id="technology" placeholder="Technology name">
+    </div>
+    </div>
+ <div class="col-md-6">
+      <div class="form-group mb-4">
+      <label for="startDate" class="form-label">Preferred Date</label>
+      <input type="date" class="form-control" id="startDate" placeholder="dd-mm-yyyy">
+    </div>
+    </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" placeholder="Enter your description here..." rows="4"></textarea>
+    </div>
+
+
+
+    <div class="form-group text-center mb-0">
+      <button type="button" class="courses-price-1 mr-2" id="submitDemoBtn">Submit</button>
+      <button type="button" class="courses-price-1" data-dismiss="modal">Cancel</button>
+    </div>
+  </form>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <section class="job-support-section-1" style="margin-top: 40px; padding: 40px 0; background-color: #f0f4f8;">
   <div class="container">
     <h2 class="section-title text-center" style="margin-bottom: 15px;">
@@ -341,7 +426,9 @@ Whether you're a Cloud Engineer, Solutions Architect, or DevOps Professional, ou
                                    </h2>
                               </div>
                               <a href="#" class="address-link">
-                                   <p>3rd Floor, No.1, 19th Main Rd, Opposite Sri Devi Karumariyaman Temple, BTM 1st Stage, Bengaluru, Karnataka 560029</p>
+                                   <p>No.18, 2nd Floor, 20th Main, Maruti Nagar Road,<br> Above Swetha Studio, Opp
+                                        Jodhapur Sweets, <br>
+                                        BTM 1st Stage, Bengaluru, Karnataka 560029.</p>
                               </a>
                          </div>
                     </div>

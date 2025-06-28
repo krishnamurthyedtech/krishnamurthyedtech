@@ -1811,9 +1811,23 @@ footer .footer-info address p:hover{
     border-radius: 5px;
     cursor: pointer;
 }
+.btn-custom-1 {
+    background-color: #29ca8e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 .button-gap {
     margin-right: 20px; 
+}
+
+.navbar-btn {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    margin-right: 96px;
 }
 
 .faq-container {
