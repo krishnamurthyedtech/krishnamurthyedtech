@@ -1,12 +1,4 @@
-/*
-
-Known Template 
-
-http://www.templatemo.com/tm-516-known
-
-*/
-
-  @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
+@import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
 
   body {
     background: #ffffff;
@@ -801,6 +793,13 @@ http://www.templatemo.com/tm-516-known
 .courses-price {
   float: right;
   margin-top: 10px;
+  
+}
+
+.courses-price-1{
+  float: right;
+  margin-top: 10px;
+  margin-right: 6px;
 }
 
 .courses-price span {
@@ -1061,7 +1060,7 @@ http://www.templatemo.com/tm-516-known
 
   footer {
     background: #252020;
-    padding: 120px 0;
+    padding: 40px 0;
   }
 
   footer .section-title {
@@ -1175,8 +1174,8 @@ http://www.templatemo.com/tm-516-known
     box-shadow: 0 -1px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
     z-index: 1000;  /*Ensures it stays on top of other elements */
     margin-top: 10px;
-    font-size: 20px;
-    color: crimson;
+    font-size: 15px;
+    color: rgb(172, 170, 170);
 }
 footer .footer-info .special a{
   margin-bottom: 8px;
@@ -1393,7 +1392,7 @@ footer .footer-info address p:hover{
 
   /* Job Support Section */
 .job-support-section {
-    background-color: #f0fcff;
+    background-color: #ebf5f7;
     padding: 60px 0;
         margin-top: -62px;
     
@@ -1455,12 +1454,16 @@ footer .footer-info address p:hover{
 /* Stats Cards */
 .stats-card {
     border-radius: 15px;
-    min-height: 280px;
+    min-height: 220px;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+        /* border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px; */
+
+    
 }
 
 .stats-icon {
@@ -1480,10 +1483,15 @@ footer .footer-info address p:hover{
     margin-bottom: 0;
 }
 
-.card-1 { background-color: #ffeaea; }
-.card-2 { background-color: #ffeaea; }
+/* .card-1 { background-color: #e5dcf7; }
+.card-2 { background-color: #7ae3cc; }
 .card-3 { background-color: #fff0cc; }
-.card-4 { background-color: #e8ffc9; }
+.card-4 { background-color: #c9d5ff; } */
+
+ .card-1 { background-color: #fff; }
+.card-2 { background-color: #fff; }
+.card-3 { background-color: #fff; }
+.card-4 { background-color: #fff; } 
 
 /* Spacing */
 .mb-4 { margin-bottom: 1.5rem !important; }
@@ -1590,6 +1598,7 @@ footer .footer-info address p:hover{
   .section-title {
     color: white;
     text-transform: uppercase;
+    margin-top:-40px;
   }
   
   .highlight {
@@ -1685,7 +1694,7 @@ footer .footer-info address p:hover{
     text-align: center;
     font-weight: bold;
     margin-bottom: 0; /* Reset default margin */
-        margin-top: -36px;
+        margin-top: -192px;
 }
 
 .job-support-title-highlight {
@@ -1693,10 +1702,10 @@ footer .footer-info address p:hover{
 }
 
 .job-support-paragraph {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.8;
     margin-top: 20px;
-    margin-bottom: 0; /* Reset default margin */
+    margin-bottom: 0;
 }
 
 .job-support-paragraph.first-paragraph {
@@ -1707,14 +1716,14 @@ footer .footer-info address p:hover{
 
 .stats-icon {
     margin-bottom: 15px;
-    width: 50px; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
+    width: 50px;
+    height: 50px; 
 }
 
 .stats-icon img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensures image maintains aspect ratio */
+    object-fit: contain; 
 }
 
 
@@ -1746,7 +1755,7 @@ footer .footer-info address p:hover{
 }
 
 .contact-form {
-  background:  #00b3e6;;
+  background:  #ffffff;;
   padding: 20px;
   border-radius: 5px;
 }
@@ -1764,13 +1773,219 @@ footer .footer-info address p:hover{
 
 .btn {
   padding: 10px 20px;
-  background: #007bff;
+     background: #29ca8e;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
-
+/* 
 .btn:hover {
   background: #0069d9;
+} */
+  @media (max-width: 767px) {
+    #demoModal .modal-dialog {
+      max-width: 95%;
+    }
+    #demoModal .modal-body .row {
+      flex-direction: column;
+    }
+    #demoModal .modal-body img {
+      margin-bottom: 20px;
+    }
+  }
+
+.modal-content {
+ 
+    max-height: 550px !important;
+    width: 758px !important;
+  
 }
+
+
+.btn-custom {
+    background-color: #29ca8e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-gap {
+    margin-right: 20px; 
+}
+
+.faq-container {
+  font-family: Arial, sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  
+}
+
+.faq-header {
+  cursor: pointer;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.faq-header h1 {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item {
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 15px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+}
+
+.faq-question:after {
+  content: '+';
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+}
+
+.faq-question.active:after {
+  content: '-';
+}
+
+.faq-answer {
+  padding: 0 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: white;
+}
+
+.faq-answer.show {
+  padding: 15px;
+  max-height: 500px;
+}
+
+ .form-label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .form-label .text-danger {
+    font-size: 1.5rem;
+  }
+
+/* Main panel */
+.support-panel {
+  background-color: #f8f9fa; /* Light background */
+  border: 1px solid #ddd;
+ /* Blue accent on one side */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.support-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Panel heading */
+.panel-heading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #29ca8e;
+  padding: 10px 15px;
+  border-radius: 6px 6px 0 0;
+  margin: -15px -15px 10px -15px; 
+}
+
+
+.support-list li a:hover {
+  color: #007bff;
+}
+
+  
+.shadow {
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  
+  .testimonial-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.section-title h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-title small {
+  display: block;
+  font-size: 16px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  border: 3px solid #00bfff;
+}
+
+.tst-author h4 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.tst-author span {
+  display: block;
+  font-size: 14px;
+  color: #777;
+}
+
+.testimonial-text {
+  font-size: 15px;
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.tst-rating i {
+  color: #f39c12;
+  margin: 0 1px;
+}
+
+  
