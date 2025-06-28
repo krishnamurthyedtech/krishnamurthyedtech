@@ -56,22 +56,20 @@
       }
     });
 
-    $('.owl-client').owlCarousel({
-      animateOut: 'fadeOut',
-      loop: true,
-      autoplayHoverPause: false,
-      autoplay: true,
-      smartSpeed: 1000,
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        1000: {
-          items: 3,
-        }
-      }
-    });
+  $('.owl-client').owlCarousel({
+  items: 1, // or change to 2/3 depending on screen size
+  loop: true,
+  margin: 30, // spacing between items
+  nav: false,
+  dots: true,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  responsive: {
+    0: { items: 1 },
+    768: { items: 2 },
+    992: { items: 3 }
+  }
+});
 
 
     // SMOOTHSCROLL
