@@ -1797,10 +1797,11 @@ footer .footer-info address p:hover{
 
 .modal-content {
  
-    max-height: 617px !important;
+    max-height: 618px !important;
     width: 758px !important;
-  
-}
+  }
+
+
 
 
 .btn-custom {
