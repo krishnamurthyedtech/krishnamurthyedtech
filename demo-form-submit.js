@@ -28,6 +28,7 @@ $("#submitDemoBtn").click(function () {
       setTimeout(function () {
         $('#demoModal').modal('hide');
         $('#demoForm')[0].reset();
+$('#timezone').val('ISD');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
       }, 100);
