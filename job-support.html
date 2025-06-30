@@ -142,6 +142,8 @@
           <input type="text" class="form-control" id="country" placeholder="Country">
         </div>
       </div>
+
+
     </div>
 
     <!-- Single column fields -->
@@ -151,14 +153,39 @@
       <label for="technology" class="form-label">Technology Name</label>
       <input type="text" class="form-control" id="technology" placeholder="Technology name">
     </div>
+    
     </div>
- <div class="col-md-6">
+      <div class="col-md-6">
       <div class="form-group mb-4">
       <label for="startDate" class="form-label">Preferred Date</label>
       <input type="date" class="form-control" id="startDate" placeholder="dd-mm-yyyy">
     </div>
     </div>
     </div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group mb-4">
+      <label for="startTime" class="form-label">Preferred Time</label>
+      <input type="time" class="form-control" id="startTime">
+    </div>
+  </div>
+  
+ <div class="col-md-6">
+  <div class="form-group mb-3">
+    <label for="timezone" class="form-label">TimeZone</label>
+    <input list="timezoneOptions" class="form-control" id="timezone" placeholder="TimeZone">
+    <datalist id="timezoneOptions">
+      <option value="ISD">
+      <option value="USD">
+      <option value="PST">
+      <option value="EST">
+      <option value="IST">
+    </datalist>
+  </div>
+</div>
+
+</div>
+
 
     <div class="form-group mb-3">
       <label for="description" class="form-label">Description</label>
