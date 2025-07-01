@@ -1,6 +1,6 @@
 $("#submitDemoBtn").click(function () {
-  // const orgId = 1;
-   const orgId = 402;
+  const orgId = 1;
+  //  const orgId = 402;
   var date = $("#startDate").val();   
   var time = $("#startTime").val();   
 
@@ -29,7 +29,7 @@ $("#submitDemoBtn").click(function () {
       setTimeout(function () {
         $('#demoModal').modal('hide');
         $('#demoForm')[0].reset();
-$('#timezone').val('ISD');
+        $('#timezone').val('ISD');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
       }, 100);
