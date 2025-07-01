@@ -1,4 +1,4 @@
-$("#submitDemoBtn").click(function () {
+$("#submitDemoModalBtn").click(function () {
   console.log("Submit button clicked");
   // const orgId = 1;
    const orgId = 402;
