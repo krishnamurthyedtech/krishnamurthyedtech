@@ -1928,6 +1928,10 @@ footer .footer-info address p:hover{
   margin: -15px -15px 10px -15px; 
 }
 
+.panel-title{
+  padding-left: 18px;
+    padding-top: 20px;
+}
 
 .support-list li a:hover {
   color: #007bff;
