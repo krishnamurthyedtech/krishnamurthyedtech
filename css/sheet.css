@@ -20,7 +20,7 @@
 .modal-content {
     background-color: #fefefe;
     margin:  10% auto;;
-    padding: 20px;
+    padding: 8px;
     border: 1px solid #888;
     display: flex;
     flex-direction: column;   
@@ -29,7 +29,7 @@
     max-height:600px;
     overflow: hidden; 
     font-size: 18px; 
-    line-height: 1.5; 
+    line-height: 1.2; 
 }
 /* Modal Header */
 .modal-header {
@@ -93,6 +93,9 @@ button:hover {
     z-index: 1040;
 }
 
+.demo-dropdown{
+    padding: 5px;
+}
 
 
 
