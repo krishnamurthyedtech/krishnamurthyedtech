@@ -18,7 +18,7 @@ $("#submitDemoBtn").click(function () {
     description: $("#description").val(),
     createdDate: createdDate,
     timeZone: $("#timezone").val(),
-    demoType: $("#Enrollmenttype").val()
+  demoType: $("#EnrollmentType").val()
     // link: $("#link").val("https://pioneermeetings.com/?roomId="),
   };
 
