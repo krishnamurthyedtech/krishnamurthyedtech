@@ -293,7 +293,7 @@
 }*/
 
 .custom-navbar .navbar-nav.navbar-nav-first {
-    margin-left: 8em;
+    margin-left: 2em;
     display: flex;
     align-items: center;
 }
@@ -587,7 +587,7 @@
 }
 
 .social-icon li {
-    margin: 0 10px;
+    /* margin: 0 10px; */
 }
 
 .social-icon li a {
@@ -1828,7 +1828,7 @@ footer .footer-info address p:hover{
 .navbar-btn {
     margin-top: 17px;
     margin-bottom: 8px;
-    margin-right: 97px;
+    margin-right: 102px;
 }
 
 
@@ -1945,6 +1945,10 @@ footer .footer-info address p:hover{
   }
   
   .testimonial-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+ .blogs-section {
   padding: 60px 0;
   background-color: #f9f9f9;
 }
