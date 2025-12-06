@@ -27,12 +27,10 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(formData),
             success: function (response) {
-                alert('Form submitted successfully!');
-                console.log(response);
+                alert('Thank you for contacting us. We will get back to you shortly.');
             },
             error: function (xhr, status, error) {
-                alert('Error submitting form!');
-                console.log(error);
+                alert('It seems your message couldn’t be sent. Please try again shortly.');
             }
         });
     });
