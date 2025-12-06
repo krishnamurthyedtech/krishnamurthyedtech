@@ -4,11 +4,12 @@ $(document).ready(function () {
         const formData = {
            fullName:$('#fullName').val(),
             email: $('#email').val(),
+            phoneNumber: $('#phoneNumber').val(),
             message: $('#message').val(),
             hostSite:"kmedtech"
         };
         $.ajax({
-            url: 'https://apikrishnamurthyedtech.com/api/v1/ed-tech/user-enquiry', 
+            url: 'https://lndhub.krishnamurthyedtechapi.com/api/v1/ed-tech/user-enquiry/org/1', 
             method: 'POST',
             contentType: 'application/json',    
             data: JSON.stringify(formData),
