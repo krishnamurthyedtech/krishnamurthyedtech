@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <title>Job Listings - KrishnamurthyEdTech</title>
+     <link rel="icon" href="./images/logo/logo_kmedtech.png" type="image/png">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="Job listings at KrishnamurthyEdTech">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/owl.carousel.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/templatemo-style.css">
+     <link rel="stylesheet" href="css/sheet.css">
+
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar input,
+        .filter-bar select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .filter-bar input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .filter-bar select {
+            min-width: 150px;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #618533 0%, #4ba272 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .job-info {s
+            flex: 1;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #15a05a;
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .job-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .detail-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #e8f4f8;
+            color: #2980b9;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .salary {
+            font-size: 16px;
+            font-weight: 600;
+            color: #27ae60;
+        }
+
+        .posted-time {
+            font-size: 12px;
+            color: #95a5a6;
+        }
+
+        .apply-btn {
+            background: #16cf92;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 1200px) {
+            .job-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .job-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+                    <!-- lOGO TEXT HERE -->
+                    <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="index.html#courses">Courses</a></li>
+                         <li><a href="job-support.html">Job Support</a></li>
+                         <li><a href="index.html#team">Teachers</a></li>
+                         <li><a href="index.html#clients">Clients</a></li>
+                         <li><a href="index.html#blog">Blogs</a></li>
+                         <!-- <li><a href="#student-reviews">Reviews</a></li> -->
+                         <li><a href="jobs.html">Jobs</a></li>
+                         <li><a href="index.html#contact">Contact</a></li>
+                         <li>
+                              <button type="button" class="register-now-butto" data-toggle="modal"
+                                   data-target="#registerModal">
+                                   Register Now
+                              </button>
+                         </li>
+                    </ul>
+               </div>
+          </div>
+     </section>
+
+     <!-- DEMO & REGISTER MODALS (copied from index) -->
+     <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+               <div class="modal-content p-4">
+                    <div class="modal-header border-0 pb-2 d-flex justify-content-center align-items-center">
+                         <h4 class="modal-title font-weight-bold m-0 " id="demoModalLabel">Book A Demo Now</h4>
+                         <button type="button" class="close position-absolute" style="right:20px;" data-dismiss="modal"
+                              aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+                    <div class="modal-body pt-0">
+
+                         <!-- Right Form -->
+                         <div class="col-md-12">
+                              <form id="demoForm">
+                                   <!-- Row for Name and Email -->
+                                   <div class="row">
+                                        <div class="col-md-6">
+                                             <div class="form-group mb-3">
+                                                  <label for="username" class="form-label">Name <span
+                                                            class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control" id="username"
+                                                       placeholder="Enter Name">
+                                             </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                             <div class="form-group mb-3">
+                                                  <label for="email" class="form-label">Email <span
+                                                            class="text-danger">*</span></label>
+                                                  <input type="email" class="form-control" id="email"
+                                                       placeholder="Email">
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <!-- (truncated for brevity) -->
+                              </form>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <!-- REGISTER NOW MODAL -->
+     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+               <div class="modal-content">
+
+                    <!-- Header -->
+                    <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal">
+                              &times;
+                         </button>
+                         <h4 class="modal-title" id="registerModalLabel">Register Now</h4>
+                    </div>
+                    <!-- Body -->
+                    <div class="modal-body">
+                         <form id="registerForm">
+                              <!-- Name & Email -->
+                              <div class="row">
+                                   <div class="col-md-6">
+                                        <div class="form-group">
+                                             <label>Full Name *</label>
+                                             <input type="text" class="form-control" required>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                        <div class="form-group">
+                                             <label>Email *</label>
+                                             <input type="email" class="form-control" required>
+                                        </div>
+                                   </div>
+                              </div>
+                              <!-- (truncated) -->
+                         </form>
+                    </div>
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                         <button type="submit" class="btn btn-success">
+                              Register
+                         </button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">
+                              Cancel
+                         </button>
+                    </div>
+
+               </div>
+          </div>
+     </div>
+    <div class="container">
+        <div class="header">
+            <h1>Find Your Dream Job</h1>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" placeholder="Search jobs by title, company, or keyword..." id="searchInput">
+            <select id="locationFilter">
+                <option value="">All Locations</option>
+                <option value="remote">Remote</option>
+                <option value="bengaluru">Bengaluru</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="delhi">Delhi</option>
+            </select>
+            <select id="typeFilter">
+                <option value="">Job Type</option>
+                <option value="full-time">Full Time</option>
+                <option value="part-time">Part Time</option>
+                <option value="contract">Contract</option>
+            </select>
+        </div>
+
+        <div class="job-grid" id="jobGrid">
+            <!-- Job cards will be dynamically generated -->
+        </div>
+    </div>
+
+    <script>
+        const jobs = [
+            {
+                id: 1,
+                title: 'Senior Frontend Developer',
+                company: 'Tech Solutions Inc',
+                logo: 'TS',
+                location: 'Bengaluru',
+                type: 'Full Time',
+                salary: '₹15-20 LPA',
+                tags: ['React', 'JavaScript', 'CSS'],
+                posted: '2 days ago'
+            },
+            {
+                id: 2,
+                title: 'Backend Engineer',
+                company: 'DataCorp',
+                logo: 'DC',
+                location: 'Remote',
+                type: 'Full Time',
+                salary: '₹18-25 LPA',
+                tags: ['Node.js', 'MongoDB', 'AWS'],
+                posted: '1 day ago'
+            },
+            {
+                id: 3,
+                title: 'UI/UX Designer',
+                company: 'Creative Studio',
+                logo: 'CS',
+                location: 'Mumbai',
+                type: 'Full Time',
+                salary: '₹12-16 LPA',
+                tags: ['Figma', 'Adobe XD', 'Sketch'],
+                posted: '3 days ago'
+            },
+            {
+                id: 4,
+                title: 'Product Manager',
+                company: 'Innovation Labs',
+                logo: 'IL',
+                location: 'Delhi',
+                type: 'Full Time',
+                salary: '₹20-30 LPA',
+                tags: ['Strategy', 'Agile', 'Analytics'],
+                posted: '5 days ago'
+            },
+            {
+                id: 5,
+                title: 'DevOps Engineer',
+                company: 'Cloud Systems',
+                logo: 'CS',
+                location: 'Bengaluru',
+                type: 'Contract',
+                salary: '₹16-22 LPA',
+                tags: ['Docker', 'Kubernetes', 'CI/CD'],
+                posted: '1 week ago'
+            },
+            {
+                id: 6,
+                title: 'Data Scientist',
+                company: 'Analytics Pro',
+                logo: 'AP',
+                location: 'Remote',
+                type: 'Full Time',
+                salary: '₹22-28 LPA',
+                tags: ['Python', 'ML', 'TensorFlow'],
+                posted: '4 days ago'
+            },
+            {
+                id: 7,
+                title: 'Mobile Developer',
+                company: 'App Innovations',
+                logo: 'AI',
+                location: 'Mumbai',
+                type: 'Full Time',
+                salary: '₹14-19 LPA',
+                tags: ['React Native', 'iOS', 'Android'],
+                posted: '2 days ago'
+            },
+            {
+                id: 8,
+                title: 'QA Engineer',
+                company: 'Quality First',
+                logo: 'QF',
+                location: 'Pune',
+                type: 'Full Time',
+                salary: '₹10-15 LPA',
+                tags: ['Selenium', 'Testing', 'Automation'],
+                posted: '6 days ago'
+            }
+        ];
+
+        function renderJobs(jobsToRender) {
+            const jobGrid = document.getElementById('jobGrid');
+            jobGrid.innerHTML = jobsToRender.map(job => `
+                <div class="job-card" onclick="applyJob(${job.id})">
+                    <div class="job-header">
+                        <div class="company-logo">${job.logo}</div>
+                        <div class="job-info">
+                            <div class="job-title">${job.title}</div>
+                            <div class="company-name">${job.company}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            ${job.location}
+                        </div>
+                        <div class="detail-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
+                            </svg>
+                            ${job.type}
+                        </div>
+                    </div>
+                    
+                    <div class="job-tags">
+                        ${job.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    
+                    <div class="job-footer">
+                        <div>
+                            <div class="salary">${job.salary}</div>
+                            <div class="posted-time">${job.posted}</div>
+                        </div>
+                        <button class="apply-btn" onclick="event.stopPropagation(); applyJob(${job.id})">Apply</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function applyJob(jobId) {
+            alert(`Applying for job ID: ${jobId}`);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterJobs);
+        document.getElementById('locationFilter').addEventListener('change', filterJobs);
+        document.getElementById('typeFilter').addEventListener('change', filterJobs);
+
+        function filterJobs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const locationFilter = document.getElementById('locationFilter').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value.toLowerCase();
+
+            const filtered = jobs.filter(job => {
+                const matchesSearch = job.title.toLowerCase().includes(searchTerm) ||
+                    job.company.toLowerCase().includes(searchTerm) ||
+                    job.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                const matchesLocation = !locationFilter || job.location.toLowerCase() === locationFilter;
+                const matchesType = !typeFilter || job.type.toLowerCase().replace(' ', '-') === typeFilter;
+
+                return matchesSearch && matchesLocation && matchesType;
+            });
+
+            renderJobs(filtered);
+        }
+
+        renderJobs(jobs);
+    </script>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
