@@ -40,38 +40,30 @@ http://www.templatemo.com/tm-516-known
      <!-- MENU -->
      <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
           <div class="container">
-
-               <!-- LOGO -->
                <div class="navbar-header">
                     <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
-
-                    <a class="navbar-brand" href="#">
-                         <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="180" height="60">
-                    </a>
+                    <!-- lOGO TEXT HERE -->
+                    <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
                </div>
 
-               <!-- MENU ITEMS -->
+               <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
-
-                    <ul class="nav navbar-nav navbar-nav-first navbar-right">
-
+                    <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#courses">Courses</a></li>
                          <li><a href="job-support.html">Job Support</a></li>
                          <li><a href="#team">Teachers</a></li>
                          <li><a href="#clients">Clients</a></li>
-                         <li><a href="#blog">Blog</a></li>
-                         <li><a href="#student-reviews">Reviews</a></li>
+                         <li><a href="#blog">Blogs</a></li>
+                         <!-- <li><a href="#student-reviews">Reviews</a></li> -->
+                         <li><a href="jobs.html">Jobs</a></li>
                          <li><a href="#contact">Contact</a></li>
-
-
                          <li>
-                              <button type="button" class="btn btn-custom-1 navbar-btn" data-toggle="modal"
-                                   data-target="#demoModal">
-                                   Book A Demo
+                              <button type="button" class="register-now-butto"onclick="openDropdown()">
+                                   Register Now
                               </button>
                          </li>
                     </ul>
@@ -215,168 +207,258 @@ http://www.templatemo.com/tm-516-known
      </div>
      </div>
 
+     
 
-     <!-- HOME -->
-     <section id="home">
-          <div class="row">
+      <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-               <div class="owl-carousel owl-theme home-slider">
-                    <div class="item item-first">
-                         <div class="caption">
-                              <div class="container">
-                                   <div class="col-md-6 col-sm-12">
-                                        <h1>Start Your Journey with Digital Learning
-                                        </h1>
-                                        <h3>Our courses combine expert-led instruction, practical projects, and
-                                             industry-aligned content to ensure you gain real-world skills, empowering
-                                             you to excel in your career from anywhere.
-                                        </h3>
-                                        <a href="#courses" class="section-btn btn btn-default smoothScroll">Discover
-                                             more</a>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <button class="close-btn" onclick="closeAll()">×</button>
+        <h2>Select Service</h2>
+        <div class="menu-option" onclick="openForm('training')">Training</div>
+        <div class="menu-option" onclick="openForm('jobsupport')">Job Support</div>
+        <div class="menu-option" onclick="openForm('outsourcing')">Outsourcing</div>
+    </div>
 
-                    <div class="item item-second">
-                         <div class="caption">
-                              <div class="container">
-                                   <div class="col-md-6 col-sm-12">
-                                        <h1>Learn Together, Grow Together –
-                                             Virtually Connected, Globally Empowered.
-                                        </h1>
-                                        <h3>Collaborate, connect, and grow with peers through interactive virtual
-                                             classrooms. Our co-learning approach ensures an engaging, supportive, and
-                                             dynamic environment for sharing knowledge and achieving success together.
-                                        </h3>
-                                        <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a
-                                             course</a>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
+    <!-- Training Form -->
+    <div class="form-container" id="trainingForm">
+        <button class="close-btn" onclick="closeAll()">×</button>
+        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+        <h2>Training Registration</h2>
+        <form onsubmit="handleSubmit(event, 'training')">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Preferred Course / Technology *</label>
+                <input type="text" placeholder="e.g., Python, Java, Data Science" required>
+            </div>
+            <div class="form-group">
+                <label>Training Mode *</label>
+                <select required>
+                    <option value="">Select Mode</option>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Preferred Timing *</label>
+                <select required>
+                    <option value="">Select Timing</option>
+                    <option value="morning">Morning</option>
+                    <option value="evening">Evening</option>
+                    <option value="weekend">Weekend</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Previous Experience *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="experience" value="yes" required> Yes</label>
+                    <label><input type="radio" name="experience" value="no" required> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Additional Notes / Requirements</label>
+                <textarea placeholder="Please provide any additional details..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+    </div>
 
-                    <div class="item item-third">
-                         <div class="caption">
-                              <div class="container">
-                                   <div class="col-md-6 col-sm-12">
-                                        <h1>Unlock Your Potential: Learn Anytime,
-                                             Anywhere
-                                        </h1>
-                                        <h3>Experience personalized learning at your own pace, anytime, anywhere.
-                                             Our platform offers interactive tools, expert guidance, and a supportive
-                                             community to help you achieve your goals.<a
-                                                  href="https://plus.google.com/+templatemo"
-                                                  target="_parent">templatemo</a> page.</h3>
-                                        <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's
-                                             chat</a>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
+    <!-- Job Support Form -->
+    <div class="form-container" id="jobsupportForm">
+        <button class="close-btn" onclick="closeAll()">×</button>
+        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+        <h2>Job Support Registration</h2>
+        <form onsubmit="handleSubmit(event, 'jobsupport')">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Current Job Role / Technology *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Experience in Years *</label>
+                <input type="number" min="0" step="0.5" required>
+            </div>
+            <div class="form-group">
+                <label>Type of Job Support Needed *</label>
+                <select required>
+                    <option value="">Select Type</option>
+                    <option value="project">Project Help</option>
+                    <option value="assignment">Assignment Help</option>
+                    <option value="interview">Interview Preparation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Preferred Contact Time *</label>
+                <input type="text" placeholder="e.g., 10 AM - 12 PM" required>
+            </div>
+            <div class="form-group">
+                <label>Additional Details / Notes</label>
+                <textarea placeholder="Please provide any additional details..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+    </div>
+
+    <!-- Outsourcing Form -->
+    <div class="form-container" id="outsourcingForm">
+        <button class="close-btn" onclick="closeAll()">×</button>
+        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+        <h2>Outsourcing Registration</h2>
+        <form onsubmit="handleSubmit(event, 'outsourcing')">
+            <div class="form-group">
+                <label>Company Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Person Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Type of Service Required *</label>
+                <select required>
+                    <option value="">Select Service</option>
+                    <option value="web">Web Development</option>
+                    <option value="app">App Development</option>
+                    <option value="marketing">Digital Marketing</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Project Description / Requirements *</label>
+                <textarea required placeholder="Please describe your project requirements..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Expected Timeline *</label>
+                <input type="text" placeholder="e.g., 2-3 months" required>
+            </div>
+            <div class="form-group">
+                <label>Budget Range *</label>
+                <input type="text" placeholder="e.g., $5000 - $10000" required>
+            </div>
+            <div class="form-group">
+                <label>Additional Notes</label>
+                <textarea placeholder="Any additional information..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+    </div>
+
+     <!-- HOME SECTION -->
+     <section id="home" class="hero-section">
+
+          <!-- FULLSCREEN IMAGE -->
+          <div class="hero-image">
+               <img src="images/kmss-backgroundimg.webp" alt="Professional Tech Careers">
+          </div>
+
+          <!-- LEFT SIDE TEXT -->
+          <div class="hero-content">
+               <h1>Your Partner in Professional Tech Careers:<br>
+                    Training, Job Support, and Outsourcing</h1>
+               <button type="button" class="btn btn-custom-1 navbar-btn" data-toggle="modal" data-target="#demoModal">
+                    Book A Demo
+               </button>
+          </div>
+
+     </section>
+
+     <section class="services-section">
+          <div class="cards-container">
+
+               <!-- Training Card -->
+               <div class="service-card">
+                    <h3>Training</h3>
+                    <p>
+                         Empower your career with expert-led training designed for real industry needs.
+                         Master in-demand technologies with hands-on projects and job-ready skills.
+                    </p>
+
+                    <ul class="service-list">
+                         <li>Instructor-led training</li>
+                         <li>Real-time project exposure</li>
+                         <li>Career-focused learning path</li>
+                    </ul>
+
+                    <!-- <button class="card-btn">View Courses</button> -->
+                    <button class="card-btn" onclick="location.href='#courses'">
+                         View Courses
+                    </button>
+
                </div>
+
+               <!-- Job Support Card -->
+               <div class="service-card">
+                    <h3>Job Support</h3>
+                    <p>
+                         Get real-time assistance from industry experts while working on your project or job role.
+                         Ideal for professionals needing technical help and troubleshooting.
+                    </p>
+
+                    <ul class="service-list">
+                         <li> Real-time project help</li>
+                         <li> Task-based assistance</li>
+                         <li> Flexible support timings</li>
+                    </ul>
+
+                    <!-- <button class="card-btn">Get Support</button> -->
+                    <button class="card-btn" onclick="location.href='job-support.html'">
+                         Get Support
+                    </button>
+
+               </div>
+
+               <!-- Outsourcing Card -->
+               <div class="service-card">
+                    <h3>Outsourcing</h3>
+                    <p>
+                         Reliable IT outsourcing services to support your business and scale your technology operations.
+                         We provide skilled professionals and end-to-end technical solutions.
+                    </p>
+
+                    <ul class="service-list">
+                         <li> Dedicated skilled resources</li>
+                         <li> End-to-end IT solutions</li>
+                         <li> Quality-focused delivery</li>
+                    </ul>
+
+                    <button class="card-btn">Partner With Us</button>
+               </div>
+
           </div>
      </section>
 
-     <!-- FEATURE -->
-     <!--  
-     <section id="feature">
-          <div class="container">
-               <div class="row">
 
-                    <div class="col-md-4 col-sm-4">
-                         <div class="feature-thumb">
-                              <span>01</span>
-                              <h3>Trending F</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore
-                                   et dolore magna.</p>
-                         </div>
-                    </div>
 
-                    <div class="col-md-4 col-sm-4">
-                         <div class="feature-thumb">
-                              <span>02</span>
-                              <h3>Books & Library</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore
-                                   et dolore magna.</p>
-                         </div>
-                    </div>
 
-                    <div class="col-md-4 col-sm-4">
-                         <div class="feature-thumb">
-                              <span>03</span>
-                              <h3>Certified Teachers</h3>
-                              <p>templatemo delivers a wide variety of HTML5 templates for you at absolutely no charge.
-                                   Please tell your friends.</p>
-                         </div>
-                    </div>
-
-               </div>
-          </div>
-     </section>
--->
-
-     <!-- ABOUT -->
-     <section id="about">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-6 col-sm-12">
-                         <div class="about-info">
-                              <h2>Start your journey to a better life with online practical courses</h2>
-
-                              <figure>
-                                   <span><i class="fa fa-users"></i></span>
-                                   <figcaption>
-                                        <h3>Professional Trainers</h3>
-                                        <p>Professional trainers deliver expert guidance and customized fitness
-                                             plans,empowering individuals to achieve their health and wellness goals.
-                                        </p>
-                                   </figcaption>
-                              </figure>
-
-                              <figure>
-                                   <span><i class="fa fa-certificate"></i></span>
-                                   <figcaption>
-                                        <h3>International Certifications</h3>
-                                        <p>International certifications enhance global career prospects by validating
-                                             expertise and
-                                             skills recognized worldwide across various industries.</p>
-                                   </figcaption>
-                              </figure>
-
-                              <figure>
-                                   <span><i class="fa fa-bar-chart-o"></i></span>
-                                   <figcaption>
-                                        <h3>Free for 3 months</h3>
-                                        <p>Enjoy our service free for 3 months! Sign up now and experience premium
-                                             features without any cost or commitment.</p>
-                                   </figcaption>
-                              </figure>
-                         </div>
-                    </div>
-
-                    <div class="col-md-offset-1 col-md-4 col-sm-12">
-                         <div class="entry-form">
-                              <form id="entry-form" role="form" action="" method="post">
-                                   <h2>Signup today</h2>
-                                   <input type="text" name="full name" class="form-control" placeholder="Full name"
-                                        id="fullName" required="">
-
-                                   <input type="email" name="email" class="form-control"
-                                        placeholder="Your email address" id="email" required="">
-
-                                   <input type="password" name="password" class="form-control"
-                                        placeholder="Your password" id="password" required="">
-
-                                   <button class="submit-btn form-control" id="form-submit">Get started</button>
-                              </form>
-                         </div>
-                    </div>
-
-               </div>
-          </div>
-     </section>
      <section id="courses">
           <div class="container">
                <div class="row">
@@ -400,7 +482,8 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-detail">
                                                   <h3><a href="#">Java Full Stack Development</a></h3>
-                                                  <p>"Java Full Stack Development involves creating web applications
+                                                  <p>"Java Full Stack Development involves creating web
+                                                       applications
                                                        using Java for the backend,
                                                        with frontend technologies like HTML, CSS, JavaScript,
                                                        and frameworks such as Angular or React."</p>
@@ -414,7 +497,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--<a href="#"><span>INR 10,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal">View Topics</button>
+                                                            data-target="#myModal">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -450,7 +534,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!-- <a href="#"><span>INR 10,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal1">View Topics</button>
+                                                            data-target="#myModal1">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -472,7 +557,8 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-detail">
                                                   <h3><a href="#">MERN Stack</a></h3>
-                                                  <p>"MERN stack development involves building web applications using
+                                                  <p>"MERN stack development involves building web applications
+                                                       using
                                                        MongoDB, Express.js, React,
                                                        and Node.js, providing a full-stack
                                                        JavaScript solution for creating dynamic, scalable, and
@@ -486,7 +572,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--< href="#"><span>INR 10,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal2">View Topics</button>
+                                                            data-target="#myModal2">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -508,9 +595,11 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-detail">
                                                   <h3><a href="#">AI & ML</a></h3>
-                                                  <p>"AI and Machine Learning enable systems to learn from data, make
+                                                  <p>"AI and Machine Learning enable systems to learn from data,
+                                                       make
                                                        decisions, and improve over time, powering innovations
-                                                       in automation, analytics, and intelligent applications across
+                                                       in automation, analytics, and intelligent applications
+                                                       across
                                                        various industries."</p>
                                              </div>
                                              <div class="courses-info">
@@ -522,7 +611,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!-- <a href="#"><span>INR 15,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal3">View Topics</button>
+                                                            data-target="#myModal3">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -559,7 +649,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--<a href="#"><span>INR 20,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal4">View Topics</button>
+                                                            data-target="#myModal4">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -582,9 +673,11 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-detail">
                                                   <h3><a href="#">Cloud Computing</a></h3>
-                                                  <p>"Cloud computing delivers computing services (servers, storage,
+                                                  <p>"Cloud computing delivers computing services (servers,
+                                                       storage,
                                                        databases, networking, software)
-                                                       over the internet ("the cloud"), offering flexible resources,
+                                                       over the internet ("the cloud"), offering flexible
+                                                       resources,
                                                        faster innovation,
                                                        and economies of scale, accessible on-demand and typically
                                                        pay-per-use."</p>
@@ -598,7 +691,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--<a href="#"><span>INR 10,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal5">View Topics</button>
+                                                            data-target="#myModal5">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -624,7 +718,8 @@ http://www.templatemo.com/tm-516-known
                                                        collaboration, automate workflows, and accelerate software
                                                        delivery,
                                                        ensuring reliable and scalable systems through continuous
-                                                       integration, continuous delivery (CI/CD), and monitoring."</p>
+                                                       integration, continuous delivery (CI/CD), and monitoring."
+                                                  </p>
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
@@ -635,7 +730,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--<a href="#"><span>INR 15,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal6">View Topics</button>
+                                                            data-target="#myModal6">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -661,7 +757,8 @@ http://www.templatemo.com/tm-516-known
                                                        development,
                                                        data science, machine learning, automation, artificial
                                                        intelligence,
-                                                       and various other applications due to its simplicity and wide
+                                                       and various other applications due to its simplicity and
+                                                       wide
                                                        range of libraries.
                                                        Python has a vast ecosystem of framework"</p>
                                              </div>
@@ -674,7 +771,8 @@ http://www.templatemo.com/tm-516-known
                                                   <div class="courses-price">
                                                        <!--<a href="#"><span>INR 15,000</span></a>-->
                                                        <button type="button" class="courses-price" data-toggle="modal"
-                                                            data-target="#myModal7">View Topics</button>
+                                                            data-target="#myModal7">View
+                                                            Topics</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -815,7 +913,8 @@ http://www.templatemo.com/tm-516-known
                                                   BIZLOG is more than just a technology-enabled reverse logistics
                                                   company.
                                                   It has now grown to 80 locations and is inching towards 100.
-                                                  Our service offerings have expanded far beyond what we started with.
+                                                  Our service offerings have expanded far beyond what we started
+                                                  with.
                                              </p>
                                              <div class="client-rating">
                                                   <i class="fa fa-star"></i>
@@ -837,7 +936,8 @@ http://www.templatemo.com/tm-516-known
                                              <span>TECHNOLOGIES</span>
                                              <p>
                                                   TUDO Technologies specializes in innovative software solutions,
-                                                  offering cutting-edge technology products and services tailored to
+                                                  offering cutting-edge technology products and services tailored
+                                                  to
                                                   various industries.
                                              </p>
                                              <div class="client-rating">
@@ -928,9 +1028,11 @@ http://www.templatemo.com/tm-516-known
                                         </div>
                                    </div>
                                    <div class="courses-detail">
-                                        <h3 class="text-center"><a href="#">Transform Your Career with Krishnamurthy
+                                        <h3 class="text-center"><a href="#">Transform Your Career with
+                                                  Krishnamurthy
                                                   EdTech</a></h3>
-                                        <p class="text-center">Krishnamurthy EdTech helps learners transform their IT
+                                        <p class="text-center">Krishnamurthy EdTech helps learners transform their
+                                             IT
                                              careers through
                                              real-world training and mentorship.</p>
                                    </div>
@@ -956,9 +1058,11 @@ http://www.templatemo.com/tm-516-known
                                         </div>
                                    </div>
                                    <div class="courses-detail">
-                                        <h3 class="text-center"><a href="#">Why Full Stack Development Is the Future of
+                                        <h3 class="text-center"><a href="#">Why Full Stack Development Is the
+                                                  Future of
                                                   IT Careers</a></h3>
-                                        <p class="text-center">Full Stack Developers are in high demand, mastering both
+                                        <p class="text-center">Full Stack Developers are in high demand, mastering
+                                             both
                                              front-end and
                                              back-end development skills.</p>
                                    </div>
@@ -986,7 +1090,8 @@ http://www.templatemo.com/tm-516-known
                                    <div class="courses-detail">
                                         <h3 class="text-center"><a href="#">The Power of Cloud Computing in Modern
                                                   Business</a></h3>
-                                        <p class="text-center">Cloud Computing helps businesses scale efficiently using
+                                        <p class="text-center">Cloud Computing helps businesses scale efficiently
+                                             using
                                              AWS, Azure, and
                                              Google Cloud.</p>
                                    </div>
@@ -1040,9 +1145,11 @@ http://www.templatemo.com/tm-516-known
                                         </div>
                                    </div>
                                    <div class="courses-detail">
-                                        <h3 class="text-center"><a href="#">How Data Science Is Transforming Business
+                                        <h3 class="text-center"><a href="#">How Data Science Is Transforming
+                                                  Business
                                                   Decisions</a></h3>
-                                        <p class="text-center">Data Science empowers smarter business decisions through
+                                        <p class="text-center">Data Science empowers smarter business decisions
+                                             through
                                              analytics,
                                              prediction, and visualization.</p>
                                    </div>
@@ -1098,7 +1205,8 @@ http://www.templatemo.com/tm-516-known
                                    <div class="courses-detail">
                                         <h3 class="text-center"><a href="#">Python Programming – The Language of
                                                   Innovation</a></h3>
-                                        <p class="text-center">Python powers AI, automation, and web development — a
+                                        <p class="text-center">Python powers AI, automation, and web development —
+                                             a
                                              must-learn for all
                                              developers.</p>
                                    </div>
@@ -1124,9 +1232,11 @@ http://www.templatemo.com/tm-516-known
                                         </div>
                                    </div>
                                    <div class="courses-detail">
-                                        <h3 class="text-center"><a href="#">Global Recognition through International
+                                        <h3 class="text-center"><a href="#">Global Recognition through
+                                                  International
                                                   Certifications</a></h3>
-                                        <p class="text-center">Earn certifications that validate your skills worldwide
+                                        <p class="text-center">Earn certifications that validate your skills
+                                             worldwide
                                              and open doors to
                                              global careers.</p>
                                    </div>
@@ -1152,9 +1262,11 @@ http://www.templatemo.com/tm-516-known
                                         </div>
                                    </div>
                                    <div class="courses-detail">
-                                        <h3 class="text-center"><a href="#">Meet Our Trainers – The Mentors Behind Every
+                                        <h3 class="text-center"><a href="#">Meet Our Trainers – The Mentors Behind
+                                                  Every
                                                   Success</a></h3>
-                                        <p class="text-center">Our expert trainers guide every student toward success
+                                        <p class="text-center">Our expert trainers guide every student toward
+                                             success
                                              through mentorship and
                                              real-world experience.</p>
                                    </div>
@@ -1182,7 +1294,8 @@ http://www.templatemo.com/tm-516-known
                                    <div class="courses-detail">
                                         <h3 class="text-center"><a href="#">From Learning to Earning – Real Success
                                                   Stories</a></h3>
-                                        <p class="text-center">See how Krishnamurthy EdTech students achieved career
+                                        <p class="text-center">See how Krishnamurthy EdTech students achieved
+                                             career
                                              success across the
                                              globe.</p>
                                    </div>
@@ -1238,13 +1351,17 @@ http://www.templatemo.com/tm-516-known
                          <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                         <p>Full Stack Development is one of the most versatile and in-demand IT skills today. Companies
-                              are looking for developers who can build complete web solutions — from the user interface
+                         <p>Full Stack Development is one of the most versatile and in-demand IT skills today.
+                              Companies
+                              are looking for developers who can build complete web solutions — from the user
+                              interface
                               to the database and server management.
-                              <br><br>At Krishnamurthy EdTech, our Full Stack programs (MERN, MEAN, Java Full Stack) are
+                              <br><br>At Krishnamurthy EdTech, our Full Stack programs (MERN, MEAN, Java Full
+                              Stack) are
                               designed to make you job-ready with live projects, code reviews, and cloud deployment
                               practice.
-                              <br><br>Whether you’re a fresher or an experienced developer, mastering full-stack skills
+                              <br><br>Whether you’re a fresher or an experienced developer, mastering full-stack
+                              skills
                               opens the door to exciting roles like Software Engineer, Web Developer, and Technical
                               Architect.
                               <br><b>💻 “Learn it all — front-end, back-end, and everything in between.”</b>
@@ -1263,15 +1380,18 @@ http://www.templatemo.com/tm-516-known
                          <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                         <p>Cloud Computing has revolutionized how companies store data, build applications, and scale
-                              operations. Platforms like AWS, Azure, and Google Cloud allow organizations to innovate
+                         <p>Cloud Computing has revolutionized how companies store data, build applications, and
+                              scale
+                              operations. Platforms like AWS, Azure, and Google Cloud allow organizations to
+                              innovate
                               faster, reduce costs, and improve performance.
                               <br><br>Krishnamurthy EdTech’s Cloud Computing course prepares you for real-world
                               enterprise environments. You’ll learn cloud architecture, deployment automation, and
                               security best practices through hands-on labs.
                               <br><br>With global cloud adoption increasing, certified cloud engineers are in high
                               demand across industries.
-                              <br><b>☁️ “Build, deploy, and manage from anywhere — that’s the power of the cloud.”</b>
+                              <br><b>☁️ “Build, deploy, and manage from anywhere — that’s the power of the
+                                   cloud.”</b>
                          </p>
                     </div>
                </div>
@@ -1287,13 +1407,16 @@ http://www.templatemo.com/tm-516-known
                          <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                         <p>Artificial Intelligence (AI) and Machine Learning (ML) are the driving forces behind modern
+                         <p>Artificial Intelligence (AI) and Machine Learning (ML) are the driving forces behind
+                              modern
                               innovation — from chatbots and self-driving cars to predictive analytics and
                               recommendation systems.
-                              <br><br>Our AI & ML program focuses on practical applications using Python, TensorFlow,
+                              <br><br>Our AI & ML program focuses on practical applications using Python,
+                              TensorFlow,
                               and real-world datasets. You’ll understand algorithms, data preprocessing, and model
                               deployment.
-                              <br><br>With AI transforming industries globally, professionals skilled in this domain can
+                              <br><br>With AI transforming industries globally, professionals skilled in this
+                              domain can
                               shape the digital future.
                               <br><b>🤖 “Learn to make machines think, learn, and adapt.”</b>
                          </p>
@@ -1314,8 +1437,10 @@ http://www.templatemo.com/tm-516-known
                          <p>Data Science enables organizations to make smarter, data-driven decisions. It combines
                               analytics, visualization, and predictive modeling to reveal hidden insights.
                               <br><br>Krishnamurthy EdTech’s Data Science course covers Python, SQL, Power BI, and
-                              Machine Learning, giving students a complete toolkit to solve real business challenges.
-                              <br><br>From startups to global enterprises, every company today needs data scientists to
+                              Machine Learning, giving students a complete toolkit to solve real business
+                              challenges.
+                              <br><br>From startups to global enterprises, every company today needs data
+                              scientists to
                               stay ahead.
                               <br><b>📊 “Turn raw data into meaningful insights and better decisions.”</b>
                          </p>
@@ -1333,12 +1458,15 @@ http://www.templatemo.com/tm-516-known
                          <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                         <p>DevOps brings together development and operations teams to streamline software delivery.
+                         <p>DevOps brings together development and operations teams to streamline software
+                              delivery.
                               Using tools like Docker, Jenkins, Kubernetes, and Git, DevOps ensures continuous
                               integration and deployment.
                               <br><br>Krishnamurthy EdTech’s DevOps course trains students in automation pipelines,
-                              containerization, and cloud integration, helping them become complete modern engineers.
-                              <br><br>Companies embracing DevOps enjoy faster releases, fewer bugs, and happier users.
+                              containerization, and cloud integration, helping them become complete modern
+                              engineers.
+                              <br><br>Companies embracing DevOps enjoy faster releases, fewer bugs, and happier
+                              users.
                               <br><b>⚙️ “Automate everything — from code to cloud.”</b>
                          </p>
                     </div>
@@ -1357,10 +1485,13 @@ http://www.templatemo.com/tm-516-known
                     <div class="modal-body">
                          <p>Python has become the most versatile and beginner-friendly language in tech. It powers
                               everything — from AI and automation to data analysis and web development.
-                              <br><br>At Krishnamurthy EdTech, Python training is hands-on, with projects in Django,
-                              Flask, and scripting. We ensure learners build confidence through coding challenges and
+                              <br><br>At Krishnamurthy EdTech, Python training is hands-on, with projects in
+                              Django,
+                              Flask, and scripting. We ensure learners build confidence through coding challenges
+                              and
                               interactive sessions.
-                              <br><br>Python’s readability and community support make it ideal for both freshers and
+                              <br><br>Python’s readability and community support make it ideal for both freshers
+                              and
                               professionals.
                               <br><b>🐍 “Write less, achieve more — that’s the Python way.”</b>
                          </p>
@@ -1401,10 +1532,13 @@ http://www.templatemo.com/tm-516-known
                          <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                         <p>Our greatest achievement is seeing our students succeed. From Shilpa in India (MERN Stack
-                              Developer) to Li Wei in China (Cloud Engineer), and Ahmed in UAE (Full Stack Developer) —
+                         <p>Our greatest achievement is seeing our students succeed. From Shilpa in India (MERN
+                              Stack
+                              Developer) to Li Wei in China (Cloud Engineer), and Ahmed in UAE (Full Stack
+                              Developer) —
                               Krishnamurthy EdTech has changed lives globally.
-                              <br><br>Through mentorship, live projects, and career guidance, our learners step into the
+                              <br><br>Through mentorship, live projects, and career guidance, our learners step
+                              into the
                               job market with confidence and skill.
                               <br><b>🎓 “Your success is our story.”</b>
                          </p>
@@ -1423,9 +1557,11 @@ http://www.templatemo.com/tm-516-known
                     </div>
                     <div class="modal-body">
                          <p>Krishnamurthy EdTech is more than a training platform — it’s a complete ecosystem that
-                              bridges the gap between education and employment. We combine expert instruction, practical
+                              bridges the gap between education and employment. We combine expert instruction,
+                              practical
                               labs, and career support to help learners achieve global success.
-                              <br><br>With hundreds of corporate partnerships and thousands of successful alumni, our
+                              <br><br>With hundreds of corporate partnerships and thousands of successful alumni,
+                              our
                               mission is to make tech education accessible, affordable, and impactful.
                               <br><b>🚀 “Transform your learning into a lifelong career.”</b>
                          </p>
@@ -1459,8 +1595,8 @@ http://www.templatemo.com/tm-516-known
                                    <input type="email" class="form-control" placeholder="Enter email address"
                                         name="email" id="email" required="">
 
-                                   <input type="tel" class="form-control" placeholder="Enter Phone Number" name="phoneNumber"
-                                        id="phoneNumber" required="">
+                                   <input type="tel" class="form-control" placeholder="Enter Phone Number"
+                                        name="phoneNumber" id="phoneNumber" required="">
 
                                    <textarea class="form-control" rows="6" placeholder="Tell us about your message"
                                         name="message" id="message" required=""></textarea>
@@ -1955,6 +2091,7 @@ http://www.templatemo.com/tm-516-known
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
      <script src="contactus.js"></script>
      <script src="signup.js"></script>
+     <script src="register.js"></script>
 
      <script src="demo-form-submit.js"></script>
 

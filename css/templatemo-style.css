@@ -1688,6 +1688,7 @@ footer .footer-info address p:hover{
   
   /* Job Support Description Section */
 .job-support-desc {
+  padding: 300px 0;
     /* No additional styling needed for the section itself */
 }
 
@@ -1707,7 +1708,7 @@ footer .footer-info address p:hover{
 }
 
 .job-support-paragraph {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.8;
     margin-top: 20px;
     margin-bottom: 0;
