@@ -47,7 +47,9 @@ http://www.templatemo.com/tm-516-known
                          <span class="icon icon-bar"></span>
                     </button>
                     <!-- lOGO TEXT HERE -->
-                    <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
+                    <a href="index.html" class="navbar-brand" aria-label="Home">
+                         <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
+                    </a>
                </div>
 
                <!-- MENU LINKS -->
@@ -62,8 +64,9 @@ http://www.templatemo.com/tm-516-known
                          <li><a href="jobs.html">Jobs</a></li>
                          <li><a href="#contact">Contact</a></li>
                          <li>
-                              <button type="button" class="register-now-butto"onclick="openDropdown()">
-                                   Register Now
+                              <button type="button" class="register-now-butto" data-toggle="modal"
+                                   data-target="#demoModal">
+                                   Book A Demo
                               </button>
                          </li>
                     </ul>
@@ -207,186 +210,193 @@ http://www.templatemo.com/tm-516-known
      </div>
      </div>
 
-     
 
-      <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-    <div class="dropdown-menu" id="dropdownMenu">
-        <button class="close-btn" onclick="closeAll()">×</button>
-        <h2>Select Service</h2>
-        <div class="menu-option" onclick="openForm('training')">Training</div>
-        <div class="menu-option" onclick="openForm('jobsupport')">Job Support</div>
-        <div class="menu-option" onclick="openForm('outsourcing')">Outsourcing</div>
-    </div>
+     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-    <!-- Training Form -->
-    <div class="form-container" id="trainingForm">
-        <button class="close-btn" onclick="closeAll()">×</button>
-        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-        <h2>Training Registration</h2>
-        <form onsubmit="handleSubmit(event, 'training')">
-            <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" required>
-            </div>
-            <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" required>
-            </div>
-            <div class="form-group">
-                <label>Preferred Course / Technology *</label>
-                <input type="text" placeholder="e.g., Python, Java, Data Science" required>
-            </div>
-            <div class="form-group">
-                <label>Training Mode *</label>
-                <select required>
-                    <option value="">Select Mode</option>
-                    <option value="online">Online</option>
-                    <option value="offline">Offline</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Preferred Timing *</label>
-                <select required>
-                    <option value="">Select Timing</option>
-                    <option value="morning">Morning</option>
-                    <option value="evening">Evening</option>
-                    <option value="weekend">Weekend</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Previous Experience *</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="experience" value="yes" required> Yes</label>
-                    <label><input type="radio" name="experience" value="no" required> No</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Additional Notes / Requirements</label>
-                <textarea placeholder="Please provide any additional details..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Registration</button>
-        </form>
-    </div>
+     <div class="dropdown-menu" id="dropdownMenu">
+          <button class="close-btn" onclick="closeAll()">×</button>
+          <h2>Select Service</h2>
+          <div class="menu-option" onclick="openForm('training')">Training</div>
+          <div class="menu-option" onclick="openForm('jobsupport')">Job Support</div>
+          <div class="menu-option" onclick="openForm('outsourcing')">Outsourcing</div>
+     </div>
 
-    <!-- Job Support Form -->
-    <div class="form-container" id="jobsupportForm">
-        <button class="close-btn" onclick="closeAll()">×</button>
-        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-        <h2>Job Support Registration</h2>
-        <form onsubmit="handleSubmit(event, 'jobsupport')">
-            <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" required>
-            </div>
-            <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" required>
-            </div>
-            <div class="form-group">
-                <label>Current Job Role / Technology *</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Experience in Years *</label>
-                <input type="number" min="0" step="0.5" required>
-            </div>
-            <div class="form-group">
-                <label>Type of Job Support Needed *</label>
-                <select required>
-                    <option value="">Select Type</option>
-                    <option value="project">Project Help</option>
-                    <option value="assignment">Assignment Help</option>
-                    <option value="interview">Interview Preparation</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Preferred Contact Time *</label>
-                <input type="text" placeholder="e.g., 10 AM - 12 PM" required>
-            </div>
-            <div class="form-group">
-                <label>Additional Details / Notes</label>
-                <textarea placeholder="Please provide any additional details..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Registration</button>
-        </form>
-    </div>
+     <!-- Training Form -->
+     <div class="form-container" id="trainingForm">
+          <button class="close-btn" onclick="closeAll()">×</button>
+          <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+          <h2>Training Registration</h2>
+          <form onsubmit="handleSubmit(event, 'training')">
+               <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" required>
+               </div>
+               <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required>
+               </div>
+               <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required>
+               </div>
+               <div class="form-group">
+                    <label>Preferred Course / Technology *</label>
+                    <input type="text" placeholder="e.g., Python, Java, Data Science" required>
+               </div>
+               <div class="form-group">
+                    <label>Training Mode *</label>
+                    <select required>
+                         <option value="">Select Mode</option>
+                         <option value="online">Online</option>
+                         <option value="offline">Offline</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <label>Preferred Timing *</label>
+                    <select required>
+                         <option value="">Select Timing</option>
+                         <option value="morning">Morning</option>
+                         <option value="evening">Evening</option>
+                         <option value="weekend">Weekend</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <label>Previous Experience *</label>
+                    <div class="radio-group">
+                         <label><input type="radio" name="experience" value="yes" required> Yes</label>
+                         <label><input type="radio" name="experience" value="no" required> No</label>
+                    </div>
+               </div>
+               <div class="form-group">
+                    <label>Additional Notes / Requirements</label>
+                    <textarea placeholder="Please provide any additional details..."></textarea>
+               </div>
+               <button type="submit" class="submit-btn">Submit Registration</button>
+          </form>
+     </div>
 
-    <!-- Outsourcing Form -->
-    <div class="form-container" id="outsourcingForm">
-        <button class="close-btn" onclick="closeAll()">×</button>
-        <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-        <h2>Outsourcing Registration</h2>
-        <form onsubmit="handleSubmit(event, 'outsourcing')">
-            <div class="form-group">
-                <label>Company Name *</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Contact Person Name *</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" required>
-            </div>
-            <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" required>
-            </div>
-            <div class="form-group">
-                <label>Type of Service Required *</label>
-                <select required>
-                    <option value="">Select Service</option>
-                    <option value="web">Web Development</option>
-                    <option value="app">App Development</option>
-                    <option value="marketing">Digital Marketing</option>
-                    <option value="others">Others</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Project Description / Requirements *</label>
-                <textarea required placeholder="Please describe your project requirements..."></textarea>
-            </div>
-            <div class="form-group">
-                <label>Expected Timeline *</label>
-                <input type="text" placeholder="e.g., 2-3 months" required>
-            </div>
-            <div class="form-group">
-                <label>Budget Range *</label>
-                <input type="text" placeholder="e.g., $5000 - $10000" required>
-            </div>
-            <div class="form-group">
-                <label>Additional Notes</label>
-                <textarea placeholder="Any additional information..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Registration</button>
-        </form>
-    </div>
+     <!-- Job Support Form -->
+     <div class="form-container" id="jobsupportForm">
+          <button class="close-btn" onclick="closeAll()">×</button>
+          <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+          <h2>Job Support Registration</h2>
+          <form onsubmit="handleSubmit(event, 'jobsupport')">
+               <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" required>
+               </div>
+               <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required>
+               </div>
+               <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required>
+               </div>
+               <div class="form-group">
+                    <label>Current Job Role / Technology *</label>
+                    <input type="text" required>
+               </div>
+               <div class="form-group">
+                    <label>Experience in Years *</label>
+                    <input type="number" min="0" step="0.5" required>
+               </div>
+               <div class="form-group">
+                    <label>Type of Job Support Needed *</label>
+                    <select required>
+                         <option value="">Select Type</option>
+                         <option value="project">Project Help</option>
+                         <option value="assignment">Assignment Help</option>
+                         <option value="interview">Interview Preparation</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <label>Preferred Contact Time *</label>
+                    <input type="text" placeholder="e.g., 10 AM - 12 PM" required>
+               </div>
+               <div class="form-group">
+                    <label>Additional Details / Notes</label>
+                    <textarea placeholder="Please provide any additional details..."></textarea>
+               </div>
+               <button type="submit" class="submit-btn">Submit Registration</button>
+          </form>
+     </div>
+
+     <!-- Outsourcing Form -->
+     <div class="form-container" id="outsourcingForm">
+          <button class="close-btn" onclick="closeAll()">×</button>
+          <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
+          <h2>Outsourcing Registration</h2>
+          <form onsubmit="handleSubmit(event, 'outsourcing')">
+               <div class="form-group">
+                    <label>Company Name *</label>
+                    <input type="text" required>
+               </div>
+               <div class="form-group">
+                    <label>Contact Person Name *</label>
+                    <input type="text" required>
+               </div>
+               <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required>
+               </div>
+               <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required>
+               </div>
+               <div class="form-group">
+                    <label>Type of Service Required *</label>
+                    <select required>
+                         <option value="">Select Service</option>
+                         <option value="web">Web Development</option>
+                         <option value="app">App Development</option>
+                         <option value="marketing">Digital Marketing</option>
+                         <option value="others">Others</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <label>Project Description / Requirements *</label>
+                    <textarea required placeholder="Please describe your project requirements..."></textarea>
+               </div>
+               <div class="form-group">
+                    <label>Expected Timeline *</label>
+                    <input type="text" placeholder="e.g., 2-3 months" required>
+               </div>
+               <div class="form-group">
+                    <label>Budget Range *</label>
+                    <input type="text" placeholder="e.g., $5000 - $10000" required>
+               </div>
+               <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea placeholder="Any additional information..."></textarea>
+               </div>
+               <button type="submit" class="submit-btn">Submit Registration</button>
+          </form>
+     </div>
 
      <!-- HOME SECTION -->
      <section id="home" class="hero-section">
 
           <!-- FULLSCREEN IMAGE -->
           <div class="hero-image">
-               <img src="images/kmss-backgroundimg.webp" alt="Professional Tech Careers">
+               <img src="images/Gemini_Generated_Image_66r22f66r22f66r2.png" alt="Professional Tech Careers">
           </div>
 
-          <!-- LEFT SIDE TEXT -->
-          <div class="hero-content">
-               <h1>Your Partner in Professional Tech Careers:<br>
-                    Training, Job Support, and Outsourcing</h1>
-               <button type="button" class="btn btn-custom-1 navbar-btn" data-toggle="modal" data-target="#demoModal">
-                    Book A Demo
-               </button>
+
+
+          <div class="hero-overlay">
+               <div class="hero-left">
+                    <h1>Your Partner in Professional Tech Careers</h1>
+                    <p>Empowering students and professionals with industry-ready skills, real-time job support, and
+                         scalable IT outsourcing solutions.</p>
+
+                    <ul class="hero-features">
+                         <li> IT Training</li>
+                         <li> Job Support</li>
+                         <li> IT Outsourcing</li>
+                    </ul>
+               </div>
           </div>
 
      </section>
@@ -450,7 +460,7 @@ http://www.templatemo.com/tm-516-known
                          <li> Quality-focused delivery</li>
                     </ul>
 
-                    <button class="card-btn">Partner With Us</button>
+                    <button type="button" class="card-btn" data-toggle="modal" data-target="#demoModal" aria-haspopup="dialog" aria-controls="demoModal">Partner With Us</button>
                </div>
 
           </div>

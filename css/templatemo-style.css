@@ -271,6 +271,7 @@
 .custom-navbar .navbar-header {
     display: flex;
     align-items: center;
+    flex: 0 0 auto; /* keep logo at fixed position */
 }
 
 .custom-navbar .navbar-brand {
@@ -279,6 +280,65 @@
     font-weight: bold;
     line-height: 40px;
     padding: 10px 0;
+}
+
+/* Layout: left logo, left-aligned links next to logo; logo remains fixed */
+.custom-navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* keep items aligned to the left so nav sits next to logo */
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 20px; /* spacing between logo and nav */
+}
+
+.custom-navbar .navbar-collapse {
+    display: flex;
+    justify-content: flex-start; /* align nav items to the left, next to logo */
+    align-items: center;
+    flex: 1 1 auto; /* let nav take remaining space and keep logo fixed */
+    margin-left: 10px; /* small gap from the logo */
+}
+
+.custom-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px; /* equal spacing for visual consistency */
+}
+
+/* Prevent nav text wrapping so items like 'Job Support' stay on one line */
+.custom-navbar .nav li a {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Make nav items distribute to the right with equal spacing on wider screens */
+@media (min-width: 768px) {
+    .custom-navbar .navbar-nav {
+        gap: 12px;
+    }
+}
+
+.custom-navbar .navbar-brand img {
+    max-height: 70px;
+    width: auto;
+}
+
+/* Small screens: use stacked/collapsed behavior */
+@media (max-width: 767px) {
+    .custom-navbar .container {
+        display: block;
+    }
+    .custom-navbar .navbar-collapse {
+        display: block;
+    }
+    .custom-navbar .navbar-nav {
+        display: block;
+        gap: 0;
+    }
+    .custom-navbar .navbar-nav > li {
+        margin: 8px 0;
+    }
 }
 
 /*.custom-navbar .navbar-collapse {
@@ -293,7 +353,7 @@
 }*/
 
 .custom-navbar .navbar-nav.navbar-nav-first {
-    margin-left: 2em;
+    margin-left: 0em;
     display: flex;
     align-items: center;
 }
@@ -728,6 +788,7 @@
 
 .courses-grid .col-md-3, .courses-grid .col-sm-6 {
   margin-bottom: 30px;
+  display: flex; /* ensure columns stretch to same height */
 }
 
 .courses-thumb {
@@ -736,6 +797,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1; /* allow cards to grow and keep equal heights */
+}
+
+.courses-grid .col-md-3 .item, .courses-grid .col-sm-6 .item {
+  display: flex;
+  flex: 1;
+  flex: 1; /* allow cards to grow and keep equal heights */
 }
 
 .courses-top {

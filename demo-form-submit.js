@@ -58,3 +58,12 @@ $("#submitDemoBtn").click(function () {
     }
   });
 });
+
+// Fallback: ensure any element that targets #demoModal will show it (delegated handler)
+// This helps when data attributes may not trigger, or buttons are added dynamically.
+$(document).on('click', '[data-target="#demoModal"]', function (e) {
+  e.preventDefault();
+  if ($('#demoModal').length) {
+    $('#demoModal').modal('show');
+  }
+});

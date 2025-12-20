@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f3f4f6;
+            min-height: 100vh;
+        }
+
+        /* Job Card View */
+        .card-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .company-logo {
+            width: 48px;
+            height: 48px;
+            background-color: #15803d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .job-title {
+            color: #16a34a;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .company-name {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .skills {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background-color: #dbeafe;
+            color: #2563eb;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .salary {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .posted-date {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .apply-btn {
+            background-color: #16a34a;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .apply-btn:hover {
+            background-color: #15803d;
+        }
+
+        /* Split View */
+        .split-view {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .split-view.active {
+            display: flex;
+        }
+
+        .jd-section {
+            width: 50%;
+            background: white;
+            padding: 32px;
+            overflow-y: auto;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .form-section {
+            width: 50%;
+            background: #f9fafb;
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #111827;
+        }
+
+        .jd-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .jd-logo {
+            width: 64px;
+            height: 64px;
+            background-color: #15803d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .jd-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .jd-company {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .jd-meta {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+            color: #6b7280;
+        }
+
+        .jd-skills {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .jd-skill-tag {
+            padding: 8px 16px;
+            background-color: #dbeafe;
+            color: #2563eb;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .jd-salary {
+            margin-bottom: 24px;
+        }
+
+        .jd-salary h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .jd-salary p {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .jd-content {
+            margin-top: 24px;
+        }
+
+        .jd-section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+
+        .jd-content p {
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .jd-content ul {
+            color: #374151;
+            line-height: 1.8;
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            margin-bottom: 32px;
+        }
+
+        .form-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #6b7280;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+        }
+
+        .file-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .file-help {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #16a34a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #15803d;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Job Card View -->
+    <div id="cardView" class="card-container">
+        <div class="job-card">
+            <div class="job-header">
+                <div class="company-logo">TS</div>
+                <div>
+                    <h2 class="job-title">Senior Frontend Developer</h2>
+                    <p class="company-name">Tech Solutions Inc</p>
+                </div>
+            </div>
+
+            <div class="job-meta">
+                <span>📍 Bengaluru</span>
+                <span>💼 Full Time</span>
+            </div>
+
+            <div class="skills">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">CSS</span>
+            </div>
+
+            <div class="job-footer">
+                <div>
+                    <p class="salary">₹15-20 LPA</p>
+                    <p class="posted-date">2 days ago</p>
+                </div>
+                <button class="apply-btn" onclick="showApplication()">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Split View (JD + Form) -->
+    <div id="splitView" class="split-view">
+        <!-- Left Side - Job Description -->
+        <div class="jd-section">
+            <button class="close-btn" onclick="closeApplication()">
+                ✕ Close
+            </button>
+
+            <div class="jd-header">
+                <a class="company-link" href="index.html" target="_blank" rel="noopener noreferrer">
+                    <div class="jd-logo">TS</div>
+                </a>
+                <div>
+                    <h1 class="jd-title">Senior Frontend Developer</h1>
+                    <p class="jd-company">Tech Solutions Inc</p>
+                </div>
+            </div>
+
+            <div class="jd-meta">
+                <span>📍 Bengaluru</span>
+                <span>💼 Full Time</span>
+            </div>
+
+            <div class="jd-skills">
+                <span class="jd-skill-tag">React</span>
+                <span class="jd-skill-tag">JavaScript</span>
+                <span class="jd-skill-tag">CSS</span>
+            </div>
+
+            <div class="jd-salary">
+                <h3>₹15-20 LPA</h3>
+                <p>Posted 2 days ago</p>
+            </div>
+
+            <div class="jd-content">
+                <h2 class="jd-section-title">Job Description</h2>
+                <p>We are looking for an experienced Senior Frontend Developer to join our dynamic team. You will be
+                    responsible for building and maintaining high-quality web applications using modern frontend
+                    technologies.</p>
+
+                <h2 class="jd-section-title">Key Responsibilities</h2>
+                <ul>
+                    <li>Develop new user-facing features using React.js</li>
+                    <li>Build reusable components and front-end libraries</li>
+                    <li>Optimize applications for maximum speed and scalability</li>
+                    <li>Collaborate with backend developers and designers</li>
+                    <li>Ensure the technical feasibility of UI/UX designs</li>
+                </ul>
+
+                <h2 class="jd-section-title">Requirements</h2>
+                <ul>
+                    <li>5+ years of experience in frontend development</li>
+                    <li>Strong proficiency in JavaScript, including ES6+</li>
+                    <li>Thorough understanding of React.js and its core principles</li>
+                    <li>Experience with popular React workflows (Redux, Context API)</li>
+                    <li>Familiarity with RESTful APIs and modern authorization mechanisms</li>
+                    <li>Knowledge of modern frontend build tools</li>
+                </ul>
+
+                <h2 class="jd-section-title">Benefits</h2>
+                <ul>
+                    <li>Competitive salary and performance bonuses</li>
+                    <li>Health insurance coverage</li>
+                    <li>Flexible working hours</li>
+                    <li>Remote work options</li>
+                    <li>Professional development opportunities</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Side - Application Form -->
+        <div class="form-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Apply for this position</h2>
+                    <p>Fill out the form below to submit your application</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="firstName">First Name *</label>
+                    <input type="text" id="firstName" class="form-input" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" class="form-input" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email *</label>
+                    <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="resume">Resume *</label>
+                    <input type="file" id="resume" class="file-input" accept=".pdf,.doc,.docx" required>
+                    <p class="file-help">PDF, DOC, or DOCX (Max 5MB)</p>
+                </div>
+
+                <button class="submit-btn" onclick="submitApplication()">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showApplication() {
+            document.getElementById('cardView').classList.add('hidden');
+            document.getElementById('splitView').classList.add('active');
+        }
+
+        function closeApplication() {
+            // If the page was opened via a job link (contains jobId), go back to the jobs listing
+            const params = new URLSearchParams(window.location.search);
+            const jobId = params.get('jobId');
+            if (jobId) {
+                window.location.href = 'jobs.html';
+                return;
+            }
+
+
+            // Otherwise just show the card view as before
+            document.getElementById('cardView').classList.remove('hidden');
+            document.getElementById('splitView').classList.remove('active');
+        }
+
+        // Track the job id shown on the page so it can be sent with the resume
+        let currentJobId = null;
+
+        async function submitApplication() {
+            // Determine job id from URL param or the page state set by populateFromQuery
+            const paramsForSubmit = new URLSearchParams(window.location.search);
+            const jobid = paramsForSubmit.get('jobId') || currentJobId || '';
+            if (!jobid) {
+                alert('Unable to determine job id. Please open this application from the Jobs page and try again.');
+                return;
+            }
+
+            const API_URL = `https://pioneercoders.krishnamurthyedtechapi.com/api/v1/org/352/recruiter/352/resume-parsing?jobId=${encodeURIComponent(jobid)}`;
+
+            const resumeInput = document.getElementById('resume');
+            const resume = resumeInput && resumeInput.files && resumeInput.files[0];
+
+            if (!resume) {
+                alert('Please upload your resume');
+                return;
+            }
+
+            // Enforce max file size (5MB)
+            const MAX_BYTES = 5 * 1024 * 1024;
+            if (resume.size > MAX_BYTES) {
+                alert('File size exceeds 5MB. Please upload a smaller resume.');
+                return;
+            }
+
+            const formData = new FormData();
+            // include multiple common field names to match backend expectations
+            formData.append('userResume', resume);
+            formData.append('resume', resume);
+            formData.append('file', resume);
+            // also include jobId explicitly in form data as a safeguard
+            formData.append('jobId', jobid);
+
+            // Prepare headers - only Authorization is safe to add with FormData (do not set Content-Type)
+            const headers = {};
+            const token = localStorage.getItem('authToken');
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers,
+                    body: formData
+                });
+
+                // Attempt to read response body (text first, then try JSON)
+                const respText = await response.text();
+                let respJson = null;
+                try { respJson = respText ? JSON.parse(respText) : null; } catch (e) { /* not JSON */ }
+
+                if (!response.ok) {
+                    console.error('Resume upload failed', response.status, respText, respJson);
+                    const serverMsg = (respJson && (respJson.message || respJson.error)) || respText || `Status ${response.status}`;
+                    alert('Failed to upload resume: ' + serverMsg);
+                    return;
+                }
+
+                alert('Resume uploaded successfully');
+                console.log('API Response:', respJson || respText);
+
+            } catch (error) {
+                console.error('Resume upload error:', error);
+                alert('Failed to upload resume: ' + (error && error.message ? error.message : error));
+            }
+        }
+
+
+        // Populate job details from query params if present.
+        // Uses sessionStorage 'selectedJob' (set by jobs.html) if available; otherwise tries to fetch from the API; falls back to local sample list.
+        (async function populateFromQuery() {
+            const ORG_ID = 352;
+            const BASE_URL = 'https://pioneercoders.krishnamurthyedtechapi.com/api/v1';
+            const AUTH_TOKEN = localStorage.getItem('authToken') || '';
+
+            const params = new URLSearchParams(window.location.search);
+            const jobId = params.get('jobId');
+            if (!jobId) return;
+
+            // Try sessionStorage first
+            const selected = sessionStorage.getItem('selectedJob');
+            if (selected) {
+                try {
+                    const parsed = JSON.parse(selected);
+                    if (String(parsed.id) === String(jobId)) {
+                        fillJobUI(parsed);
+                        showApplication();
+                        return;
+                    }
+                } catch (e) { /* ignore parse error */ }
+            }
+
+            // Try to fetch job from API by searching a page and finding the id (no dedicated job-by-id endpoint known)
+            try {
+                const searchUrl = `${BASE_URL}/${ORG_ID}/job/search?size=100&page=0`;
+                const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+                if (AUTH_TOKEN) headers['Authorization'] = `Bearer ${AUTH_TOKEN}`;
+
+                const res = await fetch(searchUrl, { method: 'POST', headers, body: JSON.stringify({ role: '' }) });
+                if (res.ok) {
+                    const json = await res.json();
+                    const found = (json.data || []).find(j => String(j.id) === String(jobId));
+                    if (found) {
+                        const job = {
+                            id: found.id,
+                            title: found.role || found.title || found.name || 'Job',
+                            company: found.name || found.clientName || '',
+                            logo: found.logo || (found.name ? found.name.split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase() : ''),
+                            location: found.location || '',
+                            type: found.jobStatus || '',
+                            salary: found.salary || '',
+                            tags: found.skills || (found.primarySkill ? [found.primarySkill] : []),
+                            posted: found.postedOn || found.createdAt
+                        };
+                        fillJobUI(job);
+                        showApplication();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.warn('Job fetch error', err);
+            }
+
+            // Fallback to local sample list
+            const jobs = [
+                { id: 1, title: 'Senior Frontend Developer', company: 'Tech Solutions Inc', logo: 'TS', location: 'Bengaluru', type: 'Full Time', salary: '₹15-20 LPA', tags: ['React', 'JavaScript', 'CSS'], posted: '2 days ago' },
+                { id: 2, title: 'Backend Engineer', company: 'DataCorp', logo: 'DC', location: 'Remote', type: 'Full Time', salary: '₹18-25 LPA', tags: ['Node.js', 'MongoDB', 'AWS'], posted: '1 day ago' },
+                { id: 3, title: 'UI/UX Designer', company: 'Creative Studio', logo: 'CS', location: 'Mumbai', type: 'Full Time', salary: '₹12-16 LPA', tags: ['Figma', 'Adobe XD', 'Sketch'], posted: '3 days ago' },
+                { id: 4, title: 'Product Manager', company: 'Innovation Labs', logo: 'IL', location: 'Delhi', type: 'Full Time', salary: '₹20-30 LPA', tags: ['Strategy', 'Agile', 'Analytics'], posted: '5 days ago' },
+                { id: 5, title: 'DevOps Engineer', company: 'Cloud Systems', logo: 'CS', location: 'Bengaluru', type: 'Contract', salary: '₹16-22 LPA', tags: ['Docker', 'Kubernetes', 'CI/CD'], posted: '1 week ago' },
+                { id: 6, title: 'Data Scientist', company: 'Analytics Pro', logo: 'AP', location: 'Remote', type: 'Full Time', salary: '₹22-28 LPA', tags: ['Python', 'ML', 'TensorFlow'], posted: '4 days ago' },
+                { id: 7, title: 'Mobile Developer', company: 'App Innovations', logo: 'AI', location: 'Mumbai', type: 'Full Time', salary: '₹14-19 LPA', tags: ['React Native', 'iOS', 'Android'], posted: '2 days ago' },
+                { id: 8, title: 'QA Engineer', company: 'Quality First', logo: 'QF', location: 'Pune', type: 'Full Time', salary: '₹10-15 LPA', tags: ['Selenium', 'Testing', 'Automation'], posted: '6 days ago' }
+            ];
+            const job = jobs.find(j => String(j.id) === String(jobId));
+            if (!job) return;
+            fillJobUI(job);
+            showApplication();
+
+            function fillJobUI(job) {
+                // robust helpers for various job shapes
+                const getTitle = (j) => j.role || j.title || j.name || j.jobTitle || j.roleName || 'Job';
+                const getCompany = (j) => j.company || j.name || j.clientName || j.employer || '';
+                const getLocation = (j) => j.location || j.city || j.address || '';
+                const getType = (j) => j.type || j.jobStatus || j.employmentType || '';
+                const getPosted = (j) => j.posted || j.postedOn || j.createdAt || j.posted_at || '';
+                const initials = (str) => {
+                    if (!str) return 'NA';
+                    return String(str).split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase();
+                };
+
+                const title = getTitle(job);
+                const company = getCompany(job);
+                const location = getLocation(job);
+                const type = getType(job);
+                const postedRaw = getPosted(job);
+
+                // expose id for form submission
+                currentJobId = job.id;
+
+                const jdLogo = document.querySelector('.jd-logo');
+                if (jdLogo) jdLogo.textContent = job.logo || initials(company);
+
+                const companyLink = document.querySelector('.company-link');
+                if (companyLink) companyLink.href = (job.companyUrl || job.website || job.url) || 'index.html';
+
+                const jdTitle = document.querySelector('.jd-title');
+                if (jdTitle) jdTitle.textContent = title;
+
+                const jdCompany = document.querySelector('.jd-company');
+                if (jdCompany) jdCompany.textContent = company;
+
+                const jdMeta = document.querySelector('.jd-meta');
+                if (jdMeta) jdMeta.innerHTML = `<span>📍 ${location}</span><span>💼 ${type}</span>`;
+
+                const jdSkills = document.querySelector('.jd-skills');
+                if (jdSkills) jdSkills.innerHTML = (job.tags || []).map(t => `<span class="jd-skill-tag">${t}</span>`).join('');
+
+                const jdSalaryH3 = document.querySelector('.jd-salary h3');
+                if (jdSalaryH3) jdSalaryH3.textContent = job.salary || '';
+
+                const jdSalaryP = document.querySelector('.jd-salary p');
+                if (jdSalaryP) {
+                    let postedText = '';
+                    if (typeof postedRaw === 'number') {
+                        try { postedText = Math.floor((Date.now() / 1000 - postedRaw) / 86400) + ' days ago'; } catch (e) { postedText = ''; }
+                    } else if (postedRaw) {
+                        postedText = postedRaw;
+                    }
+                    jdSalaryP.textContent = postedText ? `Posted ${postedText}` : '';
+                }
+
+                // Update form header (friendly fallback when company missing)
+                const formHeaderH2 = document.querySelector('.form-header h2');
+                if (formHeaderH2) formHeaderH2.textContent = `Apply: ${title}${company ? ' at ' + company : ''}`;
+            }
+        })();
+    </script>
+</body>
+
+</html>
