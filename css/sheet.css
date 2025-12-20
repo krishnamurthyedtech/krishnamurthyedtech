@@ -147,7 +147,7 @@ button:hover {
     object-fit: cover;
     /* make image fill entire area */
     display: block;
-}
+}   
 
 .hero-content {
     position: absolute;
@@ -172,7 +172,7 @@ button:hover {
     position: relative;
     width: 100%;
     height: 90vh;
-    background: url("images/kmss-backgroundimg.webp") no-repeat center center/cover;
+    background: none; /* background handled by .hero-image img */
 }
 
 .hero-overlay {
@@ -181,10 +181,13 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 52, 118, 0.55);
+    background: rgba(0, 51, 118, 0);
     /* Blue overlay */
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* keep content on the left */
+    padding-left: 60px;
+    z-index: 2;
 }
 
 .hero-content {
@@ -208,13 +211,86 @@ button:hover {
     opacity: 0.9;
 }
 
+/* Left panel inside hero overlay */
+.hero-left {
+    max-width: 520px;
+    /* padding: 40px 48px; */
+    background: linear-gradient(90deg, rgba(6, 40, 75, 0) 0%, rgba(6, 40, 75, 0) 100%);
+    border-radius: 8px;
+}
+
+.hero-left h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.hero-left p {
+    color: rgba(255,255,255,0.92);
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.hero-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hero-features li {
+    background: rgba(255,255,255,0.06);
+    color: #cfeee1;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+
+
+.btn-custom-1 {
+    background: #29ca8e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+}
+
+.btn-custom-1:hover { background: #22b47a; }
+
+.btn-custom-2 {
+    background: transparent;
+    color: #dff7ea;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.12);
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .hero-left {
+        padding: 28px;
+        max-width: 90%;
+    }
+    .hero-left h1 { font-size: 28px; }
+    .hero-section { height: 70vh; }
+}
+
 /* SERVICE CARDS */
 .services-section {
-    margin-top: -120px;
+    margin-top: -160px; /* pulled up a bit more to overlap hero */
     /* Moves cards up to touch the hero section */
     display: flex;
     justify-content: center;
 }
+
+/* responsive tweak: less overlap on narrow screens */
+@media (max-width: 900px) {
+    .services-section { margin-top: -80px; }
+}
+
 
 .cards-container {
     display: flex;
@@ -320,6 +396,55 @@ html {
     font-size: 1rem;
     line-height: 1.6;
     color: #e0e0e0;
+}
+
+/* Header overrides for consistent logo/nav/CTA positioning */
+/* Keep logo left, center nav, pin CTA to right across pages */
+.custom-navbar .container { position: relative; }
+.custom-navbar .navbar-brand { display: flex; align-items: center; }
+.custom-navbar .navbar-brand img { display: block; max-height: 70px; }
+
+/* Center the nav area inside a constrained width so gaps look even */
+.custom-navbar .navbar-collapse { display:flex !important; justify-content:center; align-items:center; max-width: 920px; margin: 0 auto; width:100%; }
+.custom-navbar .navbar-nav { gap: 36px; display:flex; align-items:center; justify-content:center; list-style:none; margin:0; padding:0; }
+.custom-navbar .nav li a { white-space: nowrap; }
+
+/* Keep CTA pinned to the right edge but ensure it's single-line and sized */
+.custom-navbar .register-now-butto,
+.custom-navbar .navbar-right .btn,
+.custom-navbar .btn-custom-1,
+.custom-navbar .nav > li > button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+    min-width: 120px;
+    padding: 8px 14px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Make sure the button looks consistent */
+.custom-navbar .register-now-butto { background:#29ca8e; color:#fff; border:none; border-radius:6px; font-weight:600; }
+
+@media (max-width:768px) {
+    .custom-navbar .navbar-collapse { display:block !important; max-width:none; margin:0; }
+    .custom-navbar .register-now-butto,
+    .custom-navbar .navbar-right .btn,
+    .custom-navbar .btn-custom-1,
+    .custom-navbar .nav > li > button { position: relative; right:auto; transform:none; margin-top:10px; min-width: auto; white-space: normal; }
+    .custom-navbar .navbar-nav { gap:12px; justify-content:flex-start; }
+}
+
+@media (max-width: 768px) {
+    .custom-navbar .container { position: static; }
+    .custom-navbar .navbar-collapse { display: block !important; justify-content: flex-start; }
+    .custom-navbar .register-now-butto,
+    .custom-navbar .navbar-right .btn,
+    .custom-navbar .btn-custom-1,
+    .custom-navbar .nav > li > button { position: relative; right: auto; transform: none; margin-top: 10px; }
+    .custom-navbar .navbar-nav { gap: 12px; }
 }
 
 @media (max-width: 768px) {
@@ -441,6 +566,7 @@ html {
     height: 500px;
     background: linear-gradient(to right, #0b4f6c, #1f7a8c);
     position: relative;
+        margin-top: 8%;
 }
 
 .hero-overlay {
@@ -452,7 +578,7 @@ html {
 }
 
 .hero-overlay h1 {
-    font-size: 36px;
+    font-size: 50px;
     max-width: 600px;
 }
 
@@ -487,6 +613,7 @@ html {
 .service-card h3 {
     color: #0b4f6c;
     margin-bottom: 15px;
+    margin-top: 0px;
     font-size: 22px;
 }
 
@@ -570,7 +697,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f5f5f5;
     min-height: 100vh;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .register-btn {
@@ -626,7 +753,7 @@ body {
 .menu-option {
     padding: 15px;
     margin: 10px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1eb97e 0%, #49947d 100%);
     color: white;
     border-radius: 10px;
     cursor: pointer;
@@ -683,10 +810,10 @@ body {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
+    padding: 6px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     transition: border-color 0.3s;
 }
 
@@ -776,3 +903,4 @@ body {
 .back-btn:hover {
     background: #5a6268;
 }
+
