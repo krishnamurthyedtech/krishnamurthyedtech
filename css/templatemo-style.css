@@ -31,7 +31,7 @@
   }
 
   h3 {
-    font-size: 1.38em;
+    font-size: 1.37em;
     margin-bottom: 0;
   }
 
@@ -408,6 +408,7 @@
 .custom-navbar .nav li.active > a {
     background-color: #29ca8e;
     color: #ffffff;
+    
 }
 
 .custom-navbar .navbar-toggle {
@@ -1803,7 +1804,7 @@ footer .footer-info address p:hover{
 
 
 .container {
-  padding: 20px;
+  padding: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }

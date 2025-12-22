@@ -161,7 +161,7 @@
 
 
 <!-- 🌟 Career Section -->
-<section class="career-section" id="blog1">
+<section class="career-section" id="blog1" data-article="Transform Your Career">
   <!-- 🟦 Hero Section -->
   <section class="hero-section">
     <!-- 🔙 Back Button -->
@@ -252,7 +252,7 @@
 </section>
 
 <!-- 💻 Full Stack Development Section -->
-<section class="career-section" id="blog2">
+<section class="career-section" id="blog2" data-article="Why Full Stack Development">
    <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -360,7 +360,7 @@
    
 
 <!-- 🌩️ Blog 3: The Power of Cloud Computing -->
-<section class="career-section" id="blog3">
+<section class="career-section" id="blog3" data-article="The Power of Cloud Computing">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -500,7 +500,7 @@
 </section>
 
 <!-- 🤖 Blog 4: Learn AI & Machine Learning – Shape the Future -->
-<section class="career-section" id="blog4">
+<section class="career-section" id="blog4" data-article="Learn AI & Machine Learning">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -659,7 +659,7 @@
 </section>
 
 <!-- Blog 5: Data Science Training at Krishnamurthy EdTech -->
-<section class="career-section" id="blog5">
+<section class="career-section" id="blog5" data-article="How Data Science Is Transforming">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -755,7 +755,7 @@
 </section>
 
 <!-- Blog 6: The Role of DevOps in Building Modern Applications -->
-<section class="career-section" id="blog6">
+<section class="career-section" id="blog6" data-article="The Role of DevOps">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -871,7 +871,7 @@
 </section>
 
 <!-- Blog 7: Python Programming – The Language of Innovation -->
-<section class="career-section" id="blog7">
+<section class="career-section" id="blog7" data-article="Python Programming">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -982,7 +982,7 @@
   </div>
 </section>
 <!-- Blog 8: Global Recognition through International Certifications -->
-<section class="career-section" id="blog8">
+<section class="career-section" id="blog8" data-article="Global Recognition">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -1088,7 +1088,7 @@
 </section>
 
 <!-- Blog 9: Global Recognition through International Certifications -->
-<section class="career-section" id="blog9">
+<section class="career-section" id="blog9" data-article="Meet Our Trainers">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -1194,7 +1194,7 @@
 </section>
 
 <!-- Blog 10: From Learning to Earning – Real Success Stories of Our Students -->
-<section class="career-section" id="blog10">
+<section class="career-section" id="blog10" data-article="From Learning to Earning">
   <section class="hero-section">
     <!-- 🔙 Back Button -->
     <a href="index.html#blog" class="back-btn">← Back</a>
@@ -1289,23 +1289,63 @@
   document.addEventListener("DOMContentLoaded", function () {
     // Get the blog ID from the URL
     const params = new URLSearchParams(window.location.search);
-    const blogId = params.get("id");
+    const articleParam = params.get("article");
+    const idParam = params.get("id");
 
     // Hide all sections first
     document.querySelectorAll(".career-section").forEach(section => {
       section.style.display = "none";
     });
 
-    // Show the selected section only
-    if (blogId) {
-      const activeSection = document.getElementById("blog" + blogId);
-      if (activeSection) {
-        activeSection.style.display = "block";
-        window.scrollTo(0, 0); // Scroll to top when loaded
-      } else {
-        // Fallback: if invalid blog ID
-        document.body.innerHTML = "<div style='padding:50px;text-align:center'><h2>Blog not found!</h2><a href='index.html'>Back to Home</a></div>";
+    // Try matching by `article` attribute or visible title (robust matching)
+    let activeSection = null;
+    if (articleParam) {
+      // Decode and normalize the parameter so it accepts spaces, underscores, hyphens, and different casing
+      const decodeParam = decodeURIComponent(articleParam);
+      const normalize = (str) => str
+        .toString()
+        .trim()
+        .replace(/[_-]+/g, ' ')   // underscores/hyphens -> spaces
+        .replace(/[^\w\s]/g, '') // remove punctuation (e.g., '&', ',', '.', etc.)
+        .replace(/\s+/g, ' ')    // collapse whitespace
+        .toLowerCase();
+
+      const normalizedParam = normalize(decodeParam);
+
+      // Match against data-article if present, else fall back to the section's first heading text (h1/h2)
+      activeSection = Array.from(document.querySelectorAll('.career-section'))
+        .find(s => {
+          const dataArticle = s.dataset.article || '';
+          if (dataArticle && normalize(dataArticle) === normalizedParam) return true;
+
+          // Look for a heading inside the section to match against (h1 or h2)
+          const heading = s.querySelector('h1, h2');
+          if (heading && normalize(heading.textContent || '') === normalizedParam) return true;
+
+          return false;
+        });
+
+      // Fallback: partial include match (helps when param is a short slug)
+      if (!activeSection) {
+        activeSection = Array.from(document.querySelectorAll('.career-section'))
+          .find(s => {
+            const compareTo = normalize(s.dataset.article || (s.querySelector('h1, h2') ? (s.querySelector('h1, h2').textContent || '') : ''));
+            return compareTo.includes(normalizedParam) || normalizedParam.includes(compareTo);
+          });
       }
+    }
+
+    // Fallback to legacy numeric id
+    if (!activeSection && idParam) {
+      activeSection = document.getElementById("blog" + idParam);
+    }
+
+    if (activeSection) {
+      activeSection.style.display = "block";
+      window.scrollTo(0, 0); // Scroll to top when loaded
+    } else if (articleParam || idParam) {
+      // Fallback: invalid query
+      document.body.innerHTML = "<div style='padding:50px;text-align:center'><h2>Blog not found!</h2><a href='index.html'>Back to Home</a></div>";
     } else {
       // Default view (if no blog selected)
       document.getElementById("blog1").style.display = "block";
