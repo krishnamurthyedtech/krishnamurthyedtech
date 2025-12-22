@@ -423,37 +423,9 @@
 
             <div class="jd-content">
                 <h2 class="jd-section-title">Job Description</h2>
-                <p>We are looking for an experienced Senior Frontend Developer to join our dynamic team. You will be
-                    responsible for building and maintaining high-quality web applications using modern frontend
-                    technologies.</p>
-
-                <h2 class="jd-section-title">Key Responsibilities</h2>
-                <ul>
-                    <li>Develop new user-facing features using React.js</li>
-                    <li>Build reusable components and front-end libraries</li>
-                    <li>Optimize applications for maximum speed and scalability</li>
-                    <li>Collaborate with backend developers and designers</li>
-                    <li>Ensure the technical feasibility of UI/UX designs</li>
-                </ul>
-
-                <h2 class="jd-section-title">Requirements</h2>
-                <ul>
-                    <li>5+ years of experience in frontend development</li>
-                    <li>Strong proficiency in JavaScript, including ES6+</li>
-                    <li>Thorough understanding of React.js and its core principles</li>
-                    <li>Experience with popular React workflows (Redux, Context API)</li>
-                    <li>Familiarity with RESTful APIs and modern authorization mechanisms</li>
-                    <li>Knowledge of modern frontend build tools</li>
-                </ul>
-
-                <h2 class="jd-section-title">Benefits</h2>
-                <ul>
-                    <li>Competitive salary and performance bonuses</li>
-                    <li>Health insurance coverage</li>
-                    <li>Flexible working hours</li>
-                    <li>Remote work options</li>
-                    <li>Professional development opportunities</li>
-                </ul>
+                <div id="jobDescriptionContent">
+                    <!-- Job description will be populated from Pioneer Hiring Hub. -->
+                </div>
             </div>
         </div>
 
@@ -632,7 +604,8 @@
                             type: found.jobStatus || '',
                             salary: found.salary || '',
                             tags: found.skills || (found.primarySkill ? [found.primarySkill] : []),
-                            posted: found.postedOn || found.createdAt
+                            posted: found.postedOn || found.createdAt,
+                            description: found.description || found.descriptionHtml || found.jobDescription || found.summary || ''
                         };
                         fillJobUI(job);
                         showApplication();
@@ -645,14 +618,14 @@
 
             // Fallback to local sample list
             const jobs = [
-                { id: 1, title: 'Senior Frontend Developer', company: 'Tech Solutions Inc', logo: 'TS', location: 'Bengaluru', type: 'Full Time', salary: '₹15-20 LPA', tags: ['React', 'JavaScript', 'CSS'], posted: '2 days ago' },
-                { id: 2, title: 'Backend Engineer', company: 'DataCorp', logo: 'DC', location: 'Remote', type: 'Full Time', salary: '₹18-25 LPA', tags: ['Node.js', 'MongoDB', 'AWS'], posted: '1 day ago' },
-                { id: 3, title: 'UI/UX Designer', company: 'Creative Studio', logo: 'CS', location: 'Mumbai', type: 'Full Time', salary: '₹12-16 LPA', tags: ['Figma', 'Adobe XD', 'Sketch'], posted: '3 days ago' },
-                { id: 4, title: 'Product Manager', company: 'Innovation Labs', logo: 'IL', location: 'Delhi', type: 'Full Time', salary: '₹20-30 LPA', tags: ['Strategy', 'Agile', 'Analytics'], posted: '5 days ago' },
-                { id: 5, title: 'DevOps Engineer', company: 'Cloud Systems', logo: 'CS', location: 'Bengaluru', type: 'Contract', salary: '₹16-22 LPA', tags: ['Docker', 'Kubernetes', 'CI/CD'], posted: '1 week ago' },
-                { id: 6, title: 'Data Scientist', company: 'Analytics Pro', logo: 'AP', location: 'Remote', type: 'Full Time', salary: '₹22-28 LPA', tags: ['Python', 'ML', 'TensorFlow'], posted: '4 days ago' },
-                { id: 7, title: 'Mobile Developer', company: 'App Innovations', logo: 'AI', location: 'Mumbai', type: 'Full Time', salary: '₹14-19 LPA', tags: ['React Native', 'iOS', 'Android'], posted: '2 days ago' },
-                { id: 8, title: 'QA Engineer', company: 'Quality First', logo: 'QF', location: 'Pune', type: 'Full Time', salary: '₹10-15 LPA', tags: ['Selenium', 'Testing', 'Automation'], posted: '6 days ago' }
+                { id: 1, title: 'Senior Frontend Developer', company: 'Tech Solutions Inc', logo: 'TS', location: 'Bengaluru', type: 'Full Time', salary: '₹15-20 LPA', tags: ['React', 'JavaScript', 'CSS'], posted: '2 days ago', description: '<p>We are looking for an experienced Senior Frontend Developer to join our dynamic team. You will be responsible for building and maintaining high-quality web applications using modern frontend technologies.</p>' },
+                { id: 2, title: 'Backend Engineer', company: 'DataCorp', logo: 'DC', location: 'Remote', type: 'Full Time', salary: '₹18-25 LPA', tags: ['Node.js', 'MongoDB', 'AWS'], posted: '1 day ago', description: '<p>Backend Engineer responsible for API design, data modeling and scalable services.</p>' },
+                { id: 3, title: 'UI/UX Designer', company: 'Creative Studio', logo: 'CS', location: 'Mumbai', type: 'Full Time', salary: '₹12-16 LPA', tags: ['Figma', 'Adobe XD', 'Sketch'], posted: '3 days ago', description: '<p>Design delightful user experiences and create high-fidelity prototypes.</p>' },
+                { id: 4, title: 'Product Manager', company: 'Innovation Labs', logo: 'IL', location: 'Delhi', type: 'Full Time', salary: '₹20-30 LPA', tags: ['Strategy', 'Agile', 'Analytics'], posted: '5 days ago', description: '<p>Lead product vision and collaborate across teams to deliver impactful features.</p>' },
+                { id: 5, title: 'DevOps Engineer', company: 'Cloud Systems', logo: 'CS', location: 'Bengaluru', type: 'Contract', salary: '₹16-22 LPA', tags: ['Docker', 'Kubernetes', 'CI/CD'], posted: '1 week ago', description: '<p>Implement CI/CD pipelines and improve deployment reliability.</p>' },
+                { id: 6, title: 'Data Scientist', company: 'Analytics Pro', logo: 'AP', location: 'Remote', type: 'Full Time', salary: '₹22-28 LPA', tags: ['Python', 'ML', 'TensorFlow'], posted: '4 days ago', description: '<p>Work on end-to-end ML workflows including data cleaning, modeling and deployment.</p>' },
+                { id: 7, title: 'Mobile Developer', company: 'App Innovations', logo: 'AI', location: 'Mumbai', type: 'Full Time', salary: '₹14-19 LPA', tags: ['React Native', 'iOS', 'Android'], posted: '2 days ago', description: '<p>Build native and cross-platform mobile applications with great UX.</p>' },
+                { id: 8, title: 'QA Engineer', company: 'Quality First', logo: 'QF', location: 'Pune', type: 'Full Time', salary: '₹10-15 LPA', tags: ['Selenium', 'Testing', 'Automation'], posted: '6 days ago', description: '<p>Ownership of test strategy, automation and quality gates.</p>' }
             ];
             const job = jobs.find(j => String(j.id) === String(jobId));
             if (!job) return;
@@ -715,6 +688,10 @@
                 // Update form header (friendly fallback when company missing)
                 const formHeaderH2 = document.querySelector('.form-header h2');
                 if (formHeaderH2) formHeaderH2.textContent = `Apply: ${title}${company ? ' at ' + company : ''}`;
+
+                // Populate the Job Description section (supports HTML content from API)
+                const jdDescriptionDiv = document.getElementById('jobDescriptionContent');
+                if (jdDescriptionDiv) jdDescriptionDiv.innerHTML = job.description ? job.description : '<p>Job description not available.</p>';
             }
         })();
     </script>
