@@ -142,21 +142,25 @@
         }
 
         .jd-section {
-            width: 50%;
+            position: relative;
+            width: 60%;
             background: white;
-            padding: 32px;
+            padding: 36px 32px 24px; /* reduced top padding to decrease gap */
             overflow-y: auto;
             border-right: 1px solid #e5e7eb;
         }
 
         .form-section {
-            width: 50%;
+            width: 40%;
             background: #f9fafb;
             padding: 32px;
             overflow-y: auto;
         }
 
         .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -165,12 +169,15 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
-            margin-bottom: 24px;
-            transition: color 0.2s;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: color 0.2s, background-color 0.15s;
+            z-index: 20;
         }
 
         .close-btn:hover {
             color: #111827;
+            background-color: rgba(0,0,0,0.03);
         }
 
         .jd-header {
@@ -209,7 +216,7 @@
         .jd-meta {
             display: flex;
             gap: 24px;
-            margin-bottom: 16px;
+            margin-bottom: 8px; /* tightened */
             color: #6b7280;
         }
 
@@ -228,7 +235,7 @@
         }
 
         .jd-salary {
-            margin-bottom: 24px;
+            margin-bottom: 8px; /* tightened */
         }
 
         .jd-salary h3 {
@@ -243,11 +250,11 @@
         }
 
         .jd-content {
-            margin-top: 24px;
+            margin-top: 8px; /* tightened */
         }
 
         .jd-section-title {
-            font-size: 20px;
+            font-size: 30px;
             font-weight: bold;
             color: #111827;
             margin-bottom: 12px;
@@ -351,6 +358,59 @@
         .hidden {
             display: none;
         }
+
+        #jobDescriptionContent {
+            width: 100%;
+            min-height: 420px;
+            max-height: 80vh;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .jd-section {
+            position: relative;
+            width: 60%;
+            background: white;
+            padding: 36px 32px 24px; /* reduced top padding to decrease gap */
+            overflow: hidden;
+            /* hide horizontal scroll, we will scroll inside JD */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .jd-content-box {
+            flex: 1;
+            /* takes remaining vertical space */
+            overflow-y: auto;
+            /* scroll if content is long */
+            padding: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #222;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+        }
+
+        #jobDescription,
+        textarea.job-description {
+            width: 100%;
+            min-height: 180px;
+            /* increase box height */
+            resize: vertical;
+            /* allow user to resize */
+            font-size: 14px;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -423,9 +483,7 @@
 
             <div class="jd-content">
                 <h2 class="jd-section-title">Job Description</h2>
-                <div id="jobDescriptionContent">
-                    <!-- Job description will be populated from Pioneer Hiring Hub. -->
-                </div>
+                <textarea id="jobDescriptionContent" readonly></textarea>
             </div>
         </div>
 
