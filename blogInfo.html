@@ -50,14 +50,14 @@ http://www.templatemo.com/tm-516-known
             <!-- MENU LINKS -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
-                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
                     <li><a href="job-support.html">Job Support</a></li>
-                    <li><a href="#team">Teachers</a></li>
-                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="index.html#team">Trainers</a></li>
+                    <li><a href="index.html#clients">Clients</a></li>
                     <li><a href="blogInfo.html">Blogs</a></li>
                     <!-- <li><a href="#student-reviews">Reviews</a></li> -->
                     <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                     <li>
                         <button type="button" class="register-now-butto" data-toggle="modal" data-target="#demoModal">
                             Book A Demo
@@ -382,6 +382,49 @@ http://www.templatemo.com/tm-516-known
             </div>
         </div>
     </section>
+
+    <script>
+        // Close any open modal/backdrop when a nav anchor to index sections is clicked,
+        // and smooth-scroll to section when already on the index page.
+        document.addEventListener('click', function (e) {
+            const a = e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (!href) return;
+            // handle links that go to index sections
+            if (href.startsWith('index.html#') || href.startsWith('#')) {
+                // Close Bootstrap modals if jQuery is available
+                try {
+                    if (window.jQuery && jQuery.fn.modal) {
+                        jQuery('.modal.in, .modal.show').modal('hide');
+                    } else {
+                        document.querySelectorAll('.modal').forEach(m => {
+                            m.classList.remove('in', 'show');
+                            m.style.display = 'none';
+                        });
+                        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                    }
+                } catch (err) { /* ignore */ }
+
+                // Hide custom overlay if present
+                const overlay = document.getElementById('overlay');
+                if (overlay) overlay.style.display = 'none';
+
+                // Smooth scroll if already on index page
+                const parts = href.split('#');
+                const id = parts[1];
+                if (id && document.getElementById(id)) {
+                    // if this is a same-page hash or we are already on index, prevent default and smooth scroll
+                    const isIndex = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '';
+                    if (href.startsWith('#') && isIndex) {
+                        e.preventDefault();
+                        document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.replaceState(null, '', '#'+id);
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 
