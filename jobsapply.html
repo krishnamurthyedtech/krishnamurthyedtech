@@ -255,41 +255,46 @@
         }
 
         .jd-section-title {
-            font-size: 30px;
-            font-weight: bold;
+            font-size: 30px; /* reduced main title size */
+            font-weight: 800; /* strong bold for main section title */
             color: #111827;
-            margin-bottom: 12px;
-            margin-top: 24px;
+            margin-bottom: 12px; /* balanced gap below title */
+            margin-top: 16px;
+            line-height: 1.2;
         }
 
         /* Subtitles found inside the job description text */
         .jd-subtitle {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 18px; /* slightly reduced subtitle size */
+            font-weight: 800; /* stronger bold for subtitles */
             color: #111827;
-            margin: 12px 0 8px;
+            margin: 10px 0 10px; /* consistent gap above and below subtitles */
+            line-height: 1.25;
         }
 
         .jd-content p {
             color: #374151;
-            line-height: 1.45;
-            margin-bottom: 8px; /* reduced gap between paragraphs */
+            line-height: 1.6;
+            margin-bottom: 10px; /* slightly larger gap between paragraphs */
+            font-size: 15px; /* larger paragraph text */
         }
         /* Field-style rows (Label: Value) for compact alignment */
         .jd-field {
             display: flex;
             gap: 12px;
             align-items: baseline;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
         .jd-field-label {
-            font-weight: 600;
+            font-weight: 500; /* normal weight for field labels */
             color: #111827;
             min-width: 140px; /* ensure labels line up in a column */
+            font-size: 15px;
         }
         .jd-field-value {
             color: #374151;
             flex: 1;
+            font-size: 15px;
         }
 
 
@@ -297,11 +302,12 @@
             color: #374151;
             line-height: 1.6;
             margin-left: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .jd-content ul li {
-            font-weight: 600; /* bold bullets */
-            margin-bottom: 6px;
+            font-weight: 400; /* normal bullets */
+            margin-bottom: 8px;
+            font-size: 15px; /* slightly larger bullet text */
         }
         .jd-content ul li::marker {
             color: #374151; /* ensure bullet marker matches text color */
@@ -318,7 +324,7 @@
         }
 
         .form-header h2 {
-            font-size: 24px;
+            font-size: 23px;
             font-weight: bold;
             color: #111827;
             margin-bottom: 8px;
@@ -397,8 +403,8 @@
             overflow-y: auto;
             padding: 12px;
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 16px; /* larger body font */
+            line-height: 1.8;
             color: #222;
             background-color: #fff;
         }
@@ -749,7 +755,8 @@
                 }
             }
 
-            for (let rawLine of lines) {
+            for (let i = 0; i < lines.length; i++) {
+                const rawLine = lines[i];
                 const line = rawLine.trim();
                 if (!line) {
                     // empty line -> small break (no visible separator)
@@ -757,15 +764,27 @@
                     continue;
                 }
 
-                // bullet/list handling (lines starting with * or -)
-                if (/^[\*\-]\s+/.test(line)) {
-                    if (!inList) { html += '<ul>'; inList = true; }
-                    html += `<li>${line.replace(/^[\*\-]\s+/, '')}</li>`;
+                // If current line is followed by a bullet list, treat it as a subtitle heading (even if it ends with a colon)
+                let nextIndex = i + 1;
+                while (nextIndex < lines.length && !lines[nextIndex].trim()) nextIndex++;
+                const nextLine = nextIndex < lines.length ? lines[nextIndex].trim() : '';
+                if (/^[\*\-\u2022]\s+/.test(nextLine) && !/^[\*\-\u2022]\s+/.test(line)) {
+                    // Render as subtitle (strip trailing colon if present)
+                    closeList();
+                    const subtitleText = line.replace(/:$/,'');
+                    html += `<h3 class="jd-subtitle">${subtitleText}</h3>`;
+                    continue;
+                }
+
+                // bullet/list handling (lines starting with * or - or •)
+                if (/^[\*\-\u2022]\s+/.test(line)) {
+                    if (!inList) { html += '<ul style="margin-top:6px;">'; inList = true; }
+                    html += `<li>${line.replace(/^[\*\-\u2022]\s+/, '')}</li>`;
                     continue;
                 }
 
                 // Headings that should appear bold as subtitles (allowing parentheses and a few common variants)
-                const headingMatch = line.match(/^(Job Description|Key Responsibilities|Required Skills(?:\s*\([^\)]*\))?|Good to Have Skills|Frontend|Database|DevOps\s*&\s*Tools)\s*:?\s*$/i);
+                const headingMatch = line.match(/^(Job Description|Key Responsibilities|Required Skills(?:\s*\([^\)]*\))?|Good to Have Skills|Frontend|Database|DevOps\s*&\s*Tools|Basic Skills Required)\s*:?\s*$/i);
                 if (headingMatch) {
                     closeList();
                     html += `<h3 class="jd-subtitle">${headingMatch[1]}</h3>`;
@@ -773,7 +792,7 @@
                 }
 
                 // Field-like lines 'Label: value' -> render as aligned row
-                const fv = line.match(/^([A-Za-z0-9 \-()\/&]{1,40})\s*:\s*(.+)$/);
+                const fv = line.match(/^([A-Za-z0-9 \-()\/&]{1,60})\s*:\s*(.+)$/);
                 if (fv) {
                     closeList();
                     const label = fv[1].trim();
