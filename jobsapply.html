@@ -145,9 +145,10 @@
             position: relative;
             width: 60%;
             background: white;
-            padding: 36px 32px 24px; /* reduced top padding to decrease gap */
-            overflow-y: auto;
-            border-right: 1px solid #e5e7eb;
+            padding: 36px 32px 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-section {
@@ -216,7 +217,7 @@
         .jd-meta {
             display: flex;
             gap: 24px;
-            margin-bottom: 8px; /* tightened */
+            margin-bottom: 8px;
             color: #6b7280;
         }
 
@@ -235,7 +236,7 @@
         }
 
         .jd-salary {
-            margin-bottom: 8px; /* tightened */
+            margin-bottom: 8px;
         }
 
         .jd-salary h3 {
@@ -250,7 +251,7 @@
         }
 
         .jd-content {
-            margin-top: 8px; /* tightened */
+            margin-top: 8px;
         }
 
         .jd-section-title {
@@ -261,17 +262,49 @@
             margin-top: 24px;
         }
 
+        /* Subtitles found inside the job description text */
+        .jd-subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin: 12px 0 8px;
+        }
+
         .jd-content p {
             color: #374151;
-            line-height: 1.6;
-            margin-bottom: 16px;
+            line-height: 1.45;
+            margin-bottom: 8px; /* reduced gap between paragraphs */
         }
+        /* Field-style rows (Label: Value) for compact alignment */
+        .jd-field {
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+        .jd-field-label {
+            font-weight: 600;
+            color: #111827;
+            min-width: 140px; /* ensure labels line up in a column */
+        }
+        .jd-field-value {
+            color: #374151;
+            flex: 1;
+        }
+
 
         .jd-content ul {
             color: #374151;
-            line-height: 1.8;
+            line-height: 1.6;
             margin-left: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
+        }
+        .jd-content ul li {
+            font-weight: 600; /* bold bullets */
+            margin-bottom: 6px;
+        }
+        .jd-content ul li::marker {
+            color: #374151; /* ensure bullet marker matches text color */
         }
 
         /* Form Styles */
@@ -359,57 +392,15 @@
             display: none;
         }
 
-        #jobDescriptionContent {
-            width: 100%;
-            min-height: 420px;
-            max-height: 80vh;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            outline: none;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            padding: 16px;
-            overflow-y: auto;
-        }
-
-        .jd-section {
-            position: relative;
-            width: 60%;
-            background: white;
-            padding: 36px 32px 24px; /* reduced top padding to decrease gap */
-            overflow: hidden;
-            /* hide horizontal scroll, we will scroll inside JD */
-            display: flex;
-            flex-direction: column;
-        }
-
         .jd-content-box {
             flex: 1;
-            /* takes remaining vertical space */
             overflow-y: auto;
-            /* scroll if content is long */
             padding: 12px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
             line-height: 1.7;
             color: #222;
             background-color: #fff;
-            border-radius: 8px;
-            border: 1px solid #d1d5db;
-        }
-
-        #jobDescription,
-        textarea.job-description {
-            width: 100%;
-            min-height: 180px;
-            /* increase box height */
-            resize: vertical;
-            /* allow user to resize */
-            font-size: 14px;
-            padding: 10px;
         }
     </style>
 </head>
@@ -481,9 +472,9 @@
                 <p>Posted 2 days ago</p>
             </div>
 
-            <div class="jd-content">
+           <div class="jd-content">
                 <h2 class="jd-section-title">Job Description</h2>
-                <textarea id="jobDescriptionContent" readonly></textarea>
+                <div id="jobDescriptionContent" class="jd-content-box"></div>
             </div>
         </div>
 
@@ -533,7 +524,6 @@
         }
 
         function closeApplication() {
-            // If the page was opened via a job link (contains jobId), go back to the jobs listing
             const params = new URLSearchParams(window.location.search);
             const jobId = params.get('jobId');
             if (jobId) {
@@ -541,17 +531,13 @@
                 return;
             }
 
-
-            // Otherwise just show the card view as before
             document.getElementById('cardView').classList.remove('hidden');
             document.getElementById('splitView').classList.remove('active');
         }
 
-        // Track the job id shown on the page so it can be sent with the resume
         let currentJobId = null;
 
         async function submitApplication() {
-            // Determine job id from URL param or the page state set by populateFromQuery
             const paramsForSubmit = new URLSearchParams(window.location.search);
             const jobid = paramsForSubmit.get('jobId') || currentJobId || '';
             if (!jobid) {
@@ -569,7 +555,6 @@
                 return;
             }
 
-            // Enforce max file size (5MB)
             const MAX_BYTES = 5 * 1024 * 1024;
             if (resume.size > MAX_BYTES) {
                 alert('File size exceeds 5MB. Please upload a smaller resume.');
@@ -577,14 +562,11 @@
             }
 
             const formData = new FormData();
-            // include multiple common field names to match backend expectations
             formData.append('userResume', resume);
             formData.append('resume', resume);
             formData.append('file', resume);
-            // also include jobId explicitly in form data as a safeguard
             formData.append('jobId', jobid);
 
-            // Prepare headers - only Authorization is safe to add with FormData (do not set Content-Type)
             const headers = {};
             const token = localStorage.getItem('authToken');
             if (token) headers['Authorization'] = `Bearer ${token}`;
@@ -596,10 +578,9 @@
                     body: formData
                 });
 
-                // Attempt to read response body (text first, then try JSON)
                 const respText = await response.text();
                 let respJson = null;
-                try { respJson = respText ? JSON.parse(respText) : null; } catch (e) { /* not JSON */ }
+                try { respJson = respText ? JSON.parse(respText) : null; } catch (e) { }
 
                 if (!response.ok) {
                     console.error('Resume upload failed', response.status, respText, respJson);
@@ -617,9 +598,6 @@
             }
         }
 
-
-        // Populate job details from query params if present.
-        // Uses sessionStorage 'selectedJob' (set by jobs.html) if available; otherwise tries to fetch from the API; falls back to local sample list.
         (async function populateFromQuery() {
             const ORG_ID = 352;
             const BASE_URL = 'https://pioneercoders.krishnamurthyedtechapi.com/api/v1';
@@ -629,7 +607,6 @@
             const jobId = params.get('jobId');
             if (!jobId) return;
 
-            // Try sessionStorage first
             const selected = sessionStorage.getItem('selectedJob');
             if (selected) {
                 try {
@@ -639,10 +616,9 @@
                         showApplication();
                         return;
                     }
-                } catch (e) { /* ignore parse error */ }
+                } catch (e) { }
             }
 
-            // Try to fetch job from API by searching a page and finding the id (no dedicated job-by-id endpoint known)
             try {
                 const searchUrl = `${BASE_URL}/${ORG_ID}/job/search?size=100&page=0`;
                 const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
@@ -674,7 +650,6 @@
                 console.warn('Job fetch error', err);
             }
 
-            // Fallback to local sample list
             const jobs = [
                 { id: 1, title: 'Senior Frontend Developer', company: 'Tech Solutions Inc', logo: 'TS', location: 'Bengaluru', type: 'Full Time', salary: '₹15-20 LPA', tags: ['React', 'JavaScript', 'CSS'], posted: '2 days ago', description: '<p>We are looking for an experienced Senior Frontend Developer to join our dynamic team. You will be responsible for building and maintaining high-quality web applications using modern frontend technologies.</p>' },
                 { id: 2, title: 'Backend Engineer', company: 'DataCorp', logo: 'DC', location: 'Remote', type: 'Full Time', salary: '₹18-25 LPA', tags: ['Node.js', 'MongoDB', 'AWS'], posted: '1 day ago', description: '<p>Backend Engineer responsible for API design, data modeling and scalable services.</p>' },
@@ -691,7 +666,6 @@
             showApplication();
 
             function fillJobUI(job) {
-                // robust helpers for various job shapes
                 const getTitle = (j) => j.role || j.title || j.name || j.jobTitle || j.roleName || 'Job';
                 const getCompany = (j) => j.company || j.name || j.clientName || j.employer || '';
                 const getLocation = (j) => j.location || j.city || j.address || '';
@@ -708,7 +682,6 @@
                 const type = getType(job);
                 const postedRaw = getPosted(job);
 
-                // expose id for form submission
                 currentJobId = job.id;
 
                 const jdLogo = document.querySelector('.jd-logo');
@@ -743,15 +716,87 @@
                     jdSalaryP.textContent = postedText ? `Posted ${postedText}` : '';
                 }
 
-                // Update form header (friendly fallback when company missing)
                 const formHeaderH2 = document.querySelector('.form-header h2');
                 if (formHeaderH2) formHeaderH2.textContent = `Apply: ${title}${company ? ' at ' + company : ''}`;
 
-                // Populate the Job Description section (supports HTML content from API)
                 const jdDescriptionDiv = document.getElementById('jobDescriptionContent');
-                if (jdDescriptionDiv) jdDescriptionDiv.innerHTML = job.description ? job.description : '<p>Job description not available.</p>';
+                jdDescriptionDiv.innerHTML = formatJobDescription(job.description);
             }
         })();
+
+        function formatJobDescription(text) {
+            if (!text) return '<p>Job description not available.</p>';
+
+            // Escape HTML chars first
+            let escaped = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            // Normalize Windows and Unix newlines and split into lines
+            const lines = escaped.split(/\r?\n/).map(l => l.replace(/\s+$/,'')).filter((l, idx, arr) => {
+                // Keep empty lines (we will use them to add small separators)
+                return true;
+            });
+
+            let html = '';
+            let inList = false;
+
+            function closeList() {
+                if (inList) {
+                    html += '</ul>';
+                    inList = false;
+                }
+            }
+
+            for (let rawLine of lines) {
+                const line = rawLine.trim();
+                if (!line) {
+                    // empty line -> small break (no visible separator)
+                    closeList();
+                    continue;
+                }
+
+                // bullet/list handling (lines starting with * or -)
+                if (/^[\*\-]\s+/.test(line)) {
+                    if (!inList) { html += '<ul>'; inList = true; }
+                    html += `<li>${line.replace(/^[\*\-]\s+/, '')}</li>`;
+                    continue;
+                }
+
+                // Headings that should appear bold as subtitles (allowing parentheses and a few common variants)
+                const headingMatch = line.match(/^(Job Description|Key Responsibilities|Required Skills(?:\s*\([^\)]*\))?|Good to Have Skills|Frontend|Database|DevOps\s*&\s*Tools)\s*:?\s*$/i);
+                if (headingMatch) {
+                    closeList();
+                    html += `<h3 class="jd-subtitle">${headingMatch[1]}</h3>`;
+                    continue;
+                }
+
+                // Field-like lines 'Label: value' -> render as aligned row
+                const fv = line.match(/^([A-Za-z0-9 \-()\/&]{1,40})\s*:\s*(.+)$/);
+                if (fv) {
+                    closeList();
+                    const label = fv[1].trim();
+                    const value = fv[2].trim();
+                    html += `<div class="jd-field"><div class="jd-field-label">${label}:</div><div class="jd-field-value">${value}</div></div>`;
+                    continue;
+                }
+
+                // Otherwise a regular paragraph (keep as small paragraph)
+                closeList();
+                html += `<p>${line}</p>`;
+            }
+
+            closeList();
+
+            // Highlight some keywords if present
+            html = html.replace(
+                /(Hiring Alert|Open Positions|Eligibility & Skills Required|Interested candidates|Company\s*:)/gi,
+                '<strong>$1</strong>'
+            );
+
+            return html;
+        }
     </script>
 </body>
 
