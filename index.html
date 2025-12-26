@@ -32,7 +32,74 @@ http://www.templatemo.com/tm-516-known
      <link rel="stylesheet" href="css/templatemo-style.css">
      <link rel="stylesheet" href="css/sheet.css">
 
-</head>
+     <style>
+          /* Team cards: equal height, image cover, and responsive tweaks */
+          #team .col-md-3 {
+               display: flex;
+          }
+
+          #team .team-thumb {
+               display: flex;
+               flex-direction: column;
+               flex: 1 1 auto;
+               min-height: 420px;
+               /* consistent card height */
+               background: #fff;
+               border-radius: 6px;
+               overflow: hidden;
+               box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+               margin: 8px 0;
+          }
+
+          #team .team-image {
+               height: 240px;
+               overflow: hidden;
+          }
+
+          #team .team-image img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               display: block;
+          }
+
+          #team .team-info {
+               padding: 20px;
+               text-align: center;
+          }
+
+          #team .team-info h3 {
+               margin-bottom: 6px;
+          }
+
+          #team .team-info span {
+               color: #777;
+               font-size: 14px;
+          }
+
+          #team .team-thumb .social-icon {
+               display: flex;
+               justify-content: center;
+               gap: 12px;
+               padding: 12px 0 18px;
+               margin-top: auto;
+          }
+
+          #team .team-thumb .social-icon li a {
+               color: #2d9c6a;
+          }
+
+          /* Adjust heights for smaller screens */
+          @media (max-width: 767px) {
+               #team .team-thumb {
+                    min-height: 360px;
+               }
+
+               #team .team-image {
+                    height: 180px;
+               }
+          }
+     </style>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -48,7 +115,7 @@ http://www.templatemo.com/tm-516-known
                     </button>
                     <!-- lOGO TEXT HERE -->
                     <a href="index.html" class="navbar-brand" aria-label="Home">
-                        <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
+                         <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
                     </a>
                </div>
 
@@ -80,9 +147,8 @@ http://www.templatemo.com/tm-516-known
                <div class="modal-content p-4">
                     <div class="modal-header border-0 pb-2 d-flex justify-content-center align-items-center">
                          <h4 class="modal-title font-weight-bold m-0 " id="demoModalLabel">Book A Demo Now</h4>
-                         <button type="button" class="close position-absolute" style="right:20px;" data-dismiss="modal"
-                              aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
+                         <button type="button" class="modal-close-square" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true" class="modal-close-icon">&times;</span>
                          </button>
                     </div>
                     <div class="modal-body pt-0">
@@ -90,7 +156,7 @@ http://www.templatemo.com/tm-516-known
 
                          <!-- Right Form -->
                          <div class="col-md-12">
-                              <form id="demoForm">
+                              <form id="demoForm" novalidate>
                                    <!-- Row for Name and Email -->
                                    <div class="row">
                                         <div class="col-md-6">
@@ -98,7 +164,8 @@ http://www.templatemo.com/tm-516-known
                                                   <label for="username" class="form-label">Name <span
                                                             class="text-danger">*</span></label>
                                                   <input type="text" class="form-control" id="username"
-                                                       placeholder="Enter Name">
+                                                       placeholder="Enter Name" required>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
                                         </div>
                                         <div class="col-md-6">
@@ -106,7 +173,8 @@ http://www.templatemo.com/tm-516-known
                                                   <label for="email" class="form-label">Email <span
                                                             class="text-danger">*</span></label>
                                                   <input type="email" class="form-control" id="email"
-                                                       placeholder="Email">
+                                                       placeholder="Email" required>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
                                         </div>
                                    </div>
@@ -115,76 +183,151 @@ http://www.templatemo.com/tm-516-known
                                    <div class="row">
                                         <div class="col-md-6">
                                              <div class="form-group mb-3">
-                                                  <label for="mobile" class="form-label">Mobile Number <span
+                                                  <label class="form-label">Mobile Number <span
                                                             class="text-danger">*</span></label>
-                                                  <input type="tel" class="form-control" id="mobile"
-                                                       placeholder="Mobile Number">
+                                                  <div class="phone-row">
+                                                       <div class="country-code">
+                                                            <select class="form-control country-select" id="countryCode"
+                                                                 required>
+                                                                 <option value="+91">India (+91)</option>
+                                                                 <option value="+1">United States (+1)</option>
+                                                                 <option value="+93">Afghanistan (+93)</option>
+                                                                 <option value="+880">Bangladesh (+880)</option>
+                                                                 <option value="+975">Bhutan (+975)</option>
+                                                                 <option value="+86">China (+86)</option>
+                                                                 <option value="+852">Hong Kong (+852)</option>
+                                                                 <option value="+62">Indonesia (+62)</option>
+                                                                 <option value="+81">Japan (+81)</option>
+                                                                 <option value="+82">South Korea (+82)</option>
+                                                                 <option value="+60">Malaysia (+60)</option>
+                                                                 <option value="+95">Myanmar (+95)</option>
+                                                                 <option value="+977">Nepal (+977)</option>
+                                                                 <option value="+92">Pakistan (+92)</option>
+                                                                 <option value="+63">Philippines (+63)</option>
+                                                                 <option value="+65">Singapore (+65)</option>
+                                                                 <option value="+94">Sri Lanka (+94)</option>
+                                                                 <option value="+66">Thailand (+66)</option>
+                                                                 <option value="+84">Vietnam (+84)</option>
+                                                                 <option value="+971">UAE (+971)</option>
+                                                                 <option value="+966">Saudi Arabia (+966)</option>
+                                                                 <option value="+974">Qatar (+974)</option>
+                                                                 <option value="+968">Oman (+968)</option>
+                                                                 <option value="+973">Bahrain (+973)</option>
+                                                                 <option value="+965">Kuwait (+965)</option>
+                                                                 <option value="+972">Israel (+972)</option>
+                                                                 <option value="+98">Iran (+98)</option>                                                          
+                                                                 <option value="+44">United Kingdom (+44)</option>
+                                                                 <option value="+49">Germany (+49)</option>
+                                                                 <option value="+33">France (+33)</option>
+                                                                 <option value="+39">Italy (+39)</option>
+                                                                 <option value="+34">Spain (+34)</option>
+                                                                 <option value="+31">Netherlands (+31)</option>
+                                                                 <option value="+46">Sweden (+46)</option>
+                                                                 <option value="+41">Switzerland (+41)</option>
+                                                                 <option value="+47">Norway (+47)</option>
+                                                                 <option value="+45">Denmark (+45)</option>
+                                                                 <option value="+48">Poland (+48)</option>
+                                                                 <option value="+7">Russia (+7)</option>
+                                                                 <option value="+1">Canada (+1)</option>
+                                                                 <option value="+52">Mexico (+52)</option>
+                                                                 <option value="+55">Brazil (+55)</option>
+                                                                 <option value="+54">Argentina (+54)</option>
+                                                                 <option value="+56">Chile (+56)</option>
+                                                                 <option value="+57">Colombia (+57)</option>
+                                                                 <option value="+51">Peru (+51)</option>
+                                                                 <option value="+27">South Africa (+27)</option>
+                                                                 <option value="+234">Nigeria (+234)</option>
+                                                                 <option value="+20">Egypt (+20)</option>
+                                                                 <option value="+254">Kenya (+254)</option>
+                                                                 <option value="+256">Uganda (+256)</option>
+                                                                 <option value="+233">Ghana (+233)</option>
+                                                                 <option value="+61">Australia (+61)</option>
+                                                                 <option value="+64">New Zealand (+64)</option>
+                                                            </select>
+
+                                                            <div class="invalid-feedback">This field is required</div>
+                                                       </div>
+                                                       <div class="phone-wrapper">
+                                                            <input type="tel" class="form-control" id="mobile"
+                                                                 placeholder="Phone Number" required>
+                                                            <div class="invalid-feedback">This field is required</div>
+                                                       </div>
+                                                  </div>
                                              </div>
                                         </div>
                                         <div class="col-md-6">
                                              <div class="form-group mb-3">
-                                                  <label for="country" class="form-label">Country</label>
-                                                  <input type="text" class="form-control" id="country"
-                                                       placeholder="Country">
+                                                  <label for="country" class="form-label">Country <span
+                                                            class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control" id="country" placeholder="Country" required>
+                                                  <div class="invalid-feedback">This field is required</div>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
                                         </div>
-
-
                                    </div>
 
                                    <!-- Single column fields -->
                                    <div class="row">
                                         <div class="col-md-6">
                                              <div class="form-group mb-3">
-                                                  <label for="technology" class="form-label">Technology Name</label>
+                                                  <label for="technology" class="form-label">Technology Name <span
+                                                            class="text-danger">*</span></label>
                                                   <input type="text" class="form-control" id="technology"
-                                                       placeholder="Technology name">
+                                                       placeholder="Technology name" required>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
 
                                         </div>
                                         <div class="col-md-6">
                                              <div class="form-group mb-4">
-                                                  <label for="startDate" class="form-label">Preferred Date</label>
-                                                  <input type="date" class="form-control" id="startDate"
-                                                       placeholder="dd-mm-yyyy">
+                                                  <label class="form-label">Preferred Date &amp; Time <span
+                                                            class="text-danger">*</span></label>
+                                                  <div class="datetime-row">
+                                                       <div class="date-wrapper">
+                                                            <input type="date" class="form-control" id="startDate"
+                                                                 required>
+                                                            <div class="invalid-feedback">This field is required</div>
+                                                       </div>
+                                                       <div class="time-wrapper">
+                                                            <input type="time" class="form-control" id="startTime"
+                                                                 required>
+                                                            <div class="invalid-feedback">This field is required</div>
+                                                       </div>
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
                                    <div class="row">
-                                        <div class="col-md-6">
-                                             <div class="form-group mb-4">
-                                                  <label for="startTime" class="form-label">Preferred Time</label>
-                                                  <input type="time" class="form-control" id="startTime">
-                                             </div>
-                                        </div>
 
                                         <div class="col-md-6">
                                              <div class="form-group mb-3">
-                                                  <label for="timezone" class="form-label">TimeZone</label>
-                                                  <select class="form-control" id="timezone">
+                                                  <label for="timezone" class="form-label">TimeZone <span
+                                                            class="text-danger">*</span></label>
+                                                  <select class="form-control" id="timezone" required>
                                                        <option value="IST" selected>IST</option>
                                                        <option value="EST">EST</option>
                                                        <option value="CST">CST</option>
                                                        <option value="DST">DST</option>
                                                        <option value="PST">PST</option>
                                                   </select>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
                                         </div>
-                                   </div>
-                                   <div class="row">
+
                                         <div class="col-md-6">
                                              <div class="form-group mb-3">
-                                                  <label for="EnrollmentType" class="form-label">Enrollment Type</label>
-                                                  <select class="form-control " id="EnrollmentType">
+                                                  <label for="EnrollmentType" class="form-label">Enrollment Type <span
+                                                            class="text-danger">*</span></label>
+                                                  <select class="form-control" id="EnrollmentType" required>
                                                        <option value="Training" selected>Training</option>
                                                        <option value="JobSupport">Job Support</option>
                                                        <option value="Internship">Internship</option>
-                                                       <option value="Internship">Outsourcing</option>
+                                                       <option value="Outsourcing">Outsourcing</option>
                                                   </select>
+                                                  <div class="invalid-feedback">This field is required</div>
                                              </div>
                                         </div>
                                    </div>
-
 
                                    <div class="form-group mb-3">
                                         <label for="description" class="form-label">Description</label>
@@ -501,8 +644,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher 1.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher 1.jpg" class="img-responsive" alt="">
                                                        <span>Naveen</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -615,8 +757,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher_4.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher_4.jpg" class="img-responsive" alt="">
                                                        <span>Hari Krishna</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -653,8 +794,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher_4.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher_4.jpg" class="img-responsive" alt="">
                                                        <span>Hari Krishna</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -695,8 +835,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher 1.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher 1.jpg" class="img-responsive" alt="">
                                                        <span>Naveen</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -734,8 +873,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher_5.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher_5.jpg" class="img-responsive" alt="">
                                                        <span>Kushal M</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -775,8 +913,7 @@ http://www.templatemo.com/tm-516-known
                                              </div>
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/Teacher_6.jpg" class="img-responsive"
-                                                            alt="">
+                                                       <img src="images/Teacher_6.jpg" class="img-responsive" alt="">
                                                        <span>Sai Kiran</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -989,7 +1126,8 @@ http://www.templatemo.com/tm-516-known
                                              <h4>Trie Coders SOFTWARE SOLUTIONS</h4>
                                              <span>INNOVATIVE SOFTWARE SERVICES</span>
                                              <p>
-                                                  Trie Coders, based in Bangalore, delivers software and digital solutions
+                                                  Trie Coders, based in Bangalore, delivers software and digital
+                                                  solutions
                                                   tailored to diverse technological needs with excellence and
                                                   reliability.
                                              </p>
@@ -1766,7 +1904,7 @@ http://www.templatemo.com/tm-516-known
                               <div class="section-title">
                                    <h2>Newsletter Signup</h2>
                               </div>
-                              <div>
+                              <div class="news-letter">
                                    <div class="form-group">
                                         <form action="#" method="get">
                                              <input type="email" class="form-control" placeholder="Enter your email"
@@ -1801,48 +1939,48 @@ http://www.templatemo.com/tm-516-known
 
      <script src="demo-form-submit.js"></script>
 
-    <script>
-        // Close any open modal/backdrop when a nav anchor to index sections is clicked,
-        // and smooth-scroll to section when already on the index page.
-        document.addEventListener('click', function (e) {
-            const a = e.target.closest('a');
-            if (!a) return;
-            const href = a.getAttribute('href');
-            if (!href) return;
-            // handle links that go to index sections
-            if (href.startsWith('index.html#') || href.startsWith('#')) {
-                // Close Bootstrap modals if jQuery is available
-                try {
-                    if (window.jQuery && jQuery.fn.modal) {
-                        jQuery('.modal.in, .modal.show').modal('hide');
-                    } else {
-                        document.querySelectorAll('.modal').forEach(m => {
-                            m.classList.remove('in', 'show');
-                            m.style.display = 'none';
-                        });
-                        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-                    }
-                } catch (err) { /* ignore */ }
+     <script>
+          // Close any open modal/backdrop when a nav anchor to index sections is clicked,
+          // and smooth-scroll to section when already on the index page.
+          document.addEventListener('click', function (e) {
+               const a = e.target.closest('a');
+               if (!a) return;
+               const href = a.getAttribute('href');
+               if (!href) return;
+               // handle links that go to index sections
+               if (href.startsWith('index.html#') || href.startsWith('#')) {
+                    // Close Bootstrap modals if jQuery is available
+                    try {
+                         if (window.jQuery && jQuery.fn.modal) {
+                              jQuery('.modal.in, .modal.show').modal('hide');
+                         } else {
+                              document.querySelectorAll('.modal').forEach(m => {
+                                   m.classList.remove('in', 'show');
+                                   m.style.display = 'none';
+                              });
+                              document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                         }
+                    } catch (err) { /* ignore */ }
 
-                // Hide custom overlay if present
-                const overlay = document.getElementById('overlay');
-                if (overlay) overlay.style.display = 'none';
+                    // Hide custom overlay if present
+                    const overlay = document.getElementById('overlay');
+                    if (overlay) overlay.style.display = 'none';
 
-                // Smooth scroll if already on index page
-                const parts = href.split('#');
-                const id = parts[1];
-                if (id && document.getElementById(id)) {
-                    // if this is a same-page hash or we are already on index, prevent default and smooth scroll
-                    const isIndex = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '';
-                    if (href.startsWith('#') && isIndex) {
-                        e.preventDefault();
-                        document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        history.replaceState(null, '', '#'+id);
+                    // Smooth scroll if already on index page
+                    const parts = href.split('#');
+                    const id = parts[1];
+                    if (id && document.getElementById(id)) {
+                         // if this is a same-page hash or we are already on index, prevent default and smooth scroll
+                         const isIndex = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '';
+                         if (href.startsWith('#') && isIndex) {
+                              e.preventDefault();
+                              document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              history.replaceState(null, '', '#' + id);
+                         }
                     }
-                }
-            }
-        });
-    </script>
+               }
+          });
+     </script>
 
 </body>
 
