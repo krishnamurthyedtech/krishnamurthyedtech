@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Krishnamurthy EdTech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* 🌐 Navbar */
+    .navbar {
+      background-color: white;
+      padding: 10px 40px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      height: 45px;
+    }
+
+    /* Reduce height of the blue header */
+    .header-section {
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      /* blue gradient */
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+      /* reduce padding (height) */
+    }
+
+    /* Style the title text */
+    .header-section h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    /* Add gap between blue box and next section */
+    .section-title {
+      margin-top: 60px;
+      /* adds space below the blue box */
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    /* 🟦 Hero Section */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(180deg, #222b91 0%, #333 100%);
+      color: white;
+      text-align: center;
+      padding: 30px 5px;
+      /* reduced bottom padding */
+    }
+
+    .hero-section h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    .date-tag {
+      display: inline-block;
+      color: #9fc5ff;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    /* 🔙 Back Button */
+    .back-btn {
+      position: absolute;
+      top: 42px;
+      left: 20px;
+      /* background-color: #007bff; */
+      color: white;
+      padding: 6px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background-color: #558ac3;
+    }
+
+    /* 📸 Blog Image with slight overlap */
+    .blog-image {
+      display: flex;
+      justify-content: center;
+      margin-top: -50px;
+      /* slightly reduced overlap */
+      position: relative;
+      z-index: 20;
+      padding-bottom: 40px;
+      /* spacing below image */
+    }
+
+    .blog-image img {
+      width: 90%;
+      /* slightly larger for better visibility */
+      max-width: 600px;
+      /* adjusted max-width */
+      border-radius: 12px;
+      box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.35);
+      background-color: white;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .blog-image img {
+        width: 95%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-section h1 {
+        font-size: 1.6rem;
+      }
+
+      .back-btn {
+        top: 15px;
+        left: 15px;
+        padding: 5px 12px;
+        font-size: 13px;
+      }
+
+      .blog-image {
+        margin-top: -30px;
+        padding-bottom: 30px;
+      }
+    }
+
+    /* Product Detail Image Styling */
+    .product-detail-image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      margin-top: 20px;
+    }
+
+    .product-detail-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
+      background-color: white;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail-image img {
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .product-detail-image {
+        margin-bottom: 30px;
+        margin-top: 15px;
+      }
+
+      .product-detail-image img {
+        max-width: 100%;
+      }
+    }
+
+    /* Product Back Button */
+    .product-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .product-back-btn:hover {
+      background-color: #0056b3;
+      color: white;
+      text-decoration: none;
+    }
+
+    .product-back-btn::before {
+      content: "←";
+      font-size: 18px;
+    }
+
+    @media (max-width: 576px) {
+      .product-back-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .product-back-btn::before {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌐 Navbar with Logo -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <img src="images/logo_kmedtech (1).png" alt="KMEdTech Logo">
+      </a>
+    </div>
+  </nav>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- 🌟 Career Section -->
+<!-- <section class="product-detail-section" id="product1" data-article="Building IT Solutions That Empower">
+  <div class="container"> -->
+
+    <!-- Back Button -->
+    <!-- <a href="our-products.html" class="product-back-btn">Back</a> -->
+
+    <!-- Product Image -->
+    <!-- <div class="product-detail-image">
+      <img src="images/pioneercodershiringhub.PNG" alt="Pioneer Coder Hiring Hub">
+    </div> -->
+
+    <!-- Product Title -->
+    <!-- <div class="product-header">
+      <h1>Pioneer Coder Hiring Hub</h1>
+      <p class="product-tagline">Building IT Solutions That Empower.</p>
+    </div> -->
+
+    <!-- Product Description -->
+    <!-- <div class="product-content">
+      <p>
+        Pioneer Coder Hiring Hub is an end-to-end IT consulting and staffing platform
+        designed to bridge the gap between businesses and cutting-edge technology.
+        The platform enables organizations to access skilled professionals and
+        tailored technology solutions to meet dynamic business needs.
+      </p>
+
+      <p>
+        With expertise in software development, web and mobile applications, and
+        resource augmentation, Pioneer Coder Hiring Hub empowers organizations to
+        innovate, scale efficiently, and achieve long-term success through a
+        customer-first approach.
+      </p>
+
+      <p>
+        The platform delivers comprehensive IT solutions with a strong focus on
+        quality, innovation, and reliability, ensuring businesses can align their
+        goals with modern technology advancements.
+      </p>
+    </div> -->
+
+    <!-- Product Highlights -->
+    <!-- <div class="product-features">
+      <h4>Key Features</h4>
+      <ul>
+        <li>IT consulting and staffing solutions</li>
+        <li>Skilled resource augmentation</li>
+        <li>Software, web, and mobile application development</li>
+        <li>Scalable and business-focused technology solutions</li>
+        <li>Customer-first and quality-driven delivery</li>
+      </ul>
+    </div>
+
+  </div>
+</section> -->
+
+
+<section class="product-detail-section" id="product2" data-article="Empowering Coders, Transforming Careers">
+  <div class="container">
+
+    <!-- Back Button -->
+    <a href="our-products.html" class="product-back-btn">Back</a>
+
+    <!-- Product Image -->
+    <div class="product-detail-image">
+      <img src="images/pioneerlndhub.PNG" alt="Learning & Development Hub">
+    </div>
+
+    <!-- Product Title -->
+    <div class="product-header">
+      <h1>Learning & Development Hub</h1>
+      <p class="product-tagline">Empowering Coders, Transforming Careers.</p>
+    </div>
+
+    <!-- Product Description -->
+    <div class="product-content">
+      <p>
+        Learning & Development Hub is a trusted platform designed for aspiring and
+        experienced developers, offering structured programming courses, job
+        support, and real-world project training to build industry-ready skills.
+      </p>
+
+      <p>
+        With expertise in leading technologies such as Java, Python, and Node.js,
+        the platform equips learners with practical knowledge and deep industry
+        insights. Engaging learning methods including hands-on projects,
+        hackathons, and quizzes create a dynamic and results-driven learning
+        experience.
+      </p>
+
+      <p>
+        Beyond training, the platform provides innovative tools such as
+        time-tracking systems, smart application trackers, and workflow
+        optimization solutions to enhance productivity for enterprises and
+        small-to-medium businesses.
+      </p>
+
+      <p>
+        We go beyond implementation by modernizing IT infrastructures and
+        addressing industry-specific challenges, ensuring organizations remain
+        competitive, agile, and future-ready. Every solution is designed with a
+        strong focus on precision, innovation, and customer-centric outcomes.
+      </p>
+    </div>
+
+    <!-- Product Highlights -->
+    <div class="product-features">
+      <h4>Key Features</h4>
+      <ul>
+        <li>Programming courses with real-world project training</li>
+        <li>Job support and career-focused learning paths</li>
+        <li>Hands-on learning through hackathons and assessments</li>
+        <li>Productivity and workflow optimization tools</li>
+        <li>Modernized, scalable, and business-aligned solutions</li>
+      </ul>
+    </div>
+
+    <!-- Product Link -->
+    <p class="product-link">
+      For more details, visit our official website:
+      <a href="#" target="_blank">L&amp;D Hub</a>
+    </p>
+
+  </div>
+</section>
+
+
+
+<section class="product-detail-section"
+         id="product3"
+         data-article="Custom IT Solutions & Technology Services">
+  <div class="container">
+
+    <!-- Back Button -->
+    <a href="our-products.html" class="product-back-btn">Back</a>
+
+    <!-- Product Image -->
+    <div class="product-detail-image">
+      <img src="images/pioneercoders net.PNG" alt="PioneerCoders">
+    </div>
+
+    <!-- Product Title -->
+    <div class="product-header">
+      <h1>Pioneercoders</h1>
+      <p class="product-tagline">Custom IT Solutions & Technology Services.</p>
+    </div>
+
+    <!-- Product Description -->
+    <div class="product-content">
+      <p>
+        Pioneercoders is a professional IT solutions platform specializing in
+        custom web and mobile application development, digital solutions, and
+        technology consulting. The platform helps businesses build high-quality
+        digital products that support growth and innovation.
+      </p>
+
+      <p>
+        With strong expertise in responsive website development, intuitive UI/UX
+        design, and scalable application architecture, Pioneercoders ensures a
+        seamless digital experience across devices and platforms.
+      </p>
+
+      <p>
+        Beyond development, the platform offers digital marketing, SEO, networking
+        support, wireframing, and ongoing maintenance services—combining strategy,
+        creativity, and technology to deliver measurable business outcomes.
+      </p>
+    </div>
+
+    <!-- Product Highlights -->
+    <div class="product-features">
+      <h4>Key Features</h4>
+      <ul>
+        <li>Custom web and mobile application development</li>
+        <li>User-centric UI/UX design</li>
+        <li>Digital marketing and SEO services</li>
+        <li>Hosting, maintenance, and network support</li>
+        <li>Strategic planning and wireframing</li>
+      </ul>
+    </div>
+
+    <!-- Product Link -->
+    <p class="product-link">
+      For more details, visit our official website:
+      <a href="https://pioneercoders.net/" target="_blank">Pioneercoders</a>
+    </p>
+
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the blog ID from the URL
+    const params = new URLSearchParams(window.location.search);
+    const articleParam = params.get("article");
+    const idParam = params.get("id");
+
+    // Hide all product sections first
+    document.querySelectorAll(".product-detail-section").forEach(section => {
+      section.style.display = "none";
+    });
+
+    // Try matching by `article` attribute or visible title (robust matching)
+    let activeSection = null;
+    if (articleParam) {
+      // Decode and normalize the parameter so it accepts spaces, underscores, hyphens, and different casing
+      const decodeParam = decodeURIComponent(articleParam);
+      const normalize = (str) => str
+        .toString()
+        .trim()
+        .replace(/[_-]+/g, ' ')   // underscores/hyphens -> spaces
+        .replace(/[^\w\s]/g, '') // remove punctuation (e.g., '&', ',', '.', etc.)
+        .replace(/\s+/g, ' ')    // collapse whitespace
+        .toLowerCase();
+
+      const normalizedParam = normalize(decodeParam);
+
+      // Match against data-article if present, else fall back to the section's first heading text (h1/h2)
+      activeSection = Array.from(document.querySelectorAll('.product-detail-section'))
+        .find(s => {
+          const dataArticle = s.dataset.article || '';
+          if (dataArticle && normalize(dataArticle) === normalizedParam) return true;
+
+          // Look for a heading inside the section to match against (h1 or h2)
+          const heading = s.querySelector('h1, h2');
+          if (heading && normalize(heading.textContent || '') === normalizedParam) return true;
+
+          return false;
+        });
+
+      // Fallback: partial include match (helps when param is a short slug)
+      if (!activeSection) {
+        activeSection = Array.from(document.querySelectorAll('.product-detail-section'))
+          .find(s => {
+            const compareTo = normalize(s.dataset.article || (s.querySelector('h1, h2') ? (s.querySelector('h1, h2').textContent || '') : ''));
+            return compareTo.includes(normalizedParam) || normalizedParam.includes(compareTo);
+          });
+      }
+    }
+
+    // Fallback to legacy numeric id
+    if (!activeSection && idParam) {
+      activeSection = document.getElementById("product" + idParam);
+    }
+
+    if (activeSection) {
+      activeSection.style.display = "block";
+      window.scrollTo(0, 0); // Scroll to top when loaded
+    } else if (articleParam || idParam) {
+      // Fallback: invalid query
+      document.body.innerHTML = "<div style='padding:50px;text-align:center'><h2>Product not found!</h2><a href='our-products.html'>Back to Products</a></div>";
+    } else {
+      // Default view (if no product selected)
+      document.getElementById("product1").style.display = "block";
+    }
+  });
+</script>
+
+</body>
+
+</html>
