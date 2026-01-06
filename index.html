@@ -99,6 +99,94 @@ http://www.templatemo.com/tm-516-known
                     height: 180px;
                }
           }
+
+          /* Services cards layout */
+          .cards-container {
+               display: grid;
+               grid-template-columns: repeat(4, minmax(0, 1fr));
+               gap: 30px;
+               justify-items: stretch;
+               align-items: start;
+               margin: 0px 0;
+               padding: 0 15px;
+               box-sizing: border-box;
+               max-width: 1325px;
+               margin-left: auto;
+               margin-right: auto;
+          }
+
+          .service-card {
+               background: #fff;
+               border-radius: 8px;
+               padding: 28px 24px;
+               box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+               box-sizing: border-box;
+               text-align: center;
+               min-height: 320px;
+          }
+
+          .service-card h3 {
+               margin-top: 0;
+               margin-bottom: 12px;
+               color: #0b6b6b;
+               font-weight: 700;
+          }
+
+          .service-list {
+               margin-top: 16px;
+               padding-left: 0;
+               list-style: none;
+               color: #555;
+          }
+
+          .service-list li {
+               padding-left: 20px;
+               position: relative;
+               text-align: left;
+          }
+
+          .service-list li::before {
+               content: "\2713";
+               color: #2d9c6a;
+               position: absolute;
+               left: 0;
+          }
+
+          .card-btn {
+               margin-top: 18px;
+               padding: 10px 18px;
+               background: #2d9c6a;
+               color: #fff;
+               border: none;
+               border-radius: 4px;
+               cursor: pointer;
+          }
+
+          .card-btn:hover {
+               opacity: 0.9;
+          }
+
+          /* Responsive */
+          @media (max-width: 991px) {
+               .cards-container {
+                    grid-template-columns: repeat(2, 1fr);
+               }
+
+               .service-card {
+                    min-height: 300px;
+               }
+          }
+
+          @media (max-width: 575px) {
+               .cards-container {
+                    grid-template-columns: 1fr;
+               }
+
+               .service-card {
+                    min-height: auto;
+                    padding: 20px;
+               }
+          }
      </style>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -126,6 +214,7 @@ http://www.templatemo.com/tm-516-known
                          <li><a href="job-support.html">Job Support</a></li>
                          <li><a href="index.html#team">Trainers</a></li>
                          <li><a href="index.html#clients">Clients</a></li>
+                         <li><a href="our-products.html">Our Products</a></li>
                          <li><a href="blogInfo.html">Blogs</a></li>
                          <!-- <li><a href="#student-reviews">Reviews</a></li> -->
                          <li><a href="jobs.html">Jobs</a></li>
@@ -215,7 +304,7 @@ http://www.templatemo.com/tm-516-known
                                                                  <option value="+973">Bahrain (+973)</option>
                                                                  <option value="+965">Kuwait (+965)</option>
                                                                  <option value="+972">Israel (+972)</option>
-                                                                 <option value="+98">Iran (+98)</option>                                                          
+                                                                 <option value="+98">Iran (+98)</option>
                                                                  <option value="+44">United Kingdom (+44)</option>
                                                                  <option value="+49">Germany (+49)</option>
                                                                  <option value="+33">France (+33)</option>
@@ -259,7 +348,8 @@ http://www.templatemo.com/tm-516-known
                                              <div class="form-group mb-3">
                                                   <label for="country" class="form-label">Country <span
                                                             class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control" id="country" placeholder="Country" required>
+                                                  <input type="text" class="form-control" id="country"
+                                                       placeholder="Country" required>
                                                   <div class="invalid-feedback">This field is required</div>
                                                   <div class="invalid-feedback">This field is required</div>
                                              </div>
@@ -539,6 +629,7 @@ http://www.templatemo.com/tm-516-known
                          <li> IT Training</li>
                          <li> Job Support</li>
                          <li> IT Outsourcing</li>
+                         <li> SaaS Products</li>
                     </ul>
                </div>
           </div>
@@ -594,8 +685,8 @@ http://www.templatemo.com/tm-516-known
                <div class="service-card">
                     <h3>Outsourcing</h3>
                     <p>
-                         Reliable IT outsourcing services to support your business and scale your technology operations.
-                         We provide skilled professionals and end-to-end technical solutions.
+                         Reliable IT outsourcing services to support your business and scale operations, delivering
+                         skilled professionals and end-to-end technical solutions.
                     </p>
 
                     <ul class="service-list">
@@ -605,6 +696,23 @@ http://www.templatemo.com/tm-516-known
                     </ul>
 
                     <button class="card-btn">Partner With Us</button>
+               </div>
+
+               <!-- SaaS Products Card -->
+               <div class="service-card">
+                    <h3>SaaS Products</h3>
+                    <p>
+                         Scalable and secure SaaS solutions designed to streamline business processes,
+                         improve productivity, and support digital transformation.
+                    </p>
+
+                    <ul class="service-list">
+                         <li> Cloud-based scalable solutions</li>
+                         <li> Secure and reliable platforms</li>
+                         <li> Easy integration & maintenance</li>
+                    </ul>
+
+                    <button class="card-btn" onclick="location.href='our-products.html'">Explore Products</button>
                </div>
 
           </div>

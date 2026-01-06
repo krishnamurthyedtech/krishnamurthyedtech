@@ -817,7 +817,7 @@ html {
 .service-card p {
     color: #555;
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 /* RESPONSIVE */
@@ -1228,3 +1228,4 @@ body {
     display: flex;
     justify-content: center;
 }
+
