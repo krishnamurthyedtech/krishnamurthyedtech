@@ -1,3 +1,177 @@
+/* --- Responsive: Team/Teachers Section --- */
+@media (max-width: 991px) {
+  #team .col-md-3, #team .col-sm-6 {
+    width: 48%;
+    max-width: 350px;
+    margin: 1% auto;
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #team .row {
+    text-align: center;
+  }
+  .team-thumb {
+    height: 410px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 767px) {
+  #team .col-md-3, #team .col-sm-6 {
+    width: 90%;
+    max-width: 400px;
+    margin: 12px auto !important;
+    float: none;
+    display: block;
+  }
+  #team .row {
+    text-align: center;
+  }
+  .team-thumb {
+    height: auto;
+    min-width: 90vw;
+    max-width: 98vw;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding-bottom: 18px;
+  }
+  .team-image {
+    height: 200px;
+  }
+  .team-info {
+    padding: 16px 8px 8px 8px;
+  }
+  .team-info h3 {
+    font-size: 1.2em;
+  }
+  .team-info span {
+    font-size: 1em;
+  }
+  .social-icon {
+    margin-bottom: 0;
+  }
+}
+/* --- Navbar Responsive Fix --- */
+
+@media (max-width: 991px) {
+  .custom-navbar .navbar-collapse {
+    display: none !important;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 9999;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+  }
+  .custom-navbar .navbar-collapse.in,
+  .custom-navbar .navbar-collapse.show {
+    display: block !important;
+    max-height: 1000px;
+    overflow: visible;
+  }
+  .custom-navbar .navbar-nav {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+  .custom-navbar .navbar-nav > li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+  .custom-navbar .navbar-nav > li:last-child {
+    border-bottom: none;
+  }
+  .custom-navbar .nav li a {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    color: #252525;
+    background: none;
+    border-radius: 0;
+    text-align: left;
+  }
+  .custom-navbar .navbar-toggle {
+    display: block !important;
+    float: right;
+    margin-top: 18px;
+    margin-right: 10px;
+  }
+  .custom-navbar .navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-navbar .navbar-collapse {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+  }
+  .custom-navbar .navbar-toggle {
+    display: none !important;
+  }
+}
+
+/* --- Service Cards Responsive Fix --- */
+@media (max-width: 991px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 0 8px;
+  }
+  .service-card {
+    min-height: 240px;
+    padding: 18px 10px;
+  }
+}
+@media (max-width: 575px) {
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 4px;
+  }
+  .service-card {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 14px 6px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+  }
+  .service-card h3 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  .service-list {
+    margin-top: 10px;
+  }
+  .card-btn {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1em;
+  }
+}
 @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
 
   body {
