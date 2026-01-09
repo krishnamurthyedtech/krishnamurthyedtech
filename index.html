@@ -187,7 +187,14 @@ http://www.templatemo.com/tm-516-known
                     padding: 20px;
                }
           }
+
+          /* Active nav highlight */
+          .nav-active, .navbar-nav .active > a, .navbar-nav > li.active > a {
+            border-bottom: 3px solid #2ad19d;
+            color: #2ad19d !important;
+        }
      </style>
+     
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -210,15 +217,15 @@ http://www.templatemo.com/tm-516-known
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
-                         <li><a href="index.html#courses">Courses</a></li>
-                         <li><a href="job-support.html">Job Support</a></li>
-                         <li><a href="index.html#team">Trainers</a></li>
-                         <li><a href="index.html#clients">Clients</a></li>
-                         <li><a href="our-products.html">Our Products</a></li>
-                         <li><a href="blogInfo.html">Blogs</a></li>
+                         <li><a href="index.html#courses" id="nav-courses">Courses</a></li>
+                         <li><a href="job-support.html" id="nav-jobsupport">Job Support</a></li>
+                         <li><a href="index.html#team" id="nav-trainers">Trainers</a></li>
+                         <li><a href="index.html#clients" id="nav-clients">Clients</a></li>
+                         <li><a href="our-products.html" id="nav-products">Our Products</a></li>
+                         <li><a href="blogInfo.html" id="nav-blogs">Blogs</a></li>
                          <!-- <li><a href="#student-reviews">Reviews</a></li> -->
-                         <li><a href="jobs.html">Jobs</a></li>
-                         <li><a href="index.html#contact">Contact</a></li>
+                         <li><a href="jobs.html" id="nav-jobs">Jobs</a></li>
+                         <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
                          <li>
                               <button type="button" class="register-now-butto" data-toggle="modal"
                                    data-target="#demoModal">
@@ -626,6 +633,7 @@ http://www.templatemo.com/tm-516-known
                          scalable IT outsourcing solutions.</p>
 
                     <ul class="hero-features">
+                         <li> Internship</li>
                          <li> IT Training</li>
                          <li> Job Support</li>
                          <li> IT Outsourcing</li>
@@ -641,14 +649,14 @@ http://www.templatemo.com/tm-516-known
 
                <!-- Training Card -->
                <div class="service-card">
-                    <h3>Training</h3>
+                    <h3>Intrenship & Trainings</h3>
                     <p>
-                         Empower your career with expert-led training designed for real industry needs.
+                         Empower your career with expert-led internship & trainings designed for real industry needs.
                          Master in-demand technologies with hands-on projects and job-ready skills.
                     </p>
 
                     <ul class="service-list">
-                         <li>Instructor-led training</li>
+                         <li>Instructor-led internships & trainings</li>
                          <li>Real-time project exposure</li>
                          <li>Career-focused learning path</li>
                     </ul>
@@ -685,14 +693,15 @@ http://www.templatemo.com/tm-516-known
                <div class="service-card">
                     <h3>Outsourcing</h3>
                     <p>
-                         Reliable IT outsourcing services to support your business and scale operations, delivering
-                         skilled professionals and end-to-end technical solutions.
+                         Reliable IT outsourcing services to support your business hiring needs and scale operations,
+                         delivering
+                         skilled professionals in different technologies.
                     </p>
 
                     <ul class="service-list">
                          <li> Dedicated skilled resources</li>
-                         <li> End-to-end IT solutions</li>
-                         <li> Quality-focused delivery</li>
+                         <li> Quickly full fill your Hiring needs</li>
+                         <li> Quality Profiles and Candidates</li>
                     </ul>
 
                     <button class="card-btn">Partner With Us</button>
@@ -702,13 +711,13 @@ http://www.templatemo.com/tm-516-known
                <div class="service-card">
                     <h3>SaaS Products</h3>
                     <p>
-                         Scalable and secure SaaS solutions designed to streamline business processes,
-                         improve productivity, and support digital transformation.
+                         Scalable and secure SaaS solutions designed to streamline learning and hiring processes,
+                         improve learning, and support digital transformation.
                     </p>
 
                     <ul class="service-list">
                          <li> Cloud-based scalable solutions</li>
-                         <li> Secure and reliable platforms</li>
+                         <li> Secure and reliable platforms for learning</li>
                          <li> Easy integration & maintenance</li>
                     </ul>
 
@@ -1947,6 +1956,7 @@ http://www.templatemo.com/tm-516-known
           <div class="container">
                <div class="row">
 
+                    <!-- LEFT: Headquarter -->
                     <div class="col-md-4 col-sm-6">
                          <div class="footer-info special">
                               <div class="section-title">
@@ -1954,13 +1964,14 @@ http://www.templatemo.com/tm-516-known
                                         <svg width="14" height="20" viewBox="0 0 14 20"
                                              xmlns="http://www.w3.org/2000/svg">
                                              <path d="M12.9213 3.4249C11.7076 1.33021 9.55162 0.0504883 7.15416 0.00158203C7.05181 -0.000527344 6.9488 -0.000527344 
-                                             6.84642 0.00158203C4.449 0.0504883 2.29306 1.33021 1.07923 3.4249C-0.161468 5.566 -0.195414 8.13787 0.988414 
-                                             10.3047L5.94791 19.3823C5.95013 19.3863 5.95236 19.3904 5.95466 19.3944C6.17287 19.7736 6.56377 20 7.00037 20C7.43693 20 
-                                             7.82783 19.7736 8.04599 19.3944C8.0483 19.3904 8.05052 19.3863 8.05275 19.3823L13.0122 10.3047C14.196 8.13787 
-                                             14.162 5.566 12.9213 3.4249ZM7.00029 9.06252C5.44947 9.06252 4.18779 7.80084 4.18779 6.25002C4.18779 4.6992 
-                                             5.44947 3.43752 7.00029 3.43752C8.55111 3.43752 9.81279 4.6992 9.81279 6.25002C9.81279 7.80084 8.55115 9.06252 
-                                             7.00029 9.06252Z"></path>
-                                        </svg>Headquarter
+                                6.84642 0.00158203C4.449 0.0504883 2.29306 1.33021 1.07923 3.4249C-0.161468 5.566 -0.195414 8.13787 0.988414 
+                                10.3047L5.94791 19.3823C5.95013 19.3863 5.95236 19.3904 5.95466 19.3944C6.17287 19.7736 6.56377 20 7.00037 20C7.43693 20 
+                                7.82783 19.7736 8.04599 19.3944C8.0483 19.3904 8.05052 19.3863 8.05275 19.3823L13.0122 10.3047C14.196 8.13787 
+                                14.162 5.566 12.9213 3.4249ZM7.00029 9.06252C5.44947 9.06252 4.18779 7.80084 4.18779 6.25002C4.18779 4.6992 
+                                5.44947 3.43752 7.00029 3.43752C8.55111 3.43752 9.81279 4.6992 9.81279 6.25002C9.81279 7.80084 8.55115 9.06252 
+                                7.00029 9.06252Z"></path>
+                                        </svg>
+                                        Headquarter
                                    </h2>
                               </div>
                               <a href="#" class="address-link">
@@ -1971,6 +1982,7 @@ http://www.templatemo.com/tm-516-known
                          </div>
                     </div>
 
+                    <!-- CENTER: Contact Info -->
                     <div class="col-md-4 col-sm-6">
                          <div class="footer-info">
                               <div class="section-title">
@@ -1978,35 +1990,29 @@ http://www.templatemo.com/tm-516-known
                               </div>
                               <address>
                                    <p>+91 9482169636</p>
-                                   <p><a href="mailto:contact@krishnamurthyedtech.com">contact@krishnamurthyedtech.com</a>
+                                   <p><a href="mailto:contact@krishnamurthyedtech.com"
+                                             style="color: #bdc3c7; text-decoration: none;">contact@krishnamurthyedtech.com</a>
                                    </p>
                               </address>
 
                               <div class="footer_menu">
                                    <ul class="social-icon">
                                         <li><a href="https://www.linkedin.com/company/krishnamurthyedtech/"
-                                                  class="fa fa-linkedin-square" attr="linkedin icon"></a></li>
+                                                  class="fa fa-linkedin-square" aria-label="linkedin"></a></li>
                                         <li><a href="https://www.facebook.com/profile.php?id=61582280556220&sk=friends"
-                                                  class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                        <li><a href="https://wa.me/919482169636" class="fa fa-whatsapp"></a></li>
+                                                  class="fa fa-facebook-square" aria-label="facebook"></a></li>
+                                        <li><a href="https://wa.me/919482169636" class="fa fa-whatsapp"
+                                                  aria-label="whatsapp"></a></li>
                                         <li><a href="https://www.instagram.com/krishnamurthy_edtech/"
-                                                  class="fa fa-instagram"></a></li>
-                                        <li><a href="https://x.com/Krishanmurthy99" class="fa fa-twitter"></a></li>
-
-
-
+                                                  class="fa fa-instagram" aria-label="instagram"></a></li>
+                                        <li><a href="https://x.com/Krishanmurthy99" class="fa fa-twitter"
+                                                  aria-label="twitter"></a></li>
                                    </ul>
-                                   <!--<h2>Quick Links</h2>
-                    <ul>
-                         <li><a href="#">Career</a></li>
-                         <li><a href="#">Investor</a></li>
-                         <li><a href="#">Terms & Conditions</a></li>
-                         <li><a href="#">Refund Policy</a></li>
-                    </ul>-->
                               </div>
                          </div>
                     </div>
 
+                    <!-- RIGHT: Newsletter Signup -->
                     <div class="col-md-4 col-sm-12">
                          <div class="footer-info newsletter-form">
                               <div class="section-title">
@@ -2016,7 +2022,7 @@ http://www.templatemo.com/tm-516-known
                                    <div class="form-group">
                                         <form action="#" method="get">
                                              <input type="email" class="form-control" placeholder="Enter your email"
-                                                  name="email" id="email" required="">
+                                                  name="email" id="email" required>
                                              <input type="submit" class="form-control" name="submit" id="form-submit"
                                                   value="Send me">
                                         </form>
@@ -2025,13 +2031,11 @@ http://www.templatemo.com/tm-516-known
                               </div>
                          </div>
                     </div>
+
                </div>
           </div>
      </footer>
-     <div class="copyright-text">
-          <p>Copyright &copy; 2024 KrishnamurthyEdTech. All Rights Reserved.</p>
 
-     </div>
 
 
 
@@ -2047,48 +2051,57 @@ http://www.templatemo.com/tm-516-known
 
      <script src="demo-form-submit.js"></script>
 
-     <script>
-          // Close any open modal/backdrop when a nav anchor to index sections is clicked,
-          // and smooth-scroll to section when already on the index page.
-          document.addEventListener('click', function (e) {
-               const a = e.target.closest('a');
-               if (!a) return;
-               const href = a.getAttribute('href');
-               if (!href) return;
-               // handle links that go to index sections
-               if (href.startsWith('index.html#') || href.startsWith('#')) {
-                    // Close Bootstrap modals if jQuery is available
-                    try {
-                         if (window.jQuery && jQuery.fn.modal) {
-                              jQuery('.modal.in, .modal.show').modal('hide');
-                         } else {
-                              document.querySelectorAll('.modal').forEach(m => {
-                                   m.classList.remove('in', 'show');
-                                   m.style.display = 'none';
-                              });
-                              document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-                         }
-                    } catch (err) { /* ignore */ }
-
-                    // Hide custom overlay if present
-                    const overlay = document.getElementById('overlay');
-                    if (overlay) overlay.style.display = 'none';
-
-                    // Smooth scroll if already on index page
-                    const parts = href.split('#');
-                    const id = parts[1];
-                    if (id && document.getElementById(id)) {
-                         // if this is a same-page hash or we are already on index, prevent default and smooth scroll
-                         const isIndex = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '';
-                         if (href.startsWith('#') && isIndex) {
-                              e.preventDefault();
-                              document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                              history.replaceState(null, '', '#' + id);
-                         }
+    <script>
+        // Highlight active nav item based on URL or hash, and update on hash change
+        function updateNavHighlight() {
+            var navMap = {
+                'courses': 'nav-courses',
+                'job-support': 'nav-jobsupport',
+                'team': 'nav-trainers',
+                'clients': 'nav-clients',
+                'our-products': 'nav-products',
+                'bloginfo': 'nav-blogs',
+                'blogs': 'nav-blogs',
+                'jobs': 'nav-jobs',
+                'contact': 'nav-contact'
+            };
+            var path = window.location.pathname.toLowerCase();
+            var hash = window.location.hash.toLowerCase();
+            // Remove highlight from all first
+            Object.values(navMap).forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.remove('nav-active');
+            });
+            var found = false;
+            // Check for hash-based navigation (for index.html#section)
+            if (path.endsWith('index.html') || path === '/' || path === '') {
+                for (var key in navMap) {
+                    if (hash.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
                     }
-               }
-          });
-     </script>
+                }
+                // Default to Courses if on index.html and no hash
+                if (!found && document.getElementById('nav-courses')) {
+                    document.getElementById('nav-courses').classList.add('nav-active');
+                }
+            } else {
+                // For other pages, match by filename
+                for (var key in navMap) {
+                    if (path.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
+                    }
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateNavHighlight);
+        window.addEventListener('hashchange', updateNavHighlight);
+    </script>
 
 </body>
 

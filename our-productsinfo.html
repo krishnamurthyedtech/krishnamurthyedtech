@@ -4,11 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | Krishnamurthy EdTech</title>
+  <title>Our Products | Krishnamurthy EdTech</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* 🌐 Navbar */
+    :root {
+      --primary-green: #0d6e4f;
+      --secondary-green: #10b981;
+      --accent-color: #059669;
+      --light-bg: #f0fdf4;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
     .navbar {
       background-color: white;
       padding: 10px 40px;
@@ -19,196 +32,358 @@
       height: 45px;
     }
 
-    /* Reduce height of the blue header */
-    .header-section {
-      background: linear-gradient(to bottom, #1e3c72, #2a5298);
-      /* blue gradient */
-      color: white;
-      text-align: center;
-      padding: 40px 0;
-      /* reduce padding (height) */
+    /* Product Section Styles */
+    .product-detail-section {
+      display: none;
     }
 
-    /* Style the title text */
-    .header-section h1 {
-      font-size: 2.5rem;
-      margin: 0;
+    .product-detail-section.active {
+      display: block;
     }
 
-    /* Add gap between blue box and next section */
-    .section-title {
-      margin-top: 60px;
-      /* adds space below the blue box */
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    /* 🟦 Hero Section */
+    /* Hero Section */
     .hero-section {
-      position: relative;
-      background: linear-gradient(180deg, #222b91 0%, #333 100%);
+      background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
       color: white;
-      text-align: center;
-      padding: 30px 5px;
-      /* reduced bottom padding */
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-section h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
+      margin-bottom: 20px;
     }
 
-    .date-tag {
-      display: inline-block;
-      color: #9fc5ff;
-      margin-bottom: 15px;
-      font-size: 1rem;
+    .hero-section .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
     }
 
-    /* 🔙 Back Button */
     .back-btn {
       position: absolute;
-      top: 42px;
+      top: 20px;
       left: 20px;
-      /* background-color: #007bff; */
+      background-color: rgba(255, 255, 255, 0.2);
       color: white;
-      padding: 6px 16px;
+      padding: 8px 20px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 14px;
-      transition: background 0.3s ease;
-      z-index: 1000;
+      transition: all 0.3s ease;
+      z-index: 10;
     }
 
     .back-btn:hover {
-      background-color: #558ac3;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
     }
 
-    /* 📸 Blog Image with slight overlap */
-    .blog-image {
-      display: flex;
-      justify-content: center;
-      margin-top: -50px;
-      /* slightly reduced overlap */
-      position: relative;
-      z-index: 20;
-      padding-bottom: 40px;
-      /* spacing below image */
+    /* Content Sections */
+    .content-section {
+      padding: 60px 0;
     }
 
-    .blog-image img {
-      width: 90%;
-      /* slightly larger for better visibility */
-      max-width: 600px;
-      /* adjusted max-width */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content-text {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* Two Column Layout */
+    .two-column-section {
+      background: white;
+    }
+
+    .column-card {
+      background: var(--light-bg);
       border-radius: 12px;
-      box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.35);
-      background-color: white;
+      padding: 40px;
+      height: 100%;
+      border-left: 4px solid var(--secondary-green);
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
+    .column-card h3 {
+      color: var(--primary-green);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .column-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .column-card li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    .column-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--secondary-green);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .feature-card h4 {
+      color: var(--primary-green);
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .feature-card p,
+    .feature-card ul {
+      color: #555;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .feature-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-card li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .feature-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--secondary-green);
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    /* Why Section */
+    .why-section {
+      background: var(--light-bg);
+    }
+
+    .why-list {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .why-list li {
+      padding: 15px 0;
+      padding-left: 40px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .why-list li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: #dc3545;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .why-list.checkmarks li::before {
+      content: '✓';
+      color: var(--secondary-green);
+      font-size: 1.5rem;
+    }
+
+    /* Target Audience Cards */
+    .audience-card {
+      background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+      color: white;
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      height: 100%;
+    }
+
+    .audience-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .audience-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .audience-card li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .audience-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-custom {
+      background-color: white;
+      color: var(--primary-green);
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 2px solid white;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: transparent;
+      color: white;
+    }
+
+    .btn-secondary-custom {
+      background-color: transparent;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary-custom:hover {
+      background-color: white;
+      color: var(--primary-green);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       .hero-section h1 {
         font-size: 2rem;
       }
 
-      .blog-image img {
-        width: 95%;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .hero-section h1 {
-        font-size: 1.6rem;
+      .hero-section .tagline {
+        font-size: 1.2rem;
       }
 
-      .back-btn {
-        top: 15px;
-        left: 15px;
-        padding: 5px 12px;
-        font-size: 13px;
+      .section-title {
+        font-size: 1.8rem;
       }
 
-      .blog-image {
-        margin-top: -30px;
-        padding-bottom: 30px;
-      }
-    }
-
-    /* Product Detail Image Styling */
-    .product-detail-image {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-      margin-top: 20px;
-    }
-
-    .product-detail-image img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
-      background-color: white;
-    }
-
-    @media (max-width: 768px) {
-      .product-detail-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .product-detail-image {
+      .column-card {
         margin-bottom: 30px;
-        margin-top: 15px;
       }
 
-      .product-detail-image img {
-        max-width: 100%;
-      }
-    }
-
-    /* Product Back Button */
-    .product-back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 100;
-    }
-
-    .product-back-btn:hover {
-      background-color: #0056b3;
-      color: white;
-      text-decoration: none;
-    }
-
-    .product-back-btn::before {
-      content: "←";
-      font-size: 18px;
-    }
-
-    @media (max-width: 576px) {
-      .product-back-btn {
-        padding: 8px 16px;
-        font-size: 13px;
-        margin-bottom: 20px;
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .product-back-btn::before {
-        font-size: 16px;
+      .btn-primary-custom,
+      .btn-secondary-custom {
+        width: 100%;
+        max-width: 300px;
       }
     }
   </style>
@@ -216,7 +391,7 @@
 
 <body>
 
-  <!-- 🌐 Navbar with Logo -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="index.html">
@@ -225,273 +400,443 @@
     </div>
   </nav>
 
+  <!-- ========== PRODUCT 1: PioneerLndHub ========== -->
+  <section class="product-detail-section" id="product1" data-article="PioneerLndHub">
 
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <a href="our-products.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+      <div class="container hero-content">
+        <h1>PioneerLndHub</h1>
+        <p class="tagline">Elevate Learning. Drive Growth.</p>
+        <p style="font-size: 1.1rem; max-width: 900px; margin: 0 auto;">
+          A smart Learning & Development platform designed to deliver flexible, practical, and career-focused learning
+          for students, working professionals, and organizations.
+        </p>
+      </div>
+    </div>
 
+    <!-- Why Section -->
+    <div class="why-section content-section">
+      <div class="container">
+        <h2 class="section-title">Why PioneerLndHub?</h2>
+        <p class="section-subtitle">
+          Traditional learning often falls short. We bridge the gap with an industry-aligned, interactive learning
+          experience.
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <ul class="why-list">
+              <li>Lacks practical, real-world exposure</li>
+              <li>No timely feedback</li>
+              <li>Inadequate interview and job readiness</li>
+              <li>Limited flexible learning options</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="content-section">
+      <div class="container">
+        <h2 class="section-title">Key Features & Learning Experience</h2>
+        <p class="section-subtitle">
+          Everything you need to succeed in one unified ecosystem
+        </p>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-video"></i></div>
+              <h4>Flexible Learning Anytime, Anywhere</h4>
+              <p>Live online classes with industry experts, recorded sessions for self-paced learning, and the freedom
+                to learn on your schedule.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+              <h4>Hands-On Tasks & Assignments</h4>
+              <p>Practical tasks and real-world projects focused on skill application, not just theory, with
+                industry-relevant use cases.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-question-circle"></i></div>
+              <h4>Interactive Quizzes</h4>
+              <p>Reinforce learning after each topic, track understanding and progress with auto-evaluated tasks for
+                instant feedback.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+              <h4>Mock Interviews</h4>
+              <p>Practice with real interview questions from industry experts, get personalized feedback, and prepare
+                for top companies.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+              <h4>Skill Assessments & Feedback</h4>
+              <p>Regular evaluations to measure performance with detailed reports to identify strengths and growth
+                areas.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-book"></i></div>
+              <h4>E-Learning Modules</h4>
+              <p>Structured, progressive learning materials covering beginner to advanced levels for continuous skill
+                development.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-building"></i></div>
+              <h4>Company-Based Interview Prep</h4>
+              <p>Tailored questions used by recruiters, real-world scenarios for practical readiness, and role-specific
+                interview practice.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-code"></i></div>
+              <h4>Coding Questions & Practice</h4>
+              <p>Solve coding challenges with auto-evaluation, improve logic and efficiency, ideal for technical roles.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-robot"></i></div>
+              <h4>L&D AI Assistant</h4>
+              <p>24/7 AI-powered learning support for doubt clearing, study guidance, and personalized learning paths.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-users"></i></div>
+              <h4>Community Support</h4>
+              <p>Connect with peers and mentors in a collaborative learning environment with networking opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Target Audience Section -->
+    <div class="content-section" style="background: var(--light-bg);">
+      <div class="container">
+        <h2 class="section-title">Who Should Use PioneerLndHub?</h2>
+        <p class="section-subtitle">Designed for learners at every stage</p>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="audience-card">
+              <h4><i class="fas fa-graduation-cap"></i> Students & Freshers</h4>
+              <ul>
+                <li>Gain practical experience</li>
+                <li>Prepare for real interviews</li>
+                <li>Build confidence for the job market</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="audience-card">
+              <h4><i class="fas fa-briefcase"></i> Working Professionals</h4>
+              <ul>
+                <li>Upskill or reskill efficiently</li>
+                <li>Learn on-the-go with recorded classes</li>
+                <li>Get real-time job and interview support</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="audience-card">
+              <h4><i class="fas fa-building"></i> Teams & Organizations</h4>
+              <ul>
+                <li>Train and upskill employees</li>
+                <li>Track team progress with assessments</li>
+                <li>Scale learning across the organization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <div class="container">
+        <h2>Ready to Transform Your Learning Journey?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px;">
+          Join thousands of learners advancing their careers with PioneerLndHub
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary-custom">Start Learning</a>
+          <a href="#" class="btn-secondary-custom">Request a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCT 2: IT Job Portal ========== -->
+  <section class="product-detail-section" id="product2" data-article="IT-Job-Portal">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <a href="our-products.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+      <div class="container hero-content">
+        <h1>IT Job Portal</h1>
+        <p class="tagline">Hire Smarter. Get Hired Faster.</p>
+        <p style="font-size: 1.1rem; max-width: 900px; margin: 0 auto;">
+          A dedicated hiring platform built to connect skilled IT professionals with the right employers through a fast,
+          transparent, and efficient recruitment process.
+        </p>
+      </div>
+    </div>
+
+    <!-- Purpose Section -->
+    <div class="content-section">
+      <div class="container">
+        <h2 class="section-title">Purpose of the Job Portal</h2>
+        <p class="section-subtitle">
+          Designed for modern hiring needs, the portal simplifies job discovery, candidate evaluation, and employer
+          hiring workflows—all in one place.
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <p class="content-text">
+              The primary goal of our job portal is to enable seamless hiring by:
+            </p>
+            <ul class="why-list checkmarks">
+              <li>Helping IT professionals find relevant job opportunities</li>
+              <li>Enabling employers to identify, evaluate, and hire the right talent quickly</li>
+              <li>Reducing time-to-hire with structured and intelligent hiring tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What the Portal Offers Section -->
+    <div class="content-section two-column-section">
+      <div class="container">
+        <h2 class="section-title">What the Job Portal Offers</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="column-card">
+              <h3><i class="fas fa-user-tie"></i> For Job Seekers (IT Professionals)</h3>
+              <ul>
+                <li>Create and manage professional job seeker profiles</li>
+                <li>Search and apply for IT jobs across multiple roles and technologies</li>
+                <li>Track application status in real time</li>
+                <li>Showcase skills, experience, and career preferences</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="column-card">
+              <h3><i class="fas fa-briefcase"></i> For Employers & Recruiters</h3>
+              <ul>
+                <li>Post and manage job listings easily</li>
+                <li>Access a pool of verified IT professionals</li>
+                <li>Review candidate profiles and applications</li>
+                <li>Use employer dashboards to track hiring progress</li>
+                <li>Streamline screening and shortlisting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features Section -->
+    <div class="content-section" style="background: var(--light-bg);">
+      <div class="container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-list-ul"></i></div>
+              <h4>Job Listings & Applications</h4>
+              <ul>
+                <li>Wide range of IT job opportunities</li>
+                <li>Simple and quick application process</li>
+                <li>Real-time job updates</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-id-card"></i></div>
+              <h4>Job Seeker Profiles</h4>
+              <ul>
+                <li>Detailed profiles highlighting skills and experience</li>
+                <li>Resume uploads and profile visibility to employers</li>
+                <li>Better matching between candidates and jobs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+              <h4>Employer Dashboards</h4>
+              <ul>
+                <li>Centralized dashboard to manage job postings</li>
+                <li>Track applications and candidate status</li>
+                <li>Improve hiring efficiency and decision-making</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who Should Use Section -->
+    <div class="content-section">
+      <div class="container">
+        <h2 class="section-title">Who Should Use This Job Portal?</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="audience-card">
+              <h4><i class="fas fa-code"></i> IT Professionals</h4>
+              <ul>
+                <li>Freshers, experienced professionals, and career switchers</li>
+                <li>Looking for roles in development, testing, cloud, DevOps, data, and more</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="audience-card">
+              <h4><i class="fas fa-building"></i> Employers & Hiring Teams</h4>
+              <ul>
+                <li>Startups, enterprises, and recruitment agencies</li>
+                <li>Looking to hire skilled IT talent quickly and efficiently</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Section -->
+    <div class="why-section content-section">
+      <div class="container">
+        <h2 class="section-title">Why Choose Our IT Job Portal?</h2>
+        <ul class="why-list checkmarks">
+          <li>IT-focused hiring ecosystem</li>
+          <li>Simple and user-friendly platform</li>
+          <li>Faster hiring and better job matching</li>
+          <li>Designed for both job seekers and employers</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <div class="container">
+        <h2>Empowering Careers. Enabling Smart Hiring.</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px;">
+          Our IT Job Portal is more than a job board—it's a career and hiring ecosystem built to support growth,
+          opportunity, and successful hiring outcomes.
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary-custom">Get Started</a>
+          <a href="#" class="btn-secondary-custom">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the product ID from the URL
+      const params = new URLSearchParams(window.location.search);
+      const articleParam = params.get("article");
+      const idParam = params.get("id");
 
+      // Hide all product sections first
+      document.querySelectorAll(".product-detail-section").forEach(section => {
+        section.classList.remove("active");
+      });
 
+      // Try matching by `article` attribute or visible title (robust matching)
+      let activeSection = null;
+      if (articleParam) {
+        // Decode and normalize the parameter
+        const decodeParam = decodeURIComponent(articleParam);
+        const normalize = (str) => str
+          .toString()
+          .trim()
+          .replace(/[_-]+/g, ' ')
+          .replace(/[^\w\s]/g, '')
+          .replace(/\s+/g, ' ')
+          .toLowerCase();
 
-<!-- 🌟 Career Section -->
-<!-- <section class="product-detail-section" id="product1" data-article="Building IT Solutions That Empower">
-  <div class="container"> -->
+        const normalizedParam = normalize(decodeParam);
 
-    <!-- Back Button -->
-    <!-- <a href="our-products.html" class="product-back-btn">Back</a> -->
-
-    <!-- Product Image -->
-    <!-- <div class="product-detail-image">
-      <img src="images/pioneercodershiringhub.PNG" alt="Pioneer Coder Hiring Hub">
-    </div> -->
-
-    <!-- Product Title -->
-    <!-- <div class="product-header">
-      <h1>Pioneer Coder Hiring Hub</h1>
-      <p class="product-tagline">Building IT Solutions That Empower.</p>
-    </div> -->
-
-    <!-- Product Description -->
-    <!-- <div class="product-content">
-      <p>
-        Pioneer Coder Hiring Hub is an end-to-end IT consulting and staffing platform
-        designed to bridge the gap between businesses and cutting-edge technology.
-        The platform enables organizations to access skilled professionals and
-        tailored technology solutions to meet dynamic business needs.
-      </p>
-
-      <p>
-        With expertise in software development, web and mobile applications, and
-        resource augmentation, Pioneer Coder Hiring Hub empowers organizations to
-        innovate, scale efficiently, and achieve long-term success through a
-        customer-first approach.
-      </p>
-
-      <p>
-        The platform delivers comprehensive IT solutions with a strong focus on
-        quality, innovation, and reliability, ensuring businesses can align their
-        goals with modern technology advancements.
-      </p>
-    </div> -->
-
-    <!-- Product Highlights -->
-    <!-- <div class="product-features">
-      <h4>Key Features</h4>
-      <ul>
-        <li>IT consulting and staffing solutions</li>
-        <li>Skilled resource augmentation</li>
-        <li>Software, web, and mobile application development</li>
-        <li>Scalable and business-focused technology solutions</li>
-        <li>Customer-first and quality-driven delivery</li>
-      </ul>
-    </div>
-
-  </div>
-</section> -->
-
-
-<section class="product-detail-section" id="product2" data-article="Empowering Coders, Transforming Careers">
-  <div class="container">
-
-    <!-- Back Button -->
-    <a href="our-products.html" class="product-back-btn">Back</a>
-
-    <!-- Product Image -->
-    <div class="product-detail-image">
-      <img src="images/pioneerlndhub.PNG" alt="Learning & Development Hub">
-    </div>
-
-    <!-- Product Title -->
-    <div class="product-header">
-      <h1>Learning & Development Hub</h1>
-      <p class="product-tagline">Empowering Coders, Transforming Careers.</p>
-    </div>
-
-    <!-- Product Description -->
-    <div class="product-content">
-      <p>
-        Learning & Development Hub is a trusted platform designed for aspiring and
-        experienced developers, offering structured programming courses, job
-        support, and real-world project training to build industry-ready skills.
-      </p>
-
-      <p>
-        With expertise in leading technologies such as Java, Python, and Node.js,
-        the platform equips learners with practical knowledge and deep industry
-        insights. Engaging learning methods including hands-on projects,
-        hackathons, and quizzes create a dynamic and results-driven learning
-        experience.
-      </p>
-
-      <p>
-        Beyond training, the platform provides innovative tools such as
-        time-tracking systems, smart application trackers, and workflow
-        optimization solutions to enhance productivity for enterprises and
-        small-to-medium businesses.
-      </p>
-
-      <p>
-        We go beyond implementation by modernizing IT infrastructures and
-        addressing industry-specific challenges, ensuring organizations remain
-        competitive, agile, and future-ready. Every solution is designed with a
-        strong focus on precision, innovation, and customer-centric outcomes.
-      </p>
-    </div>
-
-    <!-- Product Highlights -->
-    <div class="product-features">
-      <h4>Key Features</h4>
-      <ul>
-        <li>Programming courses with real-world project training</li>
-        <li>Job support and career-focused learning paths</li>
-        <li>Hands-on learning through hackathons and assessments</li>
-        <li>Productivity and workflow optimization tools</li>
-        <li>Modernized, scalable, and business-aligned solutions</li>
-      </ul>
-    </div>
-
-    <!-- Product Link -->
-    <p class="product-link">
-      For more details, visit our official website:
-      <a href="#" target="_blank">L&amp;D Hub</a>
-    </p>
-
-  </div>
-</section>
-
-
-
-<section class="product-detail-section"
-         id="product3"
-         data-article="Custom IT Solutions & Technology Services">
-  <div class="container">
-
-    <!-- Back Button -->
-    <a href="our-products.html" class="product-back-btn">Back</a>
-
-    <!-- Product Image -->
-    <div class="product-detail-image">
-      <img src="images/pioneercoders net.PNG" alt="PioneerCoders">
-    </div>
-
-    <!-- Product Title -->
-    <div class="product-header">
-      <h1>Pioneercoders</h1>
-      <p class="product-tagline">Custom IT Solutions & Technology Services.</p>
-    </div>
-
-    <!-- Product Description -->
-    <div class="product-content">
-      <p>
-        Pioneercoders is a professional IT solutions platform specializing in
-        custom web and mobile application development, digital solutions, and
-        technology consulting. The platform helps businesses build high-quality
-        digital products that support growth and innovation.
-      </p>
-
-      <p>
-        With strong expertise in responsive website development, intuitive UI/UX
-        design, and scalable application architecture, Pioneercoders ensures a
-        seamless digital experience across devices and platforms.
-      </p>
-
-      <p>
-        Beyond development, the platform offers digital marketing, SEO, networking
-        support, wireframing, and ongoing maintenance services—combining strategy,
-        creativity, and technology to deliver measurable business outcomes.
-      </p>
-    </div>
-
-    <!-- Product Highlights -->
-    <div class="product-features">
-      <h4>Key Features</h4>
-      <ul>
-        <li>Custom web and mobile application development</li>
-        <li>User-centric UI/UX design</li>
-        <li>Digital marketing and SEO services</li>
-        <li>Hosting, maintenance, and network support</li>
-        <li>Strategic planning and wireframing</li>
-      </ul>
-    </div>
-
-    <!-- Product Link -->
-    <p class="product-link">
-      For more details, visit our official website:
-      <a href="https://pioneercoders.net/" target="_blank">Pioneercoders</a>
-    </p>
-
-  </div>
-</section>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get the blog ID from the URL
-    const params = new URLSearchParams(window.location.search);
-    const articleParam = params.get("article");
-    const idParam = params.get("id");
-
-    // Hide all product sections first
-    document.querySelectorAll(".product-detail-section").forEach(section => {
-      section.style.display = "none";
-    });
-
-    // Try matching by `article` attribute or visible title (robust matching)
-    let activeSection = null;
-    if (articleParam) {
-      // Decode and normalize the parameter so it accepts spaces, underscores, hyphens, and different casing
-      const decodeParam = decodeURIComponent(articleParam);
-      const normalize = (str) => str
-        .toString()
-        .trim()
-        .replace(/[_-]+/g, ' ')   // underscores/hyphens -> spaces
-        .replace(/[^\w\s]/g, '') // remove punctuation (e.g., '&', ',', '.', etc.)
-        .replace(/\s+/g, ' ')    // collapse whitespace
-        .toLowerCase();
-
-      const normalizedParam = normalize(decodeParam);
-
-      // Match against data-article if present, else fall back to the section's first heading text (h1/h2)
-      activeSection = Array.from(document.querySelectorAll('.product-detail-section'))
-        .find(s => {
-          const dataArticle = s.dataset.article || '';
-          if (dataArticle && normalize(dataArticle) === normalizedParam) return true;
-
-          // Look for a heading inside the section to match against (h1 or h2)
-          const heading = s.querySelector('h1, h2');
-          if (heading && normalize(heading.textContent || '') === normalizedParam) return true;
-
-          return false;
-        });
-
-      // Fallback: partial include match (helps when param is a short slug)
-      if (!activeSection) {
+        // Match against data-article
         activeSection = Array.from(document.querySelectorAll('.product-detail-section'))
           .find(s => {
-            const compareTo = normalize(s.dataset.article || (s.querySelector('h1, h2') ? (s.querySelector('h1, h2').textContent || '') : ''));
-            return compareTo.includes(normalizedParam) || normalizedParam.includes(compareTo);
+            const dataArticle = s.dataset.article || '';
+            if (dataArticle && normalize(dataArticle) === normalizedParam) return true;
+
+            const heading = s.querySelector('h1, h2');
+            if (heading && normalize(heading.textContent || '') === normalizedParam) return true;
+
+            return false;
           });
+
+        // Fallback: partial match
+        if (!activeSection) {
+          activeSection = Array.from(document.querySelectorAll('.product-detail-section'))
+            .find(s => {
+              const compareTo = normalize(s.dataset.article || (s.querySelector('h1, h2') ? (s.querySelector('h1, h2').textContent || '') : ''));
+              return compareTo.includes(normalizedParam) || normalizedParam.includes(compareTo);
+            });
+        }
       }
-    }
 
-    // Fallback to legacy numeric id
-    if (!activeSection && idParam) {
-      activeSection = document.getElementById("product" + idParam);
-    }
+      // Fallback to legacy numeric id
+      if (!activeSection && idParam) {
+        activeSection = document.getElementById("product" + idParam);
+      }
 
-    if (activeSection) {
-      activeSection.style.display = "block";
-      window.scrollTo(0, 0); // Scroll to top when loaded
-    } else if (articleParam || idParam) {
-      // Fallback: invalid query
-      document.body.innerHTML = "<div style='padding:50px;text-align:center'><h2>Product not found!</h2><a href='our-products.html'>Back to Products</a></div>";
-    } else {
-      // Default view (if no product selected)
-      document.getElementById("product1").style.display = "block";
-    }
-  });
-</script>
+      if (activeSection) {
+        activeSection.classList.add("active");
+        window.scrollTo(0, 0);
+      } else if (articleParam || idParam) {
+        // Invalid query
+        document.body.innerHTML = "<div style='padding:50px;text-align:center'><h2>Product not found!</h2><a href='our-products.html'>Back to Products</a></div>";
+      } else {
+        // Default: show first product
+        document.getElementById("product1").classList.add("active");
+      }
+    });
+  </script>
 
 </body>
 

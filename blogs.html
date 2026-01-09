@@ -108,6 +108,14 @@
       background-color: white;
     }
 
+    /* Active nav highlight */
+    .nav-active,
+    .navbar-nav .active> a,
+    .navbar-nav > li.active > a {
+      border-bottom: 3px solid #2ad19d;
+      color: #2ad19d !important;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 992px) {
       .hero-section h1 {
@@ -147,11 +155,18 @@
       <a class="navbar-brand fw-bold" href="index.html">
         <img src="images/logo_kmedtech (1).png" alt="KMEdTech Logo">
       </a>
+      <ul class="nav navbar-nav navbar-nav-first">
+        <li><a href="index.html#courses" id="nav-courses">Courses</a></li>
+        <li><a href="job-support.html" id="nav-jobsupport">Job Support</a></li>
+        <li><a href="index.html#team" id="nav-trainers">Trainers</a></li>
+        <li><a href="index.html#clients" id="nav-clients">Clients</a></li>
+        <li><a href="our-products.html" id="nav-products">Our Products</a></li>
+        <li><a href="blogInfo.html" id="nav-blogs">Blogs</a></li>
+        <li><a href="jobs.html" id="nav-jobs">Jobs</a></li>
+        <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
-
-  
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
@@ -1281,9 +1296,6 @@
   </div>
 </section>
 
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1352,6 +1364,57 @@
     }
   });
 </script>
+
+<script>
+    // Highlight active nav item based on URL or hash
+    document.addEventListener('DOMContentLoaded', function() {
+      var navMap = {
+        'courses': 'nav-courses',
+        'job-support': 'nav-jobsupport',
+        'team': 'nav-trainers',
+        'clients': 'nav-clients',
+        'our-products': 'nav-products',
+        'bloginfo': 'nav-blogs',
+        'blogs': 'nav-blogs',
+        'jobs': 'nav-jobs',
+        'contact': 'nav-contact'
+      };
+      var path = window.location.pathname.toLowerCase();
+      var hash = window.location.hash.toLowerCase();
+      // Remove highlight from all first
+      Object.values(navMap).forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.remove('nav-active');
+      });
+      var found = false;
+      // Check for hash-based navigation (for index.html#section)
+      if (path.endsWith('index.html') || path === '/' || path === '') {
+        for (var key in navMap) {
+          if (hash.includes(key)) {
+            var el = document.getElementById(navMap[key]);
+            if (el) el.classList.add('nav-active');
+            found = true;
+            break;
+          }
+        }
+        // Default to Courses if on index.html and no hash
+        if (!found && document.getElementById('nav-courses')) {
+          document.getElementById('nav-courses').classList.add('nav-active');
+        }
+      } else {
+        // For other pages, match by filename
+        for (var key in navMap) {
+          if (path.includes(key)) {
+            var el = document.getElementById(navMap[key]);
+            if (el) el.classList.add('nav-active');
+            found = true;
+            break;
+          }
+        }
+
+      }
+    });
+  </script>
 
 </body>
 

@@ -75,6 +75,12 @@
             padding-bottom: 0px;
             padding-top: 50px;
         }
+
+        /* Active nav highlight */
+        .nav-active, .navbar-nav .active > a, .navbar-nav > li.active > a {
+            border-bottom: 3px solid #2ad19d;
+            color: #2ad19d !important;
+        }
     </style>
 </head>
 <body>
@@ -93,14 +99,14 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
-                    <li><a href="index.html#courses">Courses</a></li>
-                    <li><a href="job-support.html">Job Support</a></li>
-                    <li><a href="index.html#team">Trainers</a></li>
-                    <li><a href="index.html#clients">Clients</a></li>
-                    <li><a href="our-products.html">Our Products</a></li>
-                    <li><a href="blogInfo.html">Blogs</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#courses" id="nav-courses">Courses</a></li>
+                    <li><a href="job-support.html" id="nav-jobsupport">Job Support</a></li>
+                    <li><a href="index.html#team" id="nav-trainers">Trainers</a></li>
+                    <li><a href="index.html#clients" id="nav-clients">Clients</a></li>
+                    <li><a href="our-products.html" id="nav-products">Our Products</a></li>
+                    <li><a href="blogInfo.html" id="nav-blogs">Blogs</a></li>
+                    <li><a href="jobs.html" id="nav-jobs">Jobs</a></li>
+                    <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
                     <li>
                         <button type="button" class="register-now-butto" data-toggle="modal" data-target="#demoModal">
                             Book A Demo
@@ -196,7 +202,7 @@
                     <!-- Product Card 2: Learning & Development Hub -->
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="images/pioneerlndhub.PNG" alt="Learning & Development Hub">
+                            <img src="images/pioneerlndhub.PNG" alt="PioneerLndHub">
                         </div>
                         <div class="product-content">
                             <div class="product-header">
@@ -206,7 +212,7 @@
                                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                                     </svg>
                                 </div>
-                                <h2 class="product-name">Learning & Development Hub</h2>
+                                <h2 class="product-name">PioneerLndHub</h2>
                             </div>
                             <p class="product-description">Upskill your team with cutting-edge technology courses</p>
                             <ul class="product-features">
@@ -214,7 +220,7 @@
                                 <li>Self-paced learning modules</li>
                                 <li>Hands-on project experience</li>
                             </ul>
-                            <a href="our-productsinfo.html?article=Empowering%20Coders%2C%20Transforming%20Careers" class="btn-read-more">
+                            <a href="our-productsinfo.html?article=PioneerLndHub" class="btn-read-more">
                                 Read More
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -236,15 +242,15 @@
                                         <polyline points="8 6 2 12 8 18"></polyline>
                                     </svg>
                                 </div>
-                                <h2 class="product-name">PioneerCoders</h2>
+                                <h2 class="product-name">Job Portal</h2>
                             </div>
-                            <p class="product-description">Full-service software development and consulting</p>
+                            <p class="product-description">IT job portal for professionals</p>
                             <ul class="product-features">
-                                <li>Custom software development</li>
-                                <li>Cloud architecture & DevOps</li>
-                                <li>Mobile app development</li>
+                                <li>Job listings and applications</li>
+                                <li>Job seeker profiles</li>
+                                <li>Employer dashboards</li>
                             </ul>
-                            <a href="our-productsinfo.html?article=Custom%20IT%20Solutions%20%26%20Technology%20Services" class="btn-read-more">
+                            <a href="our-productsinfo.html?article=IT-Job-Portal" class="btn-read-more">
                                 Read More
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -258,31 +264,54 @@
         </section>
     </main>
 
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
 
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                mobileMenuToggle.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
-                if (!isClickInside && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-        }
-    </script>
 
     <!-- jQuery & Bootstrap (for navbar and modal) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // Highlight active nav item based on URL or hash
+        document.addEventListener('DOMContentLoaded', function() {
+            var navMap = {
+                'courses': 'nav-courses',
+                'job-support': 'nav-jobsupport',
+                'team': 'nav-trainers',
+                'clients': 'nav-clients',
+                'our-products': 'nav-products',
+                'bloginfo': 'nav-blogs',
+                'jobs': 'nav-jobs',
+                'contact': 'nav-contact'
+            };
+            var path = window.location.pathname.toLowerCase();
+            var hash = window.location.hash.toLowerCase();
+            var found = false;
+            // Check for hash-based navigation (for index.html#section)
+            if (path.endsWith('index.html') || path === '/' || path === '') {
+                for (var key in navMap) {
+                    if (hash.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
+                    }
+                }
+                // Default to Courses if on index.html and no hash
+                if (!found && document.getElementById('nav-courses')) {
+                    document.getElementById('nav-courses').classList.add('nav-active');
+                }
+            } else {
+                // For other pages, match by filename
+                for (var key in navMap) {
+                    if (path.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 
