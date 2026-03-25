@@ -3,6 +3,10 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 import models
 from database import engine, Base, get_db
