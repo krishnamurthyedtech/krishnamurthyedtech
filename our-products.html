@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Our Products - KrishnamurthyEdTech</title>
+    <link rel="icon" href="./images/logo/logo_kmedtech.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Explore KrishnamurthyEdTech's innovative products">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/sheet.css">
+    <link rel="stylesheet" href="products-style.css">
+
+    <style>
+        /* Products grid: 2 columns like blog cards, centered and responsive */
+        .products-section .container { max-width: 1200px; margin: 0 auto; }
+        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: start; }
+        .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+        .product-image img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .product-content { padding: 22px; flex: 1 1 auto; display: flex; flex-direction: column; }
+        .product-header { display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom:8px; }
+        .product-icon { color: #22c55e; display:flex; align-items:center; justify-content:center; }
+        .product-name { font-size: 20px; font-weight:700; margin:0; text-align:center; color:#1e293b; }
+        .product-description { color:#6b7280; text-align:center; margin:12px 0; font-size:14px; }
+        .product-features { list-style:none; padding:0; margin:0 0 16px 0; color:#6b7280; font-size:14px; }
+        .product-features li { margin-bottom:6px; padding-left:18px; position:relative; }
+        .product-features li:before { content: "✓"; position:absolute; left:0; color:#22c55e; font-weight:700; }
+        .btn-read-more { display:inline-flex; align-items:center; gap:8px; background:#22c55e; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; margin:0 auto; font-weight:600; }
+        .btn-read-more svg { stroke:#fff; }
+
+        @media (max-width: 992px) {
+            .products-grid { grid-template-columns: 1fr; }
+            .product-image img { height: 200px; }
+        }
+
+        @media (max-width: 480px) {
+            .product-image img { height: 160px; }
+            .product-content { padding: 14px; }
+            .product-name { font-size: 18px; }
+        }
+
+        /* Hero: remove background color/gradient and center title/subtitle */
+        .hero-section1 {
+            background: none !important;
+            padding: 105px 0 0;
+        }
+
+        .hero-section1 .container {
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .hero-subtitle {
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        section{
+            background: none;
+            padding-bottom: 0px;
+            padding-top: 50px;
+        }
+
+        /* Active nav highlight */
+        .nav-active, .navbar-nav .active > a, .navbar-nav > li.active > a {
+            border-bottom: 3px solid #2ad19d;
+            color: #2ad19d !important;
+        }
+    </style>
+</head>
+<body>
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand" aria-label="Home">
+                    <img src="./images/logo/logo_kmedtech.png" alt="KrishnamurthyEdTech" width="200" height="70">
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href="index.html#courses" id="nav-courses">Courses</a></li>
+                    <li><a href="job-support.html" id="nav-jobsupport">Job Support</a></li>
+                    <li><a href="index.html#team" id="nav-trainers">Trainers</a></li>
+                    <li><a href="index.html#clients" id="nav-clients">Clients</a></li>
+                    <li><a href="our-products.html" id="nav-products">Our Products</a></li>
+                    <li><a href="blogInfo.html" id="nav-blogs">Blogs</a></li>
+                    <li><a href="jobs.html" id="nav-jobs">Jobs</a></li>
+                    <li><a href="index.html#contact" id="nav-contact">Contact</a></li>
+                    <li>
+                        <button type="button" class="register-now-butto" data-toggle="modal" data-target="#demoModal">
+                            Book A Demo
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0 pb-2 d-flex justify-content-center align-items-center">
+                    <h4 class="modal-title font-weight-bold m-0 " id="demoModalLabel">Book A Demo Now</h4>
+                    <button type="button" class="modal-close-square" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="modal-close-icon">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-0">
+                    <!-- Demo form (kept minimal) -->
+                    <form id="demoForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="username">Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="username" placeholder="Enter Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section1">
+            <div class="container">
+                <h1 class="hero-title">Our Products</h1>
+                <p class="hero-subtitle">Discover our suite of solutions designed to accelerate your tech journey</p>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-grid">
+                    
+                    <!-- Product Card 1: Pioneer Coders Hiring Hub -->
+                    <!-- <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/pioneercodershiringhub.PNG" alt="Pioneer Coders Hiring Hub">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-header">
+                                <div class="product-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h2 class="product-name">Pioneer Coders Hiring Hub</h2>
+                            </div>
+                            <p class="product-description">Connect with top tech talent and streamline your hiring process</p>
+                            <ul class="product-features">
+                                <li>Access to verified developer profiles</li>
+                                <li>AI-powered candidate matching</li>
+                                <li>Technical skill assessments</li>
+                            </ul>
+                            <a href="our-productsinfo.html?article=Building%20IT%20Solutions%20That%20Empower" class="btn-read-more">
+                                Read More
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div> -->
+
+                    <!-- Product Card 2: Learning & Development Hub -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/pioneerlndhub.PNG" alt="PioneerLndHub">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-header">
+                                <div class="product-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <h2 class="product-name">PioneerLndHub</h2>
+                            </div>
+                            <p class="product-description">Upskill your team with cutting-edge technology courses</p>
+                            <ul class="product-features">
+                                <li>Expert-led coding bootcamps</li>
+                                <li>Self-paced learning modules</li>
+                                <li>Hands-on project experience</li>
+                            </ul>
+                            <a href="our-productsinfo.html?article=PioneerLndHub" class="btn-read-more">
+                                Read More
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3: PioneerCoders -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/pioneercoders net.PNG" alt="PioneerCoders">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-header">
+                                <div class="product-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                </div>
+                                <h2 class="product-name">Job Portal</h2>
+                            </div>
+                            <p class="product-description">IT job portal for professionals</p>
+                            <ul class="product-features">
+                                <li>Job listings and applications</li>
+                                <li>Job seeker profiles</li>
+                                <li>Employer dashboards</li>
+                            </ul>
+                            <a href="our-productsinfo.html?article=IT-Job-Portal" class="btn-read-more">
+                                Read More
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- jQuery & Bootstrap (for navbar and modal) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // Highlight active nav item based on URL or hash
+        document.addEventListener('DOMContentLoaded', function() {
+            var navMap = {
+                'courses': 'nav-courses',
+                'job-support': 'nav-jobsupport',
+                'team': 'nav-trainers',
+                'clients': 'nav-clients',
+                'our-products': 'nav-products',
+                'bloginfo': 'nav-blogs',
+                'jobs': 'nav-jobs',
+                'contact': 'nav-contact'
+            };
+            var path = window.location.pathname.toLowerCase();
+            var hash = window.location.hash.toLowerCase();
+            var found = false;
+            // Check for hash-based navigation (for index.html#section)
+            if (path.endsWith('index.html') || path === '/' || path === '') {
+                for (var key in navMap) {
+                    if (hash.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
+                    }
+                }
+                // Default to Courses if on index.html and no hash
+                if (!found && document.getElementById('nav-courses')) {
+                    document.getElementById('nav-courses').classList.add('nav-active');
+                }
+            } else {
+                // For other pages, match by filename
+                for (var key in navMap) {
+                    if (path.includes(key)) {
+                        var el = document.getElementById(navMap[key]);
+                        if (el) el.classList.add('nav-active');
+                        found = true;
+                        break;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
