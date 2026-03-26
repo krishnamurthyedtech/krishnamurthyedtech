@@ -1,7 +1,0 @@
-fastapi==0.116.0
-uvicorn[standard]==0.23.2
-pydantic==2.9.0
-python-multipart==0.0.6
-SQLAlchemy==2.2.5
-psycopg2-binary==2.9.11
-python-dotenv==1.0.0
