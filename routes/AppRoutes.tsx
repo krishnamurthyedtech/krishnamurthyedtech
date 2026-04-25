@@ -8,6 +8,10 @@ import Products from '../pages/Products';
 import Services from '../pages/Services';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import Webinars from '../pages/Webinars';
+import Careers from '../pages/Careers';
+import AdminWebinars from '../pages/AdminWebinars';
+import Assessment from '../pages/Assessment';
 
 // Scroll to top on route change
 const ScrollToTop: React.FC = () => {
@@ -31,6 +35,10 @@ export const AppRoutes: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/webinars" element={<Webinars />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/admin/webinars" element={<AdminWebinars />} />
+            <Route path="/assessment" element={<Assessment />} />
           </Routes>
         </main>
         <Footer />
