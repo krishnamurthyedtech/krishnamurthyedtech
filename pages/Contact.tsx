@@ -3,17 +3,35 @@ import React, { useState } from 'react';
 import { Section } from '../components/common/Section';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
+import { SearchableSelect } from '../components/common/SearchableSelect';
 import { Mail, MapPin, Phone, Send, Check } from 'lucide-react';
 import { contactApi, ContactData } from '../api';
+
+const subject_options = [
+  'General Inquiry',
+  'Hiring Talent',
+  'Technical Consulting',
+  'Assessments',
+  'Professional Resume Building',
+  'Internship Requests',
+  'Mentorship Programs',
+  'Partnerships',
+];
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [form, setForm] = useState<ContactData>({
+  const [form, setForm] = useState<ContactData & {
+    phone?: string;
+    currentRole?: string;
+    experience?: string;
+    skills?: string;
+    assessmentType?: string;
+  }>({
     name: '',
     email: '',
-    subject: 'General Inquiry',
+    subject: '',
     message: '',
   });
 
@@ -25,7 +43,17 @@ const Contact: React.FC = () => {
     try {
       await contactApi.create(form);
       setSubmitted(true);
-      setForm({ name: '', email: '', subject: 'General Inquiry', message: '' });
+      setForm({ 
+        name: '', 
+        email: '', 
+        subject: '', 
+        message: '',
+        phone: '',
+        currentRole: '',
+        experience: '',
+        skills: '',
+        assessmentType: ''
+      });
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err: any) {
       if (err.response) {
@@ -113,48 +141,134 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300">Full Name</label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         value={form.name}
                         onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
-                        placeholder="John Doe" 
+                        placeholder="John Doe"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300">Email Address</label>
-                      <input 
+                      <input
                         required
-                        type="email" 
+                        type="email"
                         value={form.email}
                         onChange={(e) => setForm((s) => ({ ...s, email: e.target.value }))}
-                        placeholder="john@example.com" 
+                        placeholder="john@example.com"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
                       />
                     </div>
                   </div>
+                  <SearchableSelect
+                    label="Subject"     
+                    options={subject_options}
+                    value={form.subject}
+                    onChange={(value) => setForm((s) => ({ ...s, subject: value }))}
+                    placeholder="Select a subject"
+                    required
+                  />
+
+                  {/* Assessment-specific fields */}
+                  {form.subject === 'Assessments' && (
+                    <div className="space-y-6 animate-in fade-in duration-300">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-300 mb-2">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            value={form.phone || ''}
+                            onChange={(e) => setForm((s) => ({ ...s, phone: e.target.value }))}
+                            placeholder="+91 98765 43210"
+                            className="w-full rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-white focus:border-blue-500 outline-none"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-slate-300 mb-2">
+                            Current Role *
+                          </label>
+                          <input
+                            type="text"
+                            value={form.currentRole || ''}
+                            onChange={(e) => setForm((s) => ({ ...s, currentRole: e.target.value }))}
+                            placeholder="Senior Developer, Team Lead, etc."
+                            className="w-full rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-white focus:border-blue-500 outline-none"
+                            required={form.subject === 'Assessments'}
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-slate-300 mb-2">
+                          Years of Experience *
+                        </label>
+                        <select
+                          value={form.experience || ''}
+                          onChange={(e) => setForm((s) => ({ ...s, experience: e.target.value }))}
+                          className="w-full rounded-lg border border-slate-600 bg-black text-white px-4 py-3 focus:border-blue-500 outline-none"
+                          required={form.subject === 'Assessments'}
+                        >
+                          <option value="" className="text-slate-400">Select experience level</option>
+                          <option value="0-2" className="bg-black text-white">0-2 years</option>
+                          <option value="3-5" className="bg-black text-white">3-5 years</option>
+                          <option value="6-10" className="bg-black text-white">6-10 years</option>
+                          <option value="10+" className="bg-black text-white">10+ years</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-slate-300 mb-2">
+                          Technical Skills *
+                        </label>
+                        <textarea
+                          rows={3}
+                          value={form.skills || ''}
+                          onChange={(e) => setForm((s) => ({ ...s, skills: e.target.value }))}
+                          placeholder="List your key technical skills (e.g., React, Node.js, Python, AWS, etc.)"
+                          className="w-full rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-white focus:border-blue-500 outline-none h-32"
+                          required={form.subject === 'Assessments'}
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-slate-300 mb-2">
+                          Assessment Type *
+                        </label>
+                        <select
+                          value={form.assessmentType || ''}
+                          onChange={(e) => setForm((s) => ({ ...s, assessmentType: e.target.value }))}
+                          className="w-full rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-white focus:border-blue-500 outline-none"
+                          required={form.subject === 'Assessments'}
+                        >
+                          <option value="">Select assessment type</option>
+                          <option value="technical">Technical Skills Assessment</option>
+                          <option value="problem-solving">Problem Solving Assessment</option>
+                          <option value="career">Career Growth Assessment</option>
+                          <option value="comprehensive">Comprehensive Assessment</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300">Subject</label>
-                    <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-slate-300"
-                      value={form.subject}
-                      onChange={(e) => setForm((s) => ({ ...s, subject: e.target.value }))}
-                    >
-                      <option className="bg-brand-dark">General Inquiry</option>
-                      <option className="bg-brand-dark">Hiring Talent</option>
-                      <option className="bg-brand-dark">Technical Consulting</option>
-                      <option className="bg-brand-dark">Assessments</option>
-                      <option className="bg-brand-dark">Partnerships</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300">Message</label>
-                    <textarea 
+                    <label className="text-sm font-medium text-slate-300">
+                      {form.subject === 'Assessments' ? 'Additional Information' : 'Message'}
+                    </label>
+                    <textarea
                       required
-                      rows={5} 
+                      rows={5}
                       value={form.message}
                       onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))}
-                      placeholder="Tell us about your needs..." 
+                      placeholder={
+                        form.subject === 'Assessments' 
+                          ? 'Tell us about your career goals and what you hope to achieve through this assessment...'
+                          : 'Tell us about your needs...'
+                      }
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
                     ></textarea>
                   </div>
