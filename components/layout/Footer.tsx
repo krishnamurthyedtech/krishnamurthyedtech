@@ -1,80 +1,61 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-dark border-t border-white/5 pt-20 pb-10 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-        <div className="col-span-1 md:col-span-1">
-          <Link to="/" className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded flex items-center justify-center font-bold text-lg">
-              KM
-            </div>
-            <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-              EDTECH
-            </span>
-          </Link>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6">
-            Empowering the next generation of talented engineers through industry-validated pathways and specialized talent engineering.
-          </p>
+    <footer className="bg-brand-dark border-t border-white/5 pt-10 pb-8 px-5">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-32 mb-8" style={{ gridTemplateColumns: 'repeat(3, 1fr)', alignItems: 'start' }}>
+        {/* Contact Info */}
+        <div className="w-full">
+          <h4 className="text-white font-semibold mb-4 text-base">Contact Info</h4>
+          <ul className="space-y-3 text-base">
+            <li className="flex items-start gap-3 text-slate-400">
+              <Phone size={18} className="mt-0.5 flex-shrink-0" />
+              <span>+91 9482169636</span>
+            </li>
+            <li className="flex items-start gap-3 text-slate-400">
+              <Mail size={18} className="mt-0.5 flex-shrink-0" />
+              <a href="mailto:contact@krishnamurthyedtech.com" className="hover:text-white transition-colors">contact@krishnamurthyedtech.com</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Address */}
+        <div className="w-full">
+          <h4 className="text-white font-semibold mb-4 text-base">Address</h4>
+          <a href="https://maps.app.goo.gl/VdQhBBSF7yVZA7oAA" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-slate-400 text-base hover:text-white transition-colors">
+            <MapPin size={18} className="mt-0.5 flex-shrink-0" />
+            <p className="leading-relaxed whitespace-nowrap">
+              2nd floor, 2, Vismayoga, 1st E cross, 20th main,<br />BTM Layout 1st stage, Maruthi Nagara Main road,<br />Near Gangothri circle, Bengaluru 560029
+            </p>
+          </a>
+        </div>
+
+        {/* Follow Us */}
+        <div className="w-full">
+          <h4 className="text-white font-semibold mb-4 text-base">Follow Us</h4>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
+            <a href="https://x.com/Krishanmurthy99?s=20" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
               <Twitter size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
+            <a href="https://www.linkedin.com/company/krishnamurthyedtech/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
               <Linkedin size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
-              <Github size={18} />
+            <a href="https://www.facebook.com/profile.php?id=61582280556220" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
+              <Facebook size={18} />
             </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-white font-semibold mb-6">Ecosystem</h4>
-          <ul className="space-y-4 text-sm">
-            <li><Link to="/products" className="text-slate-400 hover:text-white transition-colors">LearningHub</Link></li>
-            <li><Link to="/products" className="text-slate-400 hover:text-white transition-colors">Engineering Outsourcing</Link></li>
-            <li><Link to="/services" className="text-slate-400 hover:text-white transition-colors">Skill Assessments</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-white font-semibold mb-6">Company</h4>
-          <ul className="space-y-4 text-sm">
-            <li><Link to="/about" className="text-slate-400 hover:text-white transition-colors">Our Philosophy</Link></li>
-            <li><Link to="/services" className="text-slate-400 hover:text-white transition-colors">Strategic Consulting</Link></li>
-            <li><Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Get in Touch</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-white font-semibold mb-6">Stay Updated</h4>
-          <p className="text-slate-400 text-sm mb-4">Join our engineering newsletter.</p>
-          <div className="flex gap-2">
-            <input 
-              type="email" 
-              placeholder="email@example.com" 
-              className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
-            />
-            <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors">
-              <Mail size={18} />
-            </button>
+            <a href="https://www.instagram.com/krishnamurthy_edtech/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all">
+              <Instagram size={18} />
+            </a>
           </div>
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8 gap-4">
-        <p className="text-slate-500 text-xs">
-          © {new Date().getFullYear()} KMEdTech Talent Engineering. All rights reserved.
+      <div className="max-w-[1200px] mx-auto border-t border-white/5 pt-6 text-center">
+        <p className="text-slate-500 text-sm">
+          © 2026 KMEdTech Talent Engineering. All rights reserved.
         </p>
-        <div className="flex gap-6 text-xs text-slate-500">
-          <a href="#" className="hover:text-slate-300">Privacy Policy</a>
-          <a href="#" className="hover:text-slate-300">Terms of Service</a>
-          <a href="#" className="hover:text-slate-300">Cookie Settings</a>
-        </div>
       </div>
     </footer>
   );
