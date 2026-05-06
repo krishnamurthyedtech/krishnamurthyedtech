@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
         
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold mb-10 tracking-tighter leading-[0.85] text-white">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-heading font-extrabold mb-10 tracking-wide leading-[0.85] text-white">
 
           Architecting the <br />
 
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 
         <p className="max-w-4xl mx-auto text-lg md:text-xl text-slate-400 mb-12 leading-relaxed font-medium">
 
-        Krishnamurthy EdTech delivers elite AI, Data Science, and Full Stack engineers to startups. Our NEXTGen AI Fellowship trains professionals through real-world projects, ensuring industry-ready talent aligned with modern business needs.
+        Krishnamurthy EdTech Pvt Ltd delivers elite AI, Data Science, and Full Stack engineers to startups. Our NEXTGen AI Fellowship trains professionals through real-world projects, ensuring industry-ready talent aligned with modern business needs.
 
         </p>
 

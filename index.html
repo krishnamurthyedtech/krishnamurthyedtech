@@ -98,6 +98,80 @@
       ::-webkit-scrollbar-track { background: #030303; }
       ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
       ::-webkit-scrollbar-thumb:hover { background: #333; }
+      
+      /* Logo fixes */
+      .navbar-logo {
+        flex-shrink: 0 !important;
+        min-width: fit-content !important;
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
+      }
+      .logo-text {
+        overflow: visible !important;
+        min-width: fit-content !important;
+        width: auto !important;
+        max-width: none !important;
+        flex-shrink: 0 !important;
+      }
+      .logo-text span {
+        overflow: visible !important;
+        white-space: nowrap !important;
+        display: inline-block !important;
+        width: auto !important;
+        max-width: none !important;
+        letter-spacing: normal !important;
+      }
+      @media (max-width: 640px) {
+        .navbar-logo {
+          flex-shrink: 0 !important;
+          min-width: fit-content !important;
+          width: auto !important;
+          max-width: none !important;
+          padding-left: 1rem !important;
+          overflow: visible !important;
+        }
+        .logo-text {
+          overflow: visible !important;
+          min-width: fit-content !important;
+          width: auto !important;
+          max-width: none !important;
+          flex-shrink: 0 !important;
+        }
+        .logo-text span {
+          overflow: visible !important;
+          white-space: nowrap !important;
+          display: inline-block !important;
+          width: auto !important;
+          max-width: none !important;
+          letter-spacing: normal !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .navbar-logo {
+          flex-shrink: 0 !important;
+          min-width: fit-content !important;
+          width: auto !important;
+          max-width: none !important;
+          padding-left: 1rem !important;
+          overflow: visible !important;
+        }
+        .logo-text {
+          overflow: visible !important;
+          min-width: fit-content !important;
+          width: auto !important;
+          max-width: none !important;
+          flex-shrink: 0 !important;
+        }
+        .logo-text span {
+          overflow: visible !important;
+          white-space: nowrap !important;
+          display: inline-block !important;
+          width: auto !important;
+          max-width: none !important;
+          letter-spacing: normal !important;
+        }
+      }
     </style>
 
 <!-- Removed stale /index.css link; styles are inlined via Tailwind config/script -->
