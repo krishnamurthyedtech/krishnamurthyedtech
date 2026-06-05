@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-24 pb-8">
       <Section containerClassName="max-w-4xl text-center mb-16">
         <h1 className="text-5xl font-heading font-bold mb-6">Let's Build Together</h1>
         <p className="text-slate-400 text-lg">
@@ -279,6 +279,59 @@ const Contact: React.FC = () => {
                 </form>
               )}
             </Card>
+          </div>
+        </div>
+      </Section>
+
+      {/* Map Section */}
+      <Section className="mt-8">
+        <div className="glass-card rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]/60">
+          <div className="grid grid-cols-1 lg:grid-cols-5">
+            
+            {/* Info Section */}
+            <div className="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-between">
+              <div>
+                <p className="text-[#00D4C7] text-xs font-bold tracking-widest uppercase mb-2">Live Geo Coordinates</p>
+                <h3 className="text-xl font-bold text-white mb-8">Krishnamurthy EdTech Pvt Ltd</h3>
+                
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-slate-500 text-[11px] font-semibold mb-1 uppercase tracking-wider">Latitude</p>
+                    <p className="text-white font-medium text-sm tracking-wide">12.9208° N</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 text-[11px] font-semibold mb-1 uppercase tracking-wider">Longitude</p>
+                    <p className="text-white font-medium text-sm tracking-wide">77.6127° E</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 text-[11px] font-semibold mb-1 uppercase tracking-wider">Location</p>
+                    <p className="text-white font-medium text-sm tracking-wide">BTM 1st Stage, Bengaluru</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-12 lg:mt-24">
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  Feel free to visit us directly for on-site design discussions.<br/>
+                  Prior appointments are appreciated.
+                </p>
+              </div>
+            </div>
+
+            {/* Map iframe */}
+            <div className="lg:col-span-3 p-4 sm:p-6 lg:pl-0 w-full">
+              <div className="w-full h-[350px] sm:h-[450px] lg:h-full relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d220.89675368262473!2d77.6127803!3d12.9208567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150020be2077%3A0xf202a605d87195d8!2sKrishnamurthy%20EdTech%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1780661623716!5m2!1sen!2sin" 
+                  className="absolute inset-0 w-full h-full grayscale-[20%] contrast-125"
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            
           </div>
         </div>
       </Section>
