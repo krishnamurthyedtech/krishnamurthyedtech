@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
         
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-extrabold mb-6 tracking-tight leading-[1.1] text-white w-full mx-auto px-2 md:px-0">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-extrabold mb-6 tracking-tight leading-[1.3] text-white w-full mx-auto px-2 md:px-0">
 
           Re-Architecting the Future of Education Domain{' '}
 
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 
         <p className="w-full mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed font-medium px-4 md:px-0">
 
-        At Krishnamurthy EdTech Pvt Ltd, we build intelligent AI Agents, SaaS products designed to transform educational operations and drive organizational efficiency. Leveraging AI, Machine Learning, and cloud technologies, we help educational institutions automate processes, optimize performance, and deliver better outcomes.
+        At Krishnamurthy EdTech Pvt Ltd, we build intelligent AI Agents, SaaS products designed to transform educational operations and drive organizational efficiency. Leveraging AI, Machine Learning, and cloud technologies, we help educational institutions automate processes, optimize performance, and deliver better outcomes. We also undertake research and development (R&D) initiatives for government institutions, creating innovative technology solutions that address real-world challenges and accelerate digital transformation.
 
         </p>
 
