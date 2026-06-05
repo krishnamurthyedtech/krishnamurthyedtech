@@ -36,11 +36,11 @@ export const Navbar: React.FC = () => {
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain mr-1 sm:mr-2 md:mr-3 flex-shrink-0"
               />
               <div className="flex flex-col logo-text min-w-fit">
-                <span className="font-heading font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight leading-none text-white overflow-visible whitespace-nowrap">
+                <span className="font-heading font-extrabold text-sm sm:text-base md:text-lg lg:text-xl tracking-tight leading-none text-white overflow-visible whitespace-nowrap">
                   <span className="text-gradient inline-block">Krishnamurthy EdTech Pvt Ltd</span>
                 </span>
-                <span className="font-heading font-semibold text-[10px] sm:text-xs md:text-sm tracking-[0.1em] sm:tracking-[0.15em] text-slate-300 overflow-visible whitespace-nowrap mt-1">
-                  EMIPOWERING MINDS THROUGH DIGITAL MASTERY
+                <span className="font-heading font-semibold text-[9px] sm:text-[10px] md:text-xs tracking-[0.1em] sm:tracking-[0.15em] text-slate-300 overflow-visible whitespace-nowrap mt-1">
+                  EMPOWERING MINDS THROUGH DIGITAL MASTERY
                 </span>
               </div>
             </div>
