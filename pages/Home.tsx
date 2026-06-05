@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
     <div className="overflow-hidden">
 
-      {/* Hero Section - Elite Architectural Style */}
+     
 
       <Section className="relative pt-32 md:pt-36 pb-8" containerClassName="text-center">
 
