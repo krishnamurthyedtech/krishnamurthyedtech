@@ -13,18 +13,18 @@ const Products: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase mb-6">
               <Terminal size={14} /> Ecosystem 
             </div>
-            <h2 className="text-5xl font-heading font-extrabold mb-6 text-white drop-shadow-lg">LearningHub</h2>
+            <h2 className="text-5xl font-heading font-extrabold mb-6 text-white drop-shadow-lg">GurukulOps</h2>
             <p className="text-xl text-slate-500 mb-8 leading-relaxed">
-              Not another course platform. LearningHub is a simulation of high-stakes engineering environments where learning happens through building, failing, and optimizing.
+              GurukulOps is a smart education management platform that unifies operations, administration, and communication through AI,ML & Cloud Applications.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                "Production Workflow Integration",
-                "Advanced CI/CD Simulations",
-                "Scalability Challenges",
-                "Security-First Engineering",
-                "System Architecture Design",
-                "Real-time Mentor Reviews"
+                "AI-Powered Admissions",
+                "AI-Powered Academic Management",
+                "AI-Powered Student Management",
+                "AI Based Staff Management",
+                "AI Analytics",
+                "Unified Communication"
               ].map((feature, i) => (
                 <div key={i} className="flex items-center gap-3 text-slate-300">
                   <CheckCircle2 className="text-blue-500 w-5 h-5 flex-shrink-0" />

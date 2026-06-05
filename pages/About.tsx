@@ -17,9 +17,9 @@ const About: React.FC = () => {
       <Section className="bg-brand-dark/30">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gradient">The KMEdTech Story</h2>
+            <h2 className="text-3xl font-bold text-gradient">The Krishnamurthy EdTech Pvt Ltd Story</h2>
             <p className="text-slate-400 leading-relaxed">
-              KMEdTech was founded to bridge the critical gap between traditional technical education and the high demands of the modern software industry. We observed that true engineering talent is often hidden behind standard credentials.
+              At Krishnamurthy EdTech Pvt Ltd, we develop AI-powered agents, cloud-based SaaS Applications , and cutting-edge R&D initiatives while building a skilled talent pool. We help educational institutions automate operations, enhance efficiency, and achieve better outcomes.
             </p>
             <p className="text-slate-400 leading-relaxed">
               We reimagined the journey of a developer as a specialized <span className="text-white font-semibold">Talent Engineering Pathway</span>. By focusing on deep architectural knowledge and production-ready skills, we surface the world's most capable engineers.
@@ -29,7 +29,7 @@ const About: React.FC = () => {
             <Card className="border-blue-500/10">
               <Eye className="text-blue-500 mb-4" />
               <h4 className="font-bold mb-2">Our Vision</h4>
-              <p className="text-xs text-slate-500">To be the global gold standard for validating and discovering elite technical talent.</p>
+              <p className="text-xs text-slate-500">To be a leader in AI-driven educational innovation, empowering institutions through intelligent technology, research excellence, and future-ready talent.</p>
             </Card>
             <Card className="border-purple-500/10">
               <Target className="text-purple-500 mb-4" />
@@ -52,7 +52,7 @@ const About: React.FC = () => {
 
       <Section>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-heading font-bold mb-4">The KMEdTech Difference</h2>
+          <h2 className="text-4xl font-heading font-bold mb-4">The Krishnamurthy EdTech Pvt Ltd Difference</h2>
           <p className="text-slate-400">We prioritize depth, mastery, and professional readiness above all else.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

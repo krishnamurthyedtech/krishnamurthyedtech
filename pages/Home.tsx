@@ -20,25 +20,25 @@ const Home: React.FC = () => {
 
       {/* Hero Section - Elite Architectural Style */}
 
-      <Section className="relative pt-32 pb-12" containerClassName="text-center">
+      <Section className="relative pt-32 md:pt-36 pb-8" containerClassName="text-center">
 
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[600px] bg-blue-600/10 rounded-full blur-[140px] -z-10" />
 
         
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-heading font-extrabold mb-10 tracking-wide leading-[0.85] text-white">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-extrabold mb-6 tracking-tight leading-[1.1] text-white w-full mx-auto px-2 md:px-0">
 
-          Architecting the <br />
+          Re-Architecting the Future of Education Domain{' '}
 
-          <span className="text-gradient">Elite Engineers</span>.
+          <span className="text-gradient">with AI Agents and Cloud Applications.</span>
 
         </h1>
 
         
 
-        <p className="max-w-4xl mx-auto text-lg md:text-xl text-slate-400 mb-12 leading-relaxed font-medium">
+        <p className="w-full mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed font-medium px-4 md:px-0">
 
-        Krishnamurthy EdTech Pvt Ltd delivers elite AI, Data Science, and Full Stack engineers to startups. Our NEXTGen AI Fellowship trains professionals through real-world projects, ensuring industry-ready talent aligned with modern business needs.
+        At Krishnamurthy EdTech Pvt Ltd, we build intelligent AI Agents, SaaS products designed to transform educational operations and drive organizational efficiency. Leveraging AI, Machine Learning, and cloud technologies, we help educational institutions automate processes, optimize performance, and deliver better outcomes.
 
         </p>
 
@@ -70,9 +70,9 @@ const Home: React.FC = () => {
 
         <div className="text-center mb-16">
 
-          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-white tracking-tight">The Talent Ecosystem</h2>
+          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-white tracking-tight">The Product Ecosystem</h2>
 
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+          <p className="text-slate-400 w-full mx-auto text-lg md:text-xl leading-relaxed px-4 md:px-0">
 
             High-precision platforms engineered to surface, validate, and scale technical excellence across the global industry.
 
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          {/* Flagship Product 1: Pioneer LnD Hub */}
+          {/* Flagship Product 1: GurukulOps  */}
           <Card className="relative overflow-hidden flex flex-col p-6 md:p-8 border-white/10 bg-[#080808] transition-all duration-500 group hover:shadow-[0_0_40px_8px_rgba(59,130,246,0.25)] hover:border-blue-500 hover:bg-[#101a2c]">
 
              <div className="flex justify-between items-start mb-8">
@@ -103,19 +103,18 @@ const Home: React.FC = () => {
 
              <div className="relative z-10 flex-grow">
 
-                <h3 className="text-4xl font-bold text-white mb-5">Pioneer LnD Hub</h3>
+                <h3 className="text-4xl font-bold text-white mb-5">GurukulOps</h3>
 
                 <p className="text-xl text-slate-300 leading-relaxed mb-8">
 
-                   Pioneer L&D Hub is a modern digital learning platform offering structured IT training, expert-led video tutorials, real-world project experience, career support, and engaging activities to boost technical expertise and industry readiness.
-
+                   GurukulOps is an AI-powered educational operating system that helps institutions manage admissions, academics, administration, finance, and communication from a single integrated platform, enabling greater efficiency, transparency, and scalability.
                 </p>
 
                 
 
                 <ul className="space-y-4 mb-8">
 
-                   {['Structured IT training programs', 'Expert-led video tutorials', 'Real-world project experience', 'Career support and guidance', 'Quizzes and hackathons for skill enhancement'].map((item, idx) => (
+                   {['AI Based Admissions and enrollment management', 'AI Powered Academic operations and batch scheduling', 'Parent communication and support management', 'AI Based Multi-branch inventory and resource management', 'AI-powered automation for educational operations'].map((item, idx) => (
 
                      <li key={idx} className="flex items-center gap-3 text-slate-400 font-medium">
 
@@ -135,7 +134,7 @@ const Home: React.FC = () => {
 
              <div className="pt-6 border-t border-white/5">
 
-                <a href="https://pioneerlndhub.com/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
+                <a href="https://gurukulops.com/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
 
                    Learn the craft <ArrowRight size={22} className="group-hover/link:translate-x-2 transition-transform text-blue-500" />
 
@@ -190,7 +189,7 @@ const Home: React.FC = () => {
 
                 <ul className="space-y-4 mb-8">
 
-                   {['AI-powered job matching', 'Skill-based recommendations', 'Direct access to top tech companies', 'Real-time job alerts', 'Portfolio showcase for engineers'].map((item, idx) => (
+                   {['AI-powered job matching', 'Skill-based recommendations using AI', 'AI Powered Direct access to top tech companies', 'Agentic Based Real-time job alerts', 'AI Based Portfolio showcase for engineers'].map((item, idx) => (
 
                      <li key={idx} className="flex items-center gap-3 text-slate-400 font-medium">
 
@@ -210,7 +209,7 @@ const Home: React.FC = () => {
 
              <div className="pt-6 border-t border-white/5">
 
-                <a href="https://pioneercoders.net/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
+                <a href="https://pioneercoders.org/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
 
                    Explore opportunities <ArrowRight size={22} className="group-hover/link:translate-x-2 transition-transform text-purple-500" />
 
@@ -324,7 +323,7 @@ const Home: React.FC = () => {
 
       <Section className="py-12">
 
-        <div className="max-w-5xl mx-auto text-center relative">
+        <div className="w-full mx-auto text-center relative px-4 md:px-0">
 
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-blue-500/10 select-none">
 
@@ -334,7 +333,7 @@ const Home: React.FC = () => {
 
           <h2 className="text-sm uppercase tracking-[0.5em] text-blue-500 font-black mb-12 relative z-10">THE CORE PHILOSOPHY</h2>
 
-          <blockquote className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium text-white leading-[1.15] tracking-tight relative z-10">
+          <blockquote className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium text-white leading-[1.4] tracking-tight relative z-10">
 
             "The world doesn't need more people who can write code. It needs more <span className="text-gradient">talented engineers</span> who architect resilient futures."
 
@@ -356,7 +355,7 @@ const Home: React.FC = () => {
 
       {/* Final CTA - Immersive Full Width */}
 
-      <div className="px-6 md:px-12 pb-8">
+      <Section className="py-0 pb-12">
 
         <div className="relative rounded-[3.5rem] overflow-hidden bg-[#050505] border border-white/10 group shadow-2xl">
 
@@ -412,7 +411,7 @@ const Home: React.FC = () => {
 
         </div>
 
-      </div>
+      </Section>
 
     </div>
 
