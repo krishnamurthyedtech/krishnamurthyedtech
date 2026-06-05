@@ -25,10 +25,10 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'py-4' : 'py-6 sm:py-8'} bg-black/80 backdrop-blur-xl shadow-2xl`}>
-      <div className={`max-w-[1200px] mx-auto px-5 transition-all duration-500 ${scrolled ? 'bg-black/60 backdrop-blur-xl rounded-2xl py-3 shadow-2xl' : ''}`}>
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group navbar-logo pl-2">
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 sm:px-12 md:px-24 ${scrolled ? 'py-4' : 'py-6 sm:py-8'} bg-black/80 backdrop-blur-xl shadow-2xl`}>
+      <div className={`max-w-7xl mx-auto w-full transition-all duration-500 ${scrolled ? 'bg-black/60 backdrop-blur-xl rounded-2xl py-3 shadow-2xl' : ''}`}>
+        <div className="flex items-center justify-between w-full">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group navbar-logo">
             <div className="flex items-center pr-4">
               <img 
                 src="/KMEdlogo.png" 
@@ -36,11 +36,11 @@ export const Navbar: React.FC = () => {
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain mr-1 sm:mr-2 md:mr-3 flex-shrink-0"
               />
               <div className="flex flex-col logo-text min-w-fit">
-                <span className="font-heading font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-tight leading-none text-white overflow-visible whitespace-nowrap">
-                  <span className="text-gradient inline-block">Krishnamurthy</span>
+                <span className="font-heading font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight leading-none text-white overflow-visible whitespace-nowrap">
+                  <span className="text-gradient inline-block">Krishnamurthy EdTech Pvt Ltd</span>
                 </span>
-                <span className="font-heading font-semibold text-xs sm:text-sm md:text-base tracking-[0.1em] sm:tracking-[0.15em] text-slate-300 overflow-visible whitespace-nowrap">
-                  Edtech Pvt Ltd
+                <span className="font-heading font-semibold text-[10px] sm:text-xs md:text-sm tracking-[0.1em] sm:tracking-[0.15em] text-slate-300 overflow-visible whitespace-nowrap mt-1">
+                  EMIPOWERING MINDS THROUGH DIGITAL MASTERY
                 </span>
               </div>
             </div>
