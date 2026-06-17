@@ -4,8 +4,8 @@ import { Twitter, Linkedin, Facebook, Instagram, Mail, Phone, MapPin } from 'luc
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-dark border-t border-white/5 pt-10 pb-8 px-5">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-32 mb-8" style={{ gridTemplateColumns: 'repeat(3, 1fr)', alignItems: 'start' }}>
+    <footer className="bg-brand-dark border-t border-white/5 pt-10 pb-8 px-6 sm:px-8 md:px-12 w-full">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-32 mb-8" style={{ gridTemplateColumns: 'repeat(3, 1fr)', alignItems: 'start' }}>
         {/* Contact Info */}
         <div className="w-full">
           <h4 className="text-white font-semibold mb-4 text-base">Contact Info</h4>
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
         </div>
       </div>
       
-      <div className="max-w-[1200px] mx-auto border-t border-white/5 pt-6 text-center">
+      <div className="max-w-[1600px] mx-auto border-t border-white/5 pt-6 text-center">
         <p className="text-slate-500 text-sm">
           © 2026 KMEdTech Talent Engineering. All rights reserved.
         </p>

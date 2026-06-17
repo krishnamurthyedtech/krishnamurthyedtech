@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     return {
       base: '/',
       server: {
-        host: '0.0.0.0',
+        // host: '0.0.0.0', // Commented out to prevent exposing on the local network
       },
       plugins: [react()],
       define: {

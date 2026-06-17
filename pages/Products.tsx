@@ -64,16 +64,16 @@ const Products: React.FC = () => {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* AI Job Portal Section */}
+      {/* UdyogaSri Section */}
       <Section className="relative">
         <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-6">
               <Sparkles size={14} /> Ecosystem 
             </div>
-            <h2 className="text-5xl font-heading font-extrabold mb-6 text-white drop-shadow-lg">AI Job Portal</h2>
+            <h2 className="text-5xl font-heading font-extrabold mb-6 text-white drop-shadow-lg">UdyogaSri</h2>
             <p className="text-xl text-slate-500 mb-8 leading-relaxed">
-              AI Job Portal connects elite AI engineers with cutting-edge opportunities. Featuring AI-powered job matching, skill-based recommendations, and direct access to top tech companies building the future.
+              UdyogaSri connects elite AI engineers with cutting-edge opportunities. Featuring AI-powered job matching, skill-based recommendations, and direct access to top tech companies building the future.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[

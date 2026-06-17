@@ -15,8 +15,8 @@ export const Section: React.FC<SectionProps> = ({
   containerClassName = ''
 }) => {
   return (
-    <section id={id} className={`py-12 px-6 sm:px-12 md:px-24 ${className}`}>
-      <div className={`max-w-7xl mx-auto ${containerClassName}`}>
+    <section id={id} className={`py-12 px-6 sm:px-8 md:px-12 w-full ${className}`}>
+      <div className={`max-w-[1600px] mx-auto w-full ${containerClassName}`}>
         {children}
       </div>
     </section>

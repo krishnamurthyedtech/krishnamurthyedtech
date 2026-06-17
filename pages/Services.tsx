@@ -334,14 +334,14 @@ const Services: React.FC = () => {
 
   return (
     <div className="pt-24">
-      <Section containerClassName="max-w-4xl text-center mb-16">
+      <Section className="pb-0" containerClassName="max-w-4xl text-center">
         <h1 className="text-5xl font-heading font-bold mb-6">Expertise at Your Service</h1>
         <p className="text-slate-400 text-lg">
           Beyond building engineers, we help organizations build better software and smarter teams through specialized consulting and evaluation services.
         </p>
       </Section>
 
-      <Section>
+      <Section className="pt-8">
         <div className="space-y-12">
           {services.map((service, idx) => (
             <div key={idx} className={`flex flex-col md:flex-row gap-12 items-start ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>

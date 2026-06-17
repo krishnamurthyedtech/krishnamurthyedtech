@@ -77,6 +77,44 @@ const About: React.FC = () => {
           ))}
         </div>
       </Section>
+
+      <Section className="mb-4 pb-0">
+        <Card className="grid grid-cols-1 lg:grid-cols-2 p-0 overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-2xl">
+          <div className="p-10 md:p-14 flex flex-col justify-center">
+            <h4 className="text-[#06b6d4] font-bold tracking-widest text-xs uppercase mb-4">Live Geo Coordinates</h4>
+            <h2 className="text-3xl font-bold text-white mb-10">Krishnamurthy EdTech Pvt Ltd</h2>
+            
+            <div className="space-y-6 mb-12">
+              <div>
+                <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Latitude</p>
+                <p className="text-white font-medium">12.9208° N</p>
+              </div>
+              <div>
+                <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Longitude</p>
+                <p className="text-white font-medium">77.6127° E</p>
+              </div>
+              <div>
+                <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">Location</p>
+                <p className="text-white font-medium">BTM 1st Stage, Bengaluru</p>
+              </div>
+            </div>
+            
+            <p className="text-slate-500 text-xs leading-relaxed mt-auto pt-6 border-t border-white/5">
+              Feel free to visit us directly for on-site design discussions.<br/>
+              Prior appointments are appreciated.
+            </p>
+          </div>
+          <div className="relative min-h-[400px] lg:min-h-full w-full h-full p-4 lg:p-6 lg:pl-0">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d220.89675368262473!2d77.6127803!3d12.9208567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150020be2077%3A0xf202a605d87195d8!2sKrishnamurthy%20EdTech%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1781697891373!5m2!1sen!2sin" 
+              className="w-full h-full rounded-xl border-0 bg-white/5" 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </Card>
+      </Section>
     </div>
   );
 };

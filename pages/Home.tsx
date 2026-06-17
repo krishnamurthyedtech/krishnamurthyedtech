@@ -20,15 +20,15 @@ const Home: React.FC = () => {
 
      
 
-      <Section className="relative pt-32 md:pt-36 pb-8" containerClassName="text-center">
+      <Section className="relative pt-36 md:pt-40 pb-8" containerClassName="text-center">
 
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[600px] bg-blue-600/10 rounded-full blur-[140px] -z-10" />
 
         
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-extrabold mb-6 tracking-tight leading-[1.3] text-white w-full mx-auto px-2 md:px-0">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-heading font-extrabold mb-12 tracking-tight leading-[1.2] text-white w-full mx-auto px-2 md:px-0">
 
-          Re-Architecting the Future of Education Domain{' '}
+          Re-Architecting The Future of Education Domain{' '}
 
           <span className="text-gradient">with AI Agents and Cloud Applications.</span>
 
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
 
         
 
-        <p className="w-full mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed font-medium px-4 md:px-0">
+        <p className="w-full mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-[1.8] font-medium px-4 md:px-0">
 
         At Krishnamurthy EdTech Pvt Ltd, we build intelligent AI Agents, SaaS products designed to transform educational operations and drive organizational efficiency. Leveraging AI, Machine Learning, and cloud technologies, we help educational institutions automate processes, optimize performance, and deliver better outcomes. We also undertake research and development (R&D) initiatives for government institutions, creating innovative technology solutions that address real-world challenges and accelerate digital transformation.
 
@@ -158,7 +158,7 @@ const Home: React.FC = () => {
 
           </Card>
 
-          {/* Flagship Product 2: AI Job Portal */}
+          {/* Flagship Product 2: UdyogaSri */}
           <Card className="relative overflow-hidden flex flex-col p-6 md:p-8 border-white/10 bg-[#080808] transition-all duration-500 group hover:shadow-[0_0_40px_8px_rgba(139,92,246,0.25)] hover:border-purple-500 hover:bg-[#1a102c]">
 
              <div className="flex justify-between items-start mb-8">
@@ -177,11 +177,11 @@ const Home: React.FC = () => {
 
              <div className="relative z-10 flex-grow">
 
-                <h3 className="text-4xl font-bold text-white mb-5">AI Job Portal</h3>
+                <h3 className="text-4xl font-bold text-white mb-5">UdyogaSri</h3>
 
                 <p className="text-xl text-slate-300 leading-relaxed mb-8">
 
-                   AI Job Portal connects elite AI engineers with cutting-edge opportunities. Featuring AI-powered job matching, skill-based recommendations, and direct access to top tech companies building the future.
+                   UdyogaSri connects elite AI engineers with cutting-edge opportunities. Featuring AI-powered job matching, skill-based recommendations, and direct access to top tech companies building the future.
 
                 </p>
 
@@ -209,7 +209,7 @@ const Home: React.FC = () => {
 
              <div className="pt-6 border-t border-white/5">
 
-                <a href="https://pioneercoders.org/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
+                <a href="https://udyogasri.com/" target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-3 text-white text-lg font-bold transition-all">
 
                    Explore opportunities <ArrowRight size={22} className="group-hover/link:translate-x-2 transition-transform text-purple-500" />
 

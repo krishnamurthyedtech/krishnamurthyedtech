@@ -19,14 +19,14 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { label: 'Products', href: '/products' },
     { label: 'Services', href: '/services' },
-    { label: 'Webinars', href: '/webinars' },
+    { label: 'Clients', href: '/clients' },
     { label: 'Careers', href: '/careers' },
     { label: 'About', href: '/about' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 sm:px-12 md:px-24 ${scrolled ? 'py-4' : 'py-6 sm:py-8'} bg-black/80 backdrop-blur-xl shadow-2xl`}>
-      <div className={`max-w-7xl mx-auto w-full transition-all duration-500 ${scrolled ? 'bg-black/60 backdrop-blur-xl rounded-2xl py-3 shadow-2xl' : ''}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 sm:px-8 md:px-12 ${scrolled ? 'py-4' : 'py-6 sm:py-8'} bg-black/80 backdrop-blur-xl shadow-2xl`}>
+      <div className={`max-w-[1600px] mx-auto w-full transition-all duration-500 ${scrolled ? 'bg-black/60 backdrop-blur-xl rounded-2xl py-3 px-4 shadow-2xl' : ''}`}>
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group navbar-logo">
             <div className="flex items-center pr-4">
@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
                   <span className="text-gradient inline-block">Krishnamurthy EdTech Pvt Ltd</span>
                 </span>
                 <span className="font-heading font-semibold text-[10px] sm:text-xs md:text-sm tracking-[0.1em] sm:tracking-[0.15em] text-slate-300 overflow-visible whitespace-nowrap mt-1">
-                  EMIPOWERING MINDS THROUGH DIGITAL MASTERY
+                  EMPOWERING MINDS THROUGH DIGITAL MASTERY
                 </span>
               </div>
             </div>
@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-10">
             <Link
               to="/"
-              className={`text-[13px] font-bold uppercase tracking-widest transition-all hover:text-white relative z-20 ml-8 ${location.pathname === '/' ? 'text-white' : 'text-slate-500'}`}
+              className={`text-[14px] font-bold uppercase tracking-widest transition-all hover:text-white relative z-20 ml-8 ${location.pathname === '/' ? 'text-white' : 'text-slate-500'}`}
             >
               Home
             </Link>
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-[13px] font-bold uppercase tracking-widest transition-all hover:text-white relative z-20 ${location.pathname === link.href ? 'text-white' : 'text-slate-500'}`}
+                className={`text-[14px] font-bold uppercase tracking-widest transition-all hover:text-white relative z-20 ${location.pathname === link.href ? 'text-white' : 'text-slate-500'}`}
               >
                 {link.label}
               </Link>
